@@ -1,0 +1,28 @@
+site_name: QIRT Documentation
+
+theme:
+  name: "material"
+  features:
+    - search.suggest
+    - search.highlight
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+nav:
+  - Welcome to QIRT: index.md
+  - Tutorials: tutorials.md
+  - How-To Guides: how-to-guides.md
+  - Reference: reference.md
+  - Explanation: explanation.md
+
+repo_url: https://github.com/Slope86/QIRT
+
+repo_name: Slope86/QIRT
+
+site_url: https://slope86.github.io/QIRT/
