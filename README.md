@@ -1,29 +1,17 @@
-# Quantum Information Research Toolkit
+# Quantum Information Research Toolkit (WIP)
 
-A quantum information research toolkit based on Qiskit.
+A quantum information research toolkit based on Qiskit. **This project is currently a Work in Progress (WIP) and is not yet complete. Features and documentation may be incomplete.**
 
 ## Introduction
 
 The Quantum Information Research Toolkit (QIRT) is designed to facilitate research and development in quantum information science using the Qiskit framework. This toolkit provides essential classes and functions to create and manipulate quantum states and operations effectively.
 
-## Installation
+## Quick start
 
-### Option 1: Install from PyPI
-
-To install QIRT from PyPI, use the following command:
+QIRT can be installed using pip:
 
 ```bash
 pip install QIRT
-```
-
-### Option 2: Install from Source
-
-To install QIRT from the source, follow these steps:
-
-```bash
-git clone --depth 1 https://github.com/Slope86/QIRT
-cd QIRT
-pip install .
 ```
 
 ## Usage
