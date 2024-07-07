@@ -1,4 +1,4 @@
-# Quantum Information Research Toolkit (WIP)
+# QIRT - Quantum Information Research Toolkit (WIP)
 
 A quantum information research toolkit based on Qiskit. **This project is currently a Work in Progress (WIP) and is not yet complete. Features and documentation may be incomplete.**
 
@@ -71,6 +71,6 @@ qiskit[visualization] == 1.1.0
 
 ## License
 
-This QiskitExtension project is open source under the MIT license.
-However, the extensions that are installed separately are not part of the QiskitExtension project.
+This QIRT project is open source under the MIT license.
+However, the extensions that are installed separately are not part of the QIRT project.
 They all have their own licenses!
