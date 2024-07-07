@@ -2,6 +2,7 @@
 .conda/
 .vscode/
 .experiments/
+.playground/
 playground.ipynb
 tmp/
 
