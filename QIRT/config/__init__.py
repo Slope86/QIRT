@@ -9,6 +9,6 @@ Modules:
     config: Contains the `get_config_parser` function to read and parse the configuration settings.
 """
 
-from .config import get_config_parser
+from .config import CONFIG_PARSER
 
-__all__ = ["get_config_parser"]
+__all__ = ["CONFIG_PARSER"]

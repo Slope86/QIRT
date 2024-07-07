@@ -25,7 +25,7 @@ The configurable notations are read from the `config.ini` file located in the pr
 
 import re
 
-from QIRT.config import get_config_parser
+from QIRT.config import CONFIG_PARSER
 
 
 class _ConfigMeta(type):
@@ -40,29 +40,28 @@ class _ConfigMeta(type):
 
     def __new__(cls, name, bases, namespace):
         """Create a new instance of the metaclass and load the config settings."""
-        config_parser = get_config_parser()
-        for ket in config_parser["ket"]:
+        for ket in CONFIG_PARSER["ket"]:
             if ket not in ["z0", "z1", "x0", "x1", "y0", "y1"]:
                 print(f"Unknown basis [{ket}]. Basis should be z0, z1, x0, x1, y0, y1.")
                 print("Please check the config.ini file, invalid user setting will be ignored and use default setting.")
                 continue
-            if len(config_parser["ket"][ket]) != 1:
-                print(f"The ket notation should be a single character but [{config_parser['ket'][ket]}] is given.")
+            if len(CONFIG_PARSER["ket"][ket]) != 1:
+                print(f"The ket notation should be a single character but [{CONFIG_PARSER['ket'][ket]}] is given.")
                 print("Please check the config.ini file, invalid user setting will be ignored and use default setting.")
                 continue
             match ket:
                 case "z0":
-                    cls.__z0 = config_parser["ket"][ket]
+                    cls.__z0 = CONFIG_PARSER["ket"][ket]
                 case "z1":
-                    cls.__z1 = config_parser["ket"][ket]
+                    cls.__z1 = CONFIG_PARSER["ket"][ket]
                 case "x0":
-                    cls.__x0 = config_parser["ket"][ket]
+                    cls.__x0 = CONFIG_PARSER["ket"][ket]
                 case "x1":
-                    cls.__x1 = config_parser["ket"][ket]
+                    cls.__x1 = CONFIG_PARSER["ket"][ket]
                 case "y0":
-                    cls.__y0 = config_parser["ket"][ket]
+                    cls.__y0 = CONFIG_PARSER["ket"][ket]
                 case "y1":
-                    cls.__y1 = config_parser["ket"][ket]
+                    cls.__y1 = CONFIG_PARSER["ket"][ket]
 
         return super().__new__(cls, name, bases, namespace)
 

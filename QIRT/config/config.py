@@ -2,7 +2,7 @@ import configparser
 import importlib.resources as pkg_resources
 
 
-def get_config_parser() -> configparser.ConfigParser:
+def _get_config_parser() -> configparser.ConfigParser:
     """Get the configuration parser for the QIRT project.
 
     This function reads the configuration from the config.ini file located
@@ -16,3 +16,6 @@ def get_config_parser() -> configparser.ConfigParser:
     with config_path.open("r") as file:
         config_parser.read_file(file)
     return config_parser
+
+
+CONFIG_PARSER = _get_config_parser()
