@@ -7,7 +7,7 @@ setuptools.setup(
     name="QIRT",
     version="1.0.0",
     author="HSIEH, LI-YU",
-    author_email="lou.l.y.hsieh@gmail.com",
+    author_email="lyhsieh.lou@gmail.com",
     description="A quantum information research toolkit",
     long_description=long_description,
     long_description_content_type="text/markdown",
