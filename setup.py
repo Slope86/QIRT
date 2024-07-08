@@ -14,7 +14,7 @@ setuptools.setup(
     license="MIT",
     url="https://github.com/Slope86/Quantum-Information-Research-Toolkit",
     packages=setuptools.find_packages(include=("QIRT", "QIRT.*")),
-    package_data={"QIRT.config": ["config.ini"]},
+    package_data={"QIRT.config": ["default_config.ini"]},
     include_package_data=True,
     classifiers=[
         "Development Status :: 4 - Beta",

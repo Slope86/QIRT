@@ -47,7 +47,11 @@ state00.draw()
 
 ## Configuration
 
-The configuration file for QIRT is located at `~/QIRT/config/config.ini`. This file allows you to customize various settings for the toolkit.
+The configuration file for QIRT is located in the user's home directory under `~/.QIRT/config.ini`. This file allows you to customize various settings for the toolkit.
+
+### Default Configuration
+
+The default configuration file is as follows:
 
 ```ini
 ; This section sets up the notation for the StateVector (affects the visualization result and the constructor function from_label()).
@@ -62,7 +66,7 @@ y0 = i
 y1 = j
 ```
 
-This configuration file allows you to customize the notation for quantum states and the border width of LaTeX output images. Adjust these settings according to your preferences.
+This configuration file allows you to customize the notation for quantum states. Adjust these settings according to your preferences.
 
 ## Requirement
 
