@@ -33,23 +33,23 @@ To create a quantum state, you can use the `from_label` method provided by the `
 
 ```python
 # Create a quantum state labeled '00'
-state00 = QuantumState.from_label('00')
+init_state = QuantumState.from_label('00')
 ```
 
 ### Visualizing the Quantum State
 
-Once you have created a quantum state, you can visualize it using the `draw` method. Here is how you can visualize the quantum state `state00`:
+Once you have created a quantum state, you can visualize it using the `draw` method. Here is how you can visualize the quantum state `init_state`:
 
 ```python
 # Draw the quantum state
-state00.draw()
+init_state.draw()
 ```
+
+## Creating a Quantum Operation
 
 ## Configuration
 
 The configuration file for QIRT is located in the user's home directory under `~/.QIRT/config.ini`. This file allows you to customize various settings for the toolkit.
-
-### Default Configuration
 
 The default configuration file is as follows:
 
@@ -65,8 +65,6 @@ x1 = -
 y0 = i
 y1 = j
 ```
-
-This configuration file allows you to customize the notation for quantum states. Adjust these settings according to your preferences.
 
 ## Requirement
 
