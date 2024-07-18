@@ -40,12 +40,9 @@ if typing.TYPE_CHECKING:
 
     from IPython.display import Latex
     from numpy.typing import NDArray
-    from qiskit.circuit.instruction import Instruction
-    from qiskit.circuit.quantumcircuit import QuantumCircuit
-    from qiskit.quantum_info.operators.operator import Operator
 
 
-class QuantumState(Statevector):
+class QuantumState:
     """An extended class of Statevector from Qiskit.
 
     This class extends the Statevector class from Qiskit to provide additional
@@ -65,8 +62,19 @@ class QuantumState(Statevector):
         constructor of the base Statevector class from Qiskit. It also calculates
         and stores the number of qubits in the quantum state.
         """
-        super().__init__(*args, **kwargs)
-        self._num_of_qubit = int(np.log2(len(self._data)))
+        self.state_vector = Statevector(*args, **kwargs)
+        self._num_of_qubit = int(np.log2(len(self.state_vector.data)))
+
+    @property
+    def data(self) -> NDArray[np.complex128]:
+        """Get the data of the quantum state vector.
+
+        This property returns the data of the quantum state vector stored in the object.
+
+        Returns:
+            NDArray[np.complex128]: The data of the quantum state vector.
+        """
+        return self.state_vector.data
 
     @property
     def num_of_qubit(self) -> int:
@@ -126,9 +134,9 @@ class QuantumState(Statevector):
             labels[i] = Ket.to_qiskit_notation(labels[i])  # Convert the label to qiskit notation
 
         # Create the state vector based on the input
-        state_sv1: Statevector = super().from_label(labels[0]) * coefficients[0]
+        state_sv1: Statevector = Statevector.from_label(labels[0]) * coefficients[0]
         for coefficient, label in zip(coefficients[1:], labels[1:]):
-            state_sv1 += super().from_label(label) * coefficient
+            state_sv1 += Statevector.from_label(label) * coefficient
 
         state_sv1 /= state_sv1.trace() ** 0.5  # Normalize the state
         return QuantumState(state_sv1)
@@ -141,18 +149,16 @@ class QuantumState(Statevector):
         Returns:
             float: The Shannon  entropy of the quantum state, calculated in base 2.
         """
-        return stats.entropy(self.probabilities(), base=2)  # type: ignore
+        return stats.entropy(self.state_vector.probabilities(), base=2)  # type: ignore
 
-    def evolve(
-        self, other: Operator | QuantumCircuit | Instruction | QuantumOperation, qargs: list[int] | None = None
-    ) -> QuantumState:
-        """Evolve the quantum state using a specified operator.
+    def apply(self, other: QuantumOperation, qargs: list[int] | None = None) -> QuantumState:
+        """Apply a quantum operation to the quantum state.
 
         This method applies the given operator to the quantum state, evolving it
         according to the operator's effect.
 
         Args:
-            other (Operator | QuantumCircuit | Instruction | QuantumOperation):
+            other (QuantumOperation):
                 The operator used to evolve the quantum state.
             qargs (list[int] | None, optional): A list of subsystem positions of
                 the QuantumState to apply the operator on. Defaults to None.
@@ -164,32 +170,9 @@ class QuantumState(Statevector):
             QiskitError: If the operator dimension does not match the specified
                 quantum state subsystem dimensions.
         """
-        reversed_sv1: Statevector = super().reverse_qargs()
-        evolved_sv1: Statevector = Statevector.evolve(reversed_sv1, other, qargs).reverse_qargs()
+        reversed_sv1: Statevector = self.state_vector.reverse_qargs()
+        evolved_sv1: Statevector = Statevector.evolve(reversed_sv1, other.quantum_circuit, qargs).reverse_qargs()
         return QuantumState(evolved_sv1)
-
-    def apply(
-        self, other: Operator | QuantumCircuit | Instruction | QuantumOperation, qargs: list[int] | None = None
-    ) -> QuantumState:
-        """Apply a quantum operation to the quantum state.
-
-        This method is identical to the `evolve` method but provided with a different name
-        for semantic purposes.
-
-        Args:
-            other (Operator | QuantumCircuit | Instruction | QuantumOperation):
-                The operator used to evolve the quantum state.
-            qargs (list[int] | None, optional): A list of subsystem positions of
-                the QuantumState to apply the operator on. Defaults to None.
-
-        Returns:
-            QuantumState: The quantum state after evolution.
-
-        Raises:
-            QiskitError: If the operator dimension does not match the specified
-                quantum state subsystem dimensions.
-        """
-        return self.evolve(other, qargs)
 
     def to_matrix(self) -> NDArray[np.complex128]:
         """Convert the quantum state vector to a column matrix representation.
@@ -201,7 +184,7 @@ class QuantumState(Statevector):
         Returns:
             NDArray[np.complex128]: The quantum state represented as a column matrix.
         """
-        vector = self.data
+        vector = self.state_vector.data
         matrix = vector[np.newaxis].T
         return matrix
 
@@ -372,7 +355,7 @@ class QuantumState(Statevector):
             convert_circ._xyz_convert_circ(target_basis=target_basis[i], current_basis=current_basis[i], qubit_index=i)
             current_basis[i] = target_basis[i]
 
-        converted_state = self.evolve(convert_circ)
+        converted_state = self.apply(convert_circ)
         if not auto_basis_index:
             return (converted_state, current_basis)
 
@@ -499,9 +482,9 @@ class QuantumState(Statevector):
         measure_state_list = [None] * 2 ** len(measure_bit)
         system_state_list = [None] * 2 ** len(measure_bit)
         for _ in range(shot):
-            measure_ket: str
-            system_state: Statevector
-            measure_ket, system_state = Statevector(converted_state.data).measure(qargs=measure_bit)  # type: ignore
+            measure_result: Tuple[str, Statevector] = Statevector(converted_state.data).measure(qargs=measure_bit)
+            measure_ket: str = measure_result[0]
+            system_state = QuantumState(measure_result[1])
             measure_ket = measure_ket[::-1]  # REVERSE the order of qubits to fit textbook notation
             if measure_state_list[int(measure_ket, 2)] is None:
                 measure_basis = []
