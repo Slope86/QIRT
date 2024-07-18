@@ -141,15 +141,18 @@ class QuantumState:
         state_vector /= state_vector.trace() ** 0.5  # Normalize the state
         return QuantumState(state_vector)
 
-    def entropy(self) -> float:
+    def entropy(self) -> np.float_:
         """Calculate and return the Shannon  entropy of the quantum state.
 
         The Shannon  entropy is a measure of the quantum state's uncertainty or mixedness.
 
         Returns:
-            float: The Shannon  entropy of the quantum state, calculated in base 2.
+            np.float_: The Shannon  entropy of the quantum state, calculated in base 2.
         """
-        return stats.entropy(self.state_vector.probabilities(), base=2)  # type: ignore
+        entropy = stats.entropy(self.state_vector.probabilities(), base=2)
+        if type(entropy) is np.float_:
+            return entropy
+        raise QiskitError("Entropy calculation failed.")
 
     def apply(self, other: QuantumOperation, qargs: list[int] | None = None) -> QuantumState:
         """Apply a quantum operation to the quantum state.
