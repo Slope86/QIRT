@@ -134,12 +134,12 @@ class QuantumState:
             labels[i] = Ket.to_qiskit_notation(labels[i])  # Convert the label to qiskit notation
 
         # Create the state vector based on the input
-        state_sv1: Statevector = Statevector.from_label(labels[0]) * coefficients[0]
+        state_vector: Statevector = Statevector.from_label(labels[0]) * coefficients[0]
         for coefficient, label in zip(coefficients[1:], labels[1:]):
-            state_sv1 += Statevector.from_label(label) * coefficient
+            state_vector += Statevector.from_label(label) * coefficient
 
-        state_sv1 /= state_sv1.trace() ** 0.5  # Normalize the state
-        return QuantumState(state_sv1)
+        state_vector /= state_vector.trace() ** 0.5  # Normalize the state
+        return QuantumState(state_vector)
 
     def entropy(self) -> float:
         """Calculate and return the Shannon  entropy of the quantum state.
@@ -170,9 +170,11 @@ class QuantumState:
             QiskitError: If the operator dimension does not match the specified
                 quantum state subsystem dimensions.
         """
-        reversed_sv1: Statevector = self.state_vector.reverse_qargs()
-        evolved_sv1: Statevector = Statevector.evolve(reversed_sv1, other.quantum_circuit, qargs).reverse_qargs()
-        return QuantumState(evolved_sv1)
+        reversed_state_vector: Statevector = self.state_vector.reverse_qargs()
+        evolved_state_vector: Statevector = Statevector.evolve(
+            reversed_state_vector, other.quantum_circuit, qargs
+        ).reverse_qargs()
+        return QuantumState(evolved_state_vector)
 
     def to_matrix(self) -> NDArray[np.complex128]:
         """Convert the quantum state vector to a column matrix representation.
