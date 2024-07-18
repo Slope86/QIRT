@@ -234,7 +234,6 @@ class QuantumState:
                 )
             case _:
                 raise QiskitError("Invalid output format.")
-                # return super().draw(output=output, **drawer_args)
 
     def state_after_measure(
         self, measure_bit: List[int] | str, state_basis: List[str] | str = [], shot=100

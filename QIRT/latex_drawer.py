@@ -63,7 +63,7 @@ def matrix_to_latex(
     # Extract the common factor from the matrix
     gcd = float_gcd(*np.absolute(matrix.flatten()))
     if not (math.isclose(gcd, 1) or math.isclose(gcd, 0)):
-        matrix = matrix / gcd  # type: ignore
+        matrix = matrix / gcd
         pretty_gcd = _num_to_latex_ket(gcd)
         prefix = prefix[:1] + pretty_gcd + prefix[1:]
 
@@ -72,7 +72,7 @@ def matrix_to_latex(
     for i in range(matrix.shape[0]):
         for j in range(matrix.shape[1]):
             # Convert the value to latex code
-            pretty_valve = _num_to_latex_ket(matrix[i][j])  # type: ignore
+            pretty_valve = _num_to_latex_ket(matrix[i][j])
             latex_list.append(pretty_valve)
             # Add line up symbol
             if j != matrix.shape[1] - 1:
@@ -264,7 +264,7 @@ def _state_to_latex_ket(
 
     data = np.around(data, 15)
     nonzero_indices = np.where(data != 0)[0].tolist()
-    latex_terms = _coeffs_to_latex_terms(data[nonzero_indices], decimals=15)  # type: ignore
+    latex_terms = _coeffs_to_latex_terms(data[nonzero_indices], decimals=15)
 
     latex_list: List[str] = []
     for idx, ket_idx in enumerate(nonzero_indices):
