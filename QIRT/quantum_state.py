@@ -398,7 +398,7 @@ class QuantumState:
         min_entropy = float("inf")
         min_basis = current_basis.copy()
         try_basis = current_basis.copy()
-        for basis in itertools.product(["z", "x", "y"], repeat=num_of_auto_basis):  # type: ignore
+        for basis in itertools.product(["z", "x", "y"], repeat=num_of_auto_basis):
             for i in range(num_of_auto_basis):
                 try_basis[auto_basis_index[i]] = basis[i]
                 try_state = self._basis_convert(target_basis=try_basis, current_basis=current_basis)[0]
