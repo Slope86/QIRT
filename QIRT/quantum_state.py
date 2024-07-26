@@ -32,7 +32,7 @@ from qiskit.exceptions import QiskitError
 from qiskit.quantum_info import Statevector
 from scipy import stats
 
-from QIRT import QuantumOperation, latex_drawer
+from QIRT import QuantumCircuit, latex_drawer
 from QIRT.utils import Ket
 
 if typing.TYPE_CHECKING:
@@ -154,7 +154,7 @@ class QuantumState:
             return entropy
         raise QiskitError("Entropy calculation failed.")
 
-    def apply(self, other: QuantumOperation, qargs: list[int] | None = None) -> QuantumState:
+    def apply(self, other: QuantumCircuit, qargs: list[int] | None = None) -> QuantumState:
         """Apply a quantum operation to the quantum state.
 
         This method applies the given operator to the quantum state, evolving it
@@ -175,7 +175,7 @@ class QuantumState:
         """
         reversed_state_vector: Statevector = self.state_vector.reverse_qargs()
         evolved_state_vector: Statevector = Statevector.evolve(
-            reversed_state_vector, other.quantum_circuit, qargs
+            reversed_state_vector, other._qiskit_qc, qargs
         ).reverse_qargs()
         return QuantumState(evolved_state_vector)
 
@@ -349,7 +349,7 @@ class QuantumState:
         # Empty list to save auto-choose-basis index
         auto_basis_index = []
         # Convert basis using QuantumCircuit
-        convert_circ = QuantumOperation(self.num_of_qubit)
+        convert_circ = QuantumCircuit(self.num_of_qubit)
         for i in range(self.num_of_qubit):
             if target_basis[i] == current_basis[i]:
                 continue
