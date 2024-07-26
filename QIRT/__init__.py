@@ -27,7 +27,7 @@ See Also:
     [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
 """
 
-from .quantum_operation import QuantumOperation
+from .quantum_circuit import QuantumCircuit
 from .quantum_state import QuantumState
 
-__all__ = ["QuantumOperation", "QuantumState"]
+__all__ = ["QuantumCircuit", "QuantumState"]
