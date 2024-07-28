@@ -1,5 +1,11 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = [
+    "setuptools>=61.0",
+    "setuptools_scm[toml]>=6.2",
+    "wheel",
+    "qiskit[visualization] == 1.1.0",
+    "IPython",
+]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -18,7 +24,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 requires-python = ">=3.10"
-dependencies = ["qiskit[visualization] == 1.1.0"]
+dependencies = ["qiskit[visualization] == 1.1.0", "IPython"]
 
 [project.urls]
 Homepage = "https://github.com/Slope86/QIRT"
@@ -29,8 +35,7 @@ dev = ["pytest", "mkdocs", "mkdocstrings[python]", "mkdocs-material"]
 [tool.setuptools]
 packages = ["QIRT"]
 
-[tool.setuptools.dynamic]
-version = { attr = "QIRT.__version__" } # Github Actions will replace this with the actual version based on the tag
-
 [tool.setuptools.package-data]
 "QIRT.config" = ["default_config.ini"]
+
+[tool.setuptools_scm]

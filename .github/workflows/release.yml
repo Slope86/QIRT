@@ -13,14 +13,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-
-      - name: Set version
-        run: |
-          echo "__version__ = '${GITHUB_REF#refs/tags/v}'" > QIRT/__version__.py
 
       - name: build release distributions
         run: |
