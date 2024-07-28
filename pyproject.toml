@@ -21,7 +21,7 @@ requires-python = ">=3.10"
 dependencies = ["qiskit[visualization] == 1.1.0"]
 
 [project.urls]
-Homepage = "https://github.com/Slope86/Quantum-Information-Research-Toolkit"
+Homepage = "https://github.com/Slope86/QIRT"
 
 [project.optional-dependencies]
 dev = ["pytest", "mkdocs", "mkdocstrings[python]", "mkdocs-material"]
@@ -30,7 +30,7 @@ dev = ["pytest", "mkdocs", "mkdocstrings[python]", "mkdocs-material"]
 packages = ["QIRT"]
 
 [tool.setuptools.dynamic]
-version = { attr = "QIRT.__version__" }
+version = { attr = "QIRT.__version__" } # Github Actions will replace this with the actual version based on the tag
 
 [tool.setuptools.package-data]
 "QIRT.config" = ["default_config.ini"]
