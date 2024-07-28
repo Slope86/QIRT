@@ -14,7 +14,7 @@ dynamic = ["version"]
 authors = [{ name = "HSIEH, LI-YU", email = "lyhsieh.lou@gmail.com" }]
 description = "A quantum information research toolkit"
 readme = "README.md"
-license = { file = "LICENSE" }
+license = { file = "LICENSE.md" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Programming Language :: Python :: 3.10",
