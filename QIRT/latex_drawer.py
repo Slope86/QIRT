@@ -29,8 +29,6 @@ from IPython.display import Latex
 from QIRT.utils import Ket, find_nth_substring, float_gcd
 
 if typing.TYPE_CHECKING:
-    from typing import List
-
     from numpy.typing import NDArray
 
     from QIRT.quantum_state import QuantumState
@@ -68,7 +66,7 @@ def matrix_to_latex(
         prefix = prefix[:1] + pretty_gcd + prefix[1:]
 
     # Convert the matrix to latex code
-    latex_list: List[str] = []
+    latex_list: list[str] = []
     for i in range(matrix.shape[0]):
         for j in range(matrix.shape[1]):
             # Convert the value to latex code
@@ -88,8 +86,8 @@ def matrix_to_latex(
 
 def state_to_latex(
     state: QuantumState,
-    state_basis: List[str] | str | None = None,
-    target_basis: List[str] | str | None = None,
+    state_basis: list[str] | str | None = None,
+    target_basis: list[str] | str | None = None,
     show_qubit_index: bool = True,
     output_length: int = 2,
     source: bool = False,
@@ -128,11 +126,11 @@ def state_to_latex(
 
 
 def measure_result_to_latex(
-    measure_state_list: List[QuantumState],
-    system_state_list: List[QuantumState],
-    measure_basis: List[str],
-    system_basis: List[str],
-    measure_bit: List[int] | str,
+    measure_state_list: list[QuantumState],
+    system_state_list: list[QuantumState],
+    measure_basis: list[str],
+    system_basis: list[str],
+    measure_bit: list[int] | str,
     show_qubit_index: bool = True,
     output_length: int = 2,
     source: bool = False,
@@ -164,7 +162,7 @@ def measure_result_to_latex(
     prefix = R"$\begin{alignedat}{" + f"{2**(output_length+1)+1}" + "}"
     suffix = R"\end{alignedat}$"
 
-    latex_list: List[str] = []
+    latex_list: list[str] = []
     for measure_state, system_state in zip(measure_state_list, system_state_list):
         if measure_state is not None:
             latex_list.append(
@@ -195,10 +193,10 @@ def measure_result_to_latex(
 
 def _state_to_latex_ket(
     state: QuantumState,
-    state_basis: List[str] | str | None = None,
-    target_basis: List[str] | str | None = None,
-    qubit_index: List[int] | None = None,
-    hidden_bit: List[int] = [],
+    state_basis: list[str] | str | None = None,
+    target_basis: list[str] | str | None = None,
+    qubit_index: list[int] | None = None,
+    hidden_bit: list[int] = [],
     show_qubit_index: bool = False,
 ) -> str:
     """Convert a quantum state to its LaTeX ket representation.
@@ -266,7 +264,7 @@ def _state_to_latex_ket(
     nonzero_indices = np.where(data != 0)[0].tolist()
     latex_terms = _coeffs_to_latex_terms(data[nonzero_indices], decimals=15)
 
-    latex_list: List[str] = []
+    latex_list: list[str] = []
     for idx, ket_idx in enumerate(nonzero_indices):
         if ket_idx is None:
             latex_list.append(R" + \ldots ")
@@ -278,7 +276,7 @@ def _state_to_latex_ket(
     return "".join(latex_list)
 
 
-def _coeffs_to_latex_terms(coeffs: NDArray[np.complex128], decimals: int = 15) -> List[str]:
+def _coeffs_to_latex_terms(coeffs: NDArray[np.complex128], decimals: int = 15) -> list[str]:
     """Convert a list of coefficients to LaTeX formatted terms.
 
     The first non-zero term is treated differently by suppressing the leading + sign.
