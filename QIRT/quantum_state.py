@@ -36,8 +36,6 @@ from QIRT import QuantumCircuit, latex_drawer
 from QIRT.utils import Ket
 
 if typing.TYPE_CHECKING:
-    from typing import List, Tuple
-
     from IPython.display import Latex
     from numpy.typing import NDArray
 
@@ -89,7 +87,7 @@ class QuantumState:
         return self._num_of_qubit
 
     @classmethod
-    def from_label(cls, *args: str | Tuple[complex, str]) -> QuantumState:
+    def from_label(cls, *args: str | tuple[complex, str]) -> QuantumState:
         """Create a state vector from input coefficients and label strings.
 
         Examples:
@@ -115,8 +113,8 @@ class QuantumState:
             QiskitError: If labels contain invalid characters or if labels have different numbers of qubits.
         """
         # Separate the input into coefficients and labels
-        coefficients: List[complex] = []
-        labels: List[str] = []
+        coefficients: list[complex] = []
+        labels: list[str] = []
         for i, arg in enumerate(args):
             if isinstance(arg, tuple):  # Check if the input is a tuple of coefficient and label or just a label
                 coefficients.append(arg[0])
@@ -141,7 +139,7 @@ class QuantumState:
         state_vector /= state_vector.trace() ** 0.5  # Normalize the state
         return QuantumState(state_vector)
 
-    def entropy(self) -> np.float_:
+    def entropy(self) -> np.float64:
         """Calculate and return the Shannon  entropy of the quantum state.
 
         The Shannon  entropy is a measure of the quantum state's uncertainty or mixedness.
@@ -150,7 +148,7 @@ class QuantumState:
             np.float_: The Shannon  entropy of the quantum state, calculated in base 2.
         """
         entropy = stats.entropy(self.state_vector.probabilities(), base=2)
-        if type(entropy) is np.float_:
+        if type(entropy) is np.float64:
             return entropy
         raise QiskitError("Entropy calculation failed.")
 
@@ -196,7 +194,7 @@ class QuantumState:
     def draw(
         self,
         output: str = "latex",
-        target_basis: List[str] | str | None = None,
+        target_basis: list[str] | str | None = None,
         show_qubit_index: bool = True,
         output_length: int = 2,
         source: bool = False,
@@ -236,8 +234,8 @@ class QuantumState:
                 raise QiskitError("Invalid output format.")
 
     def state_after_measure(
-        self, measure_bit: List[int] | str, state_basis: List[str] | str = [], shot=100
-    ) -> Tuple[List[QuantumState], List[QuantumState]]:
+        self, measure_bit: list[int] | str, state_basis: list[str] | str = [], shot=100
+    ) -> tuple[list[QuantumState], list[QuantumState]]:
         """Obtain the quantum state after a measurement.
 
         This method returns the quantum states resulting from measuring specified qubits in a given basis.
@@ -263,8 +261,8 @@ class QuantumState:
 
     def draw_measure(
         self,
-        measure_bit: List[int] | str,
-        state_basis: List[str] | str = [],
+        measure_bit: list[int] | str,
+        state_basis: list[str] | str = [],
         show_qubit_index: bool = True,
         output_length: int = 2,
         source: bool = False,
@@ -312,10 +310,10 @@ class QuantumState:
 
     def _basis_convert(
         self,
-        target_basis: List[str] | str = [],
-        current_basis: List[str] | str = [],
+        target_basis: list[str] | str = [],
+        current_basis: list[str] | str = [],
         algorithm: str = "global",
-    ) -> tuple[QuantumState, List[str]]:
+    ) -> tuple[QuantumState, list[str]]:
         """Convert the quantum state to a target basis.
 
         This method converts the quantum state from its current basis to a specified
@@ -378,7 +376,7 @@ class QuantumState:
 
         return converted_state._basis_convert(target_basis=optimize_basis, current_basis=current_basis)
 
-    def _global_min_entropy_basis(self, auto_basis_index: List[int], current_basis: List[str]) -> List[str]:
+    def _global_min_entropy_basis(self, auto_basis_index: list[int], current_basis: list[str]) -> list[str]:
         """Find the basis with global minimum entropy.
 
         This method searches for the basis configuration that minimizes the entropy
@@ -406,7 +404,7 @@ class QuantumState:
                 min_basis = try_basis.copy()
         return min_basis
 
-    def _local_min_entropy_basis(self, auto_basis_index: List[int], current_basis: List[str]) -> List[str]:
+    def _local_min_entropy_basis(self, auto_basis_index: list[int], current_basis: list[str]) -> list[str]:
         """Find the basis with local minimum entropy.
 
         This method searches for the basis configuration that locally minimizes the entropy
@@ -450,8 +448,8 @@ class QuantumState:
         return min_basis
 
     def _measure(
-        self, measure_bit: List[int] | str, state_basis: List[str] | str = [], shot=100
-    ) -> Tuple[List[QuantumState], List[QuantumState], List[QuantumState], List[QuantumState], List[str], List[str]]:
+        self, measure_bit: list[int] | str, state_basis: list[str] | str = [], shot=100
+    ) -> tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]:
         """Perform a measurement on the quantum state.
 
         This method measures the specified qubits in the given basis and returns the
@@ -486,7 +484,7 @@ class QuantumState:
         measure_state_list = [None] * 2 ** len(measure_bit)
         system_state_list = [None] * 2 ** len(measure_bit)
         for _ in range(shot):
-            measure_result: Tuple[str, Statevector] = Statevector(converted_state.data).measure(qargs=measure_bit)
+            measure_result: tuple[str, Statevector] = Statevector(converted_state.data).measure(qargs=measure_bit)
             measure_ket: str = measure_result[0]
             system_state = QuantumState(measure_result[1])
             measure_ket = measure_ket[::-1]  # REVERSE the order of qubits to fit textbook notation
