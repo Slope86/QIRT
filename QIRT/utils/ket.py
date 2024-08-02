@@ -1,5 +1,4 @@
-"""
-Module to store and check the ket notation for the state vector.
+r"""Module to store and check the ket notation for the state vector.
 
 This module provides functionality to store and validate ket notations used for
 representing quantum state vectors. The ket notations can be customized through a
@@ -66,43 +65,45 @@ class _ConfigMeta(type):
         return super().__new__(cls, name, bases, namespace)
 
     @property
-    def z0(self) -> str:
-        return self.__z0
+    def z0(cls) -> str:
+        return cls.__z0
 
     @property
-    def z1(self) -> str:
-        return self.__z1
+    def z1(cls) -> str:
+        return cls.__z1
 
     @property
-    def x0(self) -> str:
-        return self.__x0
+    def x0(cls) -> str:
+        return cls.__x0
 
     @property
-    def x1(self) -> str:
-        return self.__x1
+    def x1(cls) -> str:
+        return cls.__x1
 
     @property
-    def y0(self) -> str:
-        return self.__y0
+    def y0(cls) -> str:
+        return cls.__y0
 
     @property
-    def y1(self) -> str:
-        return self.__y1
+    def y1(cls) -> str:
+        return cls.__y1
 
 
 class Ket(metaclass=_ConfigMeta):
-    """Class to store and check the ket notation for the state vector"""
+    """Class to store and check the ket notation for the state vector."""
 
     @classmethod
     def check_valid(cls, label: str) -> bool:
-        """
-        Check if the input label is valid.
+        """Check if the input label is valid.
 
         Args:
+        ----
             label (str): The ket notation label to validate.
 
         Returns:
+        -------
             bool: True if the label is valid, False otherwise.
+
         """
         # Create a regex pattern based on the configured ket notations
         ket_regex = "^[" + cls.z0 + cls.z1 + cls.x0 + cls.x1 + cls.y0 + cls.y1 + "]+$"
@@ -116,14 +117,16 @@ class Ket(metaclass=_ConfigMeta):
 
     @classmethod
     def to_qiskit_notation(cls, label: str) -> str:
-        """
-        Convert the custom ket notation to Qiskit-compatible notation.
+        """Convert the custom ket notation to Qiskit-compatible notation.
 
         Args:
+        ----
             label (str): The ket notation label to convert.
 
         Returns:
+        -------
             str: The converted Qiskit-compatible notation.
+
         """
         # Replace custom ket notations with Qiskit standard notations
         label = label.replace(Ket.z0, "0")

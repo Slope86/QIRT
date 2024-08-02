@@ -1,3 +1,5 @@
+"""The configuration parser for the QIRT project."""
+
 import configparser
 import importlib.resources as pkg_resources
 import os
@@ -20,12 +22,14 @@ def _get_config_parser() -> configparser.ConfigParser:
     This function reads the configuration from the user's config.ini file
     located in the user's home directory and returns a ConfigParser object.
 
-    Returns:
+    Returns
+    -------
         configparser.ConfigParser: The configuration parser with the settings read from config.ini.
+
     """
     config_parser = configparser.ConfigParser()
     user_config_path = _ensure_user_config()
-    with open(user_config_path, "r") as file:
+    with open(user_config_path) as file:
         config_parser.read_file(file)
     return config_parser
 

@@ -1,3 +1,5 @@
+"""Extension of numpy functions."""
+
 from functools import reduce
 
 import numpy as np
@@ -10,22 +12,26 @@ def tensor_product(*matrices: np.ndarray) -> np.ndarray:
 
 def inverse_tensor(array: np.ndarray) -> np.ndarray:
     """Inverse tensor product of a square matrix or vector.
-    Only accept square matrix or vector with length of 2^n.
 
     Example:
+    -------
         input  = A ⊗ B ⊗ C ,
         output = C ⊗ B ⊗ A ,
         (A, B, C are square matrix or vector with length of 2)
 
     Args:
+    ----
         array (ndarray): A square matrix or vector.
 
     Raises:
+    ------
         ValueError: If the input is not a square matrix or vector.
         ValueError: If the length of input matrix/vector is not 2^n.
 
     Returns:
+    -------
         ndarray: The inverse tensor product of input square matrix/vector.
+
     """
     # If input is a 1d array, extend it to a 2d array
     extend_flag = False
