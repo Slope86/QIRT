@@ -27,7 +27,7 @@ See Also
     [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
     [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
 
-"""  # noqa: N999
+"""
 
 from .quantum_circuit import QuantumCircuit
 from .quantum_state import QuantumState
