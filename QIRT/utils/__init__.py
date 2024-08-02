@@ -9,7 +9,7 @@ Modules:
     float_gcd: Contains a function to compute the greatest common divisor (GCD) for floating-point numbers.
     ket: Contains the Ket class to manage and validate custom ket notations for quantum states.
     np_extension: Contains extended numpy functions for quantum computations, such as inverse tensor and tensor product.
-"""  # noqa: N999
+"""
 
 from .find_nth_substring import find_nth_substring
 from .float_gcd import float_gcd

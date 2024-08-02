@@ -7,7 +7,7 @@ vectors and visualization parameters for LaTeX outputs.
 
 Modules:
     config: Contains the `get_config_parser` function to read and parse the configuration settings.
-"""  # noqa: N999
+"""
 
 from .config import CONFIG_PARSER
 
