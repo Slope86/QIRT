@@ -1,4 +1,4 @@
-"""Quantum Information Research Toolkit
+r"""Quantum Information Research Toolkit.
 
 The Quantum Information Research Toolkit (QIRT) provides enhanced functionalities
 for working with quantum circuits and state vectors, extending the capabilities
@@ -13,19 +13,21 @@ Modules:
 
 The functionalities added in QIRT are:
 
-- Conversion of quantum circuits to matrix form.\n
-- Drawing quantum circuits or their matrix representations.\n
-- Basis conversion for qubits within circuits.\n
-- Creation and manipulation of state vectors.\n
-- Calculation of quantum state entropy.\n
-- Evolution of quantum states using various operators.\n
-- Visualization of quantum states in LaTeX or matrix form.\n
-- Measurement of qubits and obtaining resulting states.\n
+- Conversion of quantum circuits to matrix form.
+- Drawing quantum circuits or their matrix representations.
+- Basis conversion for qubits within circuits.
+- Creation and manipulation of state vectors.
+- Calculation of quantum state entropy.
+- Evolution of quantum states using various operators.
+- Visualization of quantum states in LaTeX or matrix form.
+- Measurement of qubits and obtaining resulting states.
 
-See Also:
-    [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)\n
+See Also
+--------
+    [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
     [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
-"""
+
+"""  # noqa: N999
 
 from .quantum_circuit import QuantumCircuit
 from .quantum_state import QuantumState

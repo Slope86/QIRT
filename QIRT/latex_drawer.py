@@ -1,5 +1,4 @@
-"""
-Module to convert various data types to LaTeX representation.
+r"""Module to convert various data types to LaTeX representation.
 
 This module provides functions to convert complex numbers, matrices, quantum states,
 and measurement results into LaTeX formatted strings. The formatted strings can be
@@ -7,10 +6,10 @@ rendered as images using IPython's display capabilities with KaTeX support.
 
 The functionalities added in this module are:
 
-- Conversion of matrices to LaTeX representation.\n
-- Conversion of quantum states to LaTeX ket notation.\n
-- Conversion of measurement results to LaTeX representation.\n
-- Rendering LaTeX code as images using external tools like pdflatex and pdftocairo.\n
+- Conversion of matrices to LaTeX representation.
+- Conversion of quantum states to LaTeX ket notation.
+- Conversion of measurement results to LaTeX representation.
+- Rendering LaTeX code as images using external tools like pdflatex and pdftocairo.
 
 For more information on the LaTeX functions supported by KaTeX, please refer to:
 [https://katex.org/docs/supported.html](https://katex.org/docs/supported.html)
@@ -44,12 +43,15 @@ def matrix_to_latex(
     then renders this string as an image.
 
     Args:
+    ----
         matrix (NDArray[np.float128 | np.complex128]): The matrix to be converted.
         source (bool, optional): Whether to return the LaTeX source code instead of the image. Defaults to False.
 
 
     Returns:
+    -------
         Latex: The rendered image of the LaTeX representation of the matrix, or the LaTeX source code if source is True.
+
     """
     prefix = R"$\begin{bmatrix}"
     suffix = R"\end{bmatrix}$"
@@ -98,6 +100,7 @@ def state_to_latex(
     then renders this string as an image or returns the LaTeX source code.
 
     Args:
+    ----
         state (QuantumState): The quantum state to be converted.
         state_basis (List[str] | str | None, optional): The basis of the input state.
             Defaults to None, which sets it to the Z basis.
@@ -109,8 +112,10 @@ def state_to_latex(
         source (bool, optional): Whether to return the LaTeX source code instead of the image. Defaults to False.
 
     Returns:
+    -------
         str | Latex: The rendered image of the LaTeX representation of the quantum state,
         or the LaTeX source code if source is True.
+
     """
     prefix = R"$\begin{alignedat}{" + f"{2**(output_length+1)+1}" + R"}&\; \;&\;"
     suffix = R"\end{alignedat}$"
@@ -141,6 +146,7 @@ def measure_result_to_latex(
     and then renders this string as an image or returns the LaTeX source code.
 
     Args:
+    ----
         measure_state_list (List[QuantumState]): The list of measured quantum states.
         system_state_list (List[QuantumState]): The list of system states after measurement.
         measure_basis (List[str]): The basis in which the measurement was performed.
@@ -153,8 +159,10 @@ def measure_result_to_latex(
         source (bool, optional): Whether to return the LaTeX source code instead of the image. Defaults to False.
 
     Returns:
+    -------
         str | Latex: The rendered image of the LaTeX representation of the measurement results,
         or the LaTeX source code if source is True.
+
     """
     if isinstance(measure_bit, str):
         measure_bit = [int(i) for i in measure_bit]
@@ -205,6 +213,7 @@ def _state_to_latex_ket(
     optionally showing qubit indices and hiding specified qubits.
 
     Args:
+    ----
         state (QuantumState): The quantum state to be converted.
         state_basis (List[str] | str | None, optional): The basis of the input state.
             Defaults to None, which sets it to the Z basis.
@@ -218,7 +227,9 @@ def _state_to_latex_ket(
             Defaults to False.
 
     Returns:
+    -------
         str: The LaTeX formatted ket representation of the quantum state.
+
     """
     if state_basis is None:
         state_basis = ["z"] * state.num_of_qubit
@@ -282,11 +293,14 @@ def _coeffs_to_latex_terms(coeffs: NDArray[np.complex128], decimals: int = 15) -
     The first non-zero term is treated differently by suppressing the leading + sign.
 
     Args:
+    ----
         coeffs (NDArray[np.complex128]): List of coefficients to format.
         decimals (int, optional): Number of decimal places to round to. Defaults to 15.
 
     Returns:
+    -------
         List[str]: List of LaTeX formatted terms.
+
     """
     first_term = True
     terms = []
@@ -302,12 +316,15 @@ def _coeff_to_latex_ket(raw_value: complex, first_coeff: bool, decimals: int = 1
     """Convert a complex coefficient to LaTeX code suitable for a ket expression.
 
     Args:
+    ----
         raw_value (complex): The complex value to convert.
         first_coeff (bool): If True, generate LaTeX code for the first term in an expression.
         decimals (int, optional): Number of decimal places to round to. Defaults to 15.
 
     Returns:
+    -------
         str | None: LaTeX code representing the coefficient or None if no term is required.
+
     """
     # Round to the specified number of decimals
     raw_value = np.around(raw_value, decimals=decimals)
@@ -363,11 +380,14 @@ def _num_to_latex_ket(raw_value: complex, decimals: int = 15) -> str:
     """Convert a complex number to a LaTeX element.
 
     Args:
+    ----
         raw_value (complex): The complex value to convert.
         decimals (int, optional): Number of decimal places to round to. Defaults to 15.
 
     Returns:
+    -------
         str: LaTeX element representing the value.
+
     """
     raw_value = np.around(raw_value, decimals=decimals)
     value = sympy.nsimplify(raw_value, constants=(sympy.pi,), rational=False)
@@ -378,12 +398,15 @@ def _latex_line_break(latex_code: str, output_length: int = 2) -> str:
     """Split LaTeX string into several lines, so that each line has 2^output_length terms.
 
     Args:
+    ----
         latex_code (str): The LaTeX source code to be split into lines.
         output_length (int, optional): The number of terms per line, defined as 2^output_length.
             Defaults to 2 (i.e., 4 terms per line).
 
     Returns:
+    -------
         str: The resulting LaTeX code with appropriate line breaks.
+
     """
     latex_code = latex_code.replace("|", "&|")
     max_term = 2**output_length

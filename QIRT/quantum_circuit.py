@@ -1,5 +1,4 @@
-"""
-Module to extend Qiskit's QuantumCircuit with additional functionalities.
+r"""Module to extend Qiskit's QuantumCircuit with additional functionalities.
 
 This module provides an extended version of Qiskit's QuantumCircuit class, adding
 methods for basis conversion and visualization in matrix form. The extended class,
@@ -8,13 +7,15 @@ a LaTeX representation of the quantum circuit.
 
 The functionalities added in this module are:
 
-- Conversion of the quantum circuit to a matrix form.\n
-- Drawing the quantum circuit or its matrix representation.\n
-- Adding gates to convert qubits from one basis to another.\n
-- Applying unitary matrices to specified qubits.\n
+- Conversion of the quantum circuit to a matrix form.
+- Drawing the quantum circuit or its matrix representation.
+- Adding gates to convert qubits from one basis to another.
+- Applying unitary matrices to specified qubits.
 
-See Also:
+See Also
+--------
     [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
+
 """
 
 from __future__ import annotations
@@ -23,7 +24,7 @@ from collections.abc import Sequence
 
 import numpy as np
 from numpy.typing import NDArray
-from qiskit import QuantumCircuit as qiskit_qc
+from qiskit import QuantumCircuit as QiskitQC
 from qiskit import quantum_info
 from qiskit.circuit.instructionset import InstructionSet
 from qiskit.circuit.quantumcircuit import QubitSpecifier
@@ -39,13 +40,15 @@ class QuantumCircuit:
     functionalities for converting basis and visualizing the quantum circuit in
     matrix form.
 
-    See Also:
+    See Also
+    --------
         [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
+
     """
 
     def __init__(self, *args, **kwargs):
         """Initialize the QuantumCircuit class."""
-        self._qiskit_qc = qiskit_qc(*args, **kwargs)
+        self._qiskit_qc = QiskitQC(*args, **kwargs)
 
     def to_matrix(self) -> NDArray[np.complex128]:
         """Return matrix form of the quantum circuit as a numpy array.
@@ -53,27 +56,32 @@ class QuantumCircuit:
         This method returns the matrix representation of the quantum circuit by
         reversing the order of qubits to match textbook notation.
 
-        Returns:
+        Returns
+        -------
             NDArray[np.complex128]: The matrix representation of the quantum circuit.
+
         """
         reverse_qc = self._qiskit_qc.reverse_bits()  # REVERSE the order of qubits to match textbook notation
         return np.asarray(quantum_info.Operator(reverse_qc).data, dtype=np.complex128)
 
     def draw(self, output: str | None = "mpl", source: bool = False, *args, **kwargs):
-        """Draw the quantum circuit, or show its matrix form if output is 'matrix'.
+        r"""Draw the quantum circuit, or show its matrix form if output is 'matrix'.
 
         Args:
+        ----
             output (str | None, optional): The output format for drawing the circuit.
-                If 'text', generates ASCII art TextDrawing that can be printed in the console.\n
-                If 'mpl', generates images with color rendered purely in Python using matplotlib.\n
-                If 'latex', generates high-quality images compiled via latex.\n
+                If 'text', generates ASCII art TextDrawing that can be printed in the console.
+                If 'mpl', generates images with color rendered purely in Python using matplotlib.
+                If 'latex', generates high-quality images compiled via latex.
                 If 'matrix', shows the matrix form of the circuit. Defaults to "mpl".
             source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.
             *args: Additional positional arguments to pass to the draw method.
             **kwargs: Additional keyword arguments to pass to the draw method.
 
         Returns:
+        -------
             The drawn circuit in the specified format.
+
         """
         match output:
             case "matrix":
@@ -92,9 +100,11 @@ class QuantumCircuit:
         from the current basis to the target basis.
 
         Args:
+        ----
             target_basis (str): The target basis to convert to.
             current_basis (str): The current basis of the qubit.
             qubit_index (int): The index of the qubit to be converted.
+
         """
         if current_basis == target_basis:
             return self
@@ -131,19 +141,37 @@ class QuantumCircuit:
         quantum circuit by reversing the order of qubits.
 
         Args:
+        ----
             matrix (NDArray[np.complex128] | list[list[int]]): The unitary matrix to apply.
             qubits (Sequence[QubitSpecifier]): The qubits to which the unitary matrix will be applied.
             label (str | None, optional): An optional label for the unitary gate. Defaults to None.
 
         Returns:
+        -------
             QuantumCircuit: Quantum circuit with the applied unitary matrix.
+
         """
         matrix = np.asarray(matrix, dtype=np.complex128)
         matrix = inverse_tensor(matrix)  # REVERSE the order of qubits to match textbook notation
         self._qiskit_qc.unitary(matrix, qubits, label=label)
         return self
 
-    def __getattr__(self, name):
+    def __getattr__(self, name: str):
+        """Return the original method if it returns an InstructionSet.
+
+        Args:
+        ----
+            name (str): The name of the method to call
+
+        Raises:
+        ------
+            AttributeError: If the method is not found in QuantumCircuit
+
+        Returns:
+        -------
+            The original method if it returns an InstructionSet.
+
+        """
         original_method = getattr(self._qiskit_qc, name)
 
         def wrapper(*args, **kwargs):

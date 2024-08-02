@@ -1,5 +1,4 @@
-"""
-Module to extend Qiskit's Statevector with additional functionalities.
+r"""Module to extend Qiskit's Statevector with additional functionalities.
 
 This module provides an extended version of Qiskit's Statevector class, adding
 methods for quantum state manipulations, basis conversions, and visualizations.
@@ -8,17 +7,19 @@ perform measurements, and visualize the quantum state in various formats.
 
 The functionalities added in this module are:
 
-- Initialization of QuantumState with automatic calculation of qubit count.\n
-- Creation of state vectors from input coefficients and label strings.\n
-- Calculation of Shannon entropy for the quantum state.\n
-- Evolution of the quantum state using various operators.\n
-- Conversion of the state vector to a column matrix representation.\n
-- Visualization of the quantum state in different formats (LaTeX, matrix form).\n
-- Measurement of specified qubits and obtaining the resulting states.\n
-- Basis conversion to minimize entropy either globally or locally.\n
+- Initialization of QuantumState with automatic calculation of qubit count.
+- Creation of state vectors from input coefficients and label strings.
+- Calculation of Shannon entropy for the quantum state.
+- Evolution of the quantum state using various operators.
+- Conversion of the state vector to a column matrix representation.
+- Visualization of the quantum state in different formats (LaTeX, matrix form).
+- Measurement of specified qubits and obtaining the resulting states.
+- Basis conversion to minimize entropy either globally or locally.
 
-See Also:
+See Also
+--------
     [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
+
 """
 
 from __future__ import annotations
@@ -46,11 +47,14 @@ class QuantumState:
     This class extends the Statevector class from Qiskit to provide additional
     functionalities specific to quantum state manipulations and measurements.
 
-    Attributes:
+    Attributes
+    ----------
         _num_of_qubit (int): The number of qubits in the quantum state.
 
-    See Also:
+    See Also
+    --------
         [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
+
     """
 
     def __init__(self, *args, **kwargs):
@@ -69,8 +73,10 @@ class QuantumState:
 
         This property returns the data of the quantum state vector stored in the object.
 
-        Returns:
+        Returns
+        -------
             NDArray[np.complex128]: The data of the quantum state vector.
+
         """
         return self.state_vector.data
 
@@ -81,8 +87,10 @@ class QuantumState:
         This property returns the total number of qubits that are currently
         represented in the quantum state vector.
 
-        Returns:
+        Returns
+        -------
             int: The number of qubits in the quantum state.
+
         """
         return self._num_of_qubit
 
@@ -91,6 +99,7 @@ class QuantumState:
         """Create a state vector from input coefficients and label strings.
 
         Examples:
+        --------
             >>> QuantumState.from_label("0", "1")
             (|0> + |1>)/√2 QuantumState object.
 
@@ -104,13 +113,17 @@ class QuantumState:
             (√2|0> + |+> - |->)/2 = |+> QuantumState object.
 
         Args:
+        ----
             args (str | Tuple[complex, str]): Input label strings or tuples of coefficients and label strings.
 
         Returns:
+        -------
             QuantumState: The state vector object.
 
         Raises:
+        ------
             QiskitError: If labels contain invalid characters or if labels have different numbers of qubits.
+
         """
         # Separate the input into coefficients and labels
         coefficients: list[complex] = []
@@ -144,8 +157,10 @@ class QuantumState:
 
         The Shannon  entropy is a measure of the quantum state's uncertainty or mixedness.
 
-        Returns:
+        Returns
+        -------
             np.float_: The Shannon  entropy of the quantum state, calculated in base 2.
+
         """
         entropy = stats.entropy(self.state_vector.probabilities(), base=2)
         if type(entropy) is np.float64:
@@ -159,17 +174,21 @@ class QuantumState:
         according to the operator's effect.
 
         Args:
+        ----
             other (QuantumOperation):
                 The operator used to evolve the quantum state.
             qargs (list[int] | None, optional): A list of subsystem positions of
                 the QuantumState to apply the operator on. Defaults to None.
 
         Returns:
+        -------
             QuantumState: The quantum state after evolution.
 
         Raises:
+        ------
             QiskitError: If the operator dimension does not match the specified
                 quantum state subsystem dimensions.
+
         """
         reversed_state_vector: Statevector = self.state_vector.reverse_qargs()
         evolved_state_vector: Statevector = Statevector.evolve(
@@ -184,8 +203,10 @@ class QuantumState:
         it into a column matrix form, which can be useful for various matrix-based
         operations and calculations.
 
-        Returns:
+        Returns
+        -------
             NDArray[np.complex128]: The quantum state represented as a column matrix.
+
         """
         vector = self.state_vector.data
         matrix = vector[np.newaxis].T
@@ -205,6 +226,7 @@ class QuantumState:
         such as LaTeX, matrix form, or other specified formats.
 
         Args:
+        ----
             output (str, optional): Visualization method. Defaults to "latex". Options include:
                 - "matrix": Outputs the state vector as a LaTeX formatted matrix.
                 - "latex": Outputs the state vector as a LaTeX formatted expression.
@@ -215,8 +237,10 @@ class QuantumState:
             source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.
 
         Returns:
+        -------
             matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization
                 output depending on the chosen method.
+
         """
         match output:
             case "matrix":
@@ -243,6 +267,7 @@ class QuantumState:
         after measurement.
 
         Args:
+        ----
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a
                 string specifying the bits.
             state_basis (List[str] | str, optional): The basis in which to perform the measurement.
@@ -250,9 +275,11 @@ class QuantumState:
             shot (int, optional): The number of measurement shots to perform. Defaults to 100.
 
         Returns:
+        -------
             Tuple[List[QuantumState], List[QuantumState]]:
                 - A list of quantum states representing the measurement results in the Z basis.
                 - A list of quantum states representing the system state after the measurement in the Z basis.
+
         """
         z_basis_measure_state_list, z_basis_system_state_list, _, _, _, _ = self._measure(
             measure_bit=measure_bit, state_basis=state_basis, shot=shot
@@ -274,6 +301,7 @@ class QuantumState:
         resulting quantum states and their measurement outcomes in a specified format.
 
         Args:
+        ----
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list
                 of indices or a string specifying the bits.
             state_basis (List[str] | str, optional): The basis in which to perform the
@@ -288,11 +316,14 @@ class QuantumState:
                 Defaults to 100.
 
         Returns:
+        -------
             str | Latex: The visualization of the measurement results, either
             as an image or a string representing the source code.
 
         Raises:
+        ------
             QiskitError: If the measurement basis or bit specifications are invalid.
+
         """
         _, _, measure_state_list, system_state_list, measure_basis, system_basis = self._measure(
             measure_bit, state_basis, shot
@@ -321,6 +352,7 @@ class QuantumState:
         it will auto-choose the basis with minimum entropy for unspecified qubits.
 
         Args:
+        ----
             target_basis (List[str] | str, optional): The target basis for conversion. Defaults to an empty list.
             current_basis (List[str] | str, optional): The current basis of the quantum state.
                 Defaults to an empty list.
@@ -330,10 +362,13 @@ class QuantumState:
                 - "local": Local minimum entropy basis conversion.
 
         Returns:
+        -------
             tuple[QuantumState, List[str]]: The converted quantum state and the list of the basis used for conversion.
 
         Raises:
+        ------
             QiskitError: If the input basis is invalid or if an invalid algorithm is specified.
+
         """
         # Default target_basis is auto choose basis with minimum entropy (basis = "*")
         target_basis = list(target_basis) + ["*"] * (self.num_of_qubit - len(target_basis))
@@ -384,12 +419,15 @@ class QuantumState:
         specified bases at the auto-choose-basis indices.
 
         Args:
+        ----
             auto_basis_index (List[int]): Indices of the qubits for which the basis
                 should be auto-chosen to minimize entropy.
             current_basis (List[str]): The current basis of the quantum state.
 
         Returns:
+        -------
             List[str]: The basis configuration with the global minimum entropy.
+
         """
         num_of_auto_basis = len(auto_basis_index)
         min_entropy = float("inf")
@@ -411,12 +449,15 @@ class QuantumState:
         of the quantum state by iteratively selecting the best basis for each qubit.
 
         Args:
+        ----
             auto_basis_index (List[int]): Indices of the qubits for which the basis should be auto-chosen to
                 minimize entropy.
             current_basis (List[str]): The current basis of the quantum state.
 
         Returns:
+        -------
             List[str]: The basis configuration with the local minimum entropy.
+
         """
         # Step 1: Change all auto-choose-basis to y, e.g. [-, -, -, -] -> [z, z, z, z], calculate entropy
         # Step 2,3: Same as Step 1, but with x-basis and y-basis
@@ -456,6 +497,7 @@ class QuantumState:
         resulting quantum states and measurement outcomes.
 
         Args:
+        ----
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list
                 of indices or a string specifying the bits.
             state_basis (List[str] | str, optional): The basis in which to perform the
@@ -463,6 +505,7 @@ class QuantumState:
             shot (int, optional): The number of measurement shots to perform. Defaults to 100.
 
         Returns:
+        -------
             Tuple[List[QuantumState], List[QuantumState], List[QuantumState], List[QuantumState], List[str], List[str]]:
                 - z_basis_measure_state_list: Measurement states in the Z basis.
                 - z_basis_system_state_list: System states in the Z basis.
@@ -470,6 +513,7 @@ class QuantumState:
                 - system_state_list: System states in the original basis.
                 - measure_basis: The basis used for the measurement.
                 - system_basis: The system basis after conversion.
+
         """
         if isinstance(measure_bit, str):
             measure_bit = [int(i) for i in measure_bit]
