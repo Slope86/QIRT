@@ -168,14 +168,14 @@ class QuantumState:
         raise QiskitError("Entropy calculation failed.")
 
     def apply(self, other: QuantumCircuit, qargs: list[int] | None = None) -> QuantumState:
-        """Apply a quantum operation to the quantum state.
+        """Apply a quantum circuit to the quantum state.
 
         This method applies the given operator to the quantum state, evolving it
         according to the operator's effect.
 
         Args:
         ----
-            other (QuantumOperation):
+            other (QuantumCircuit):
                 The operator used to evolve the quantum state.
             qargs (list[int] | None, optional): A list of subsystem positions of
                 the QuantumState to apply the operator on. Defaults to None.
