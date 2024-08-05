@@ -5,6 +5,7 @@ theme:
   features:
     - search.suggest
     - search.highlight
+    - content.code.copy
   icon:
     repo: fontawesome/brands/github
 
@@ -14,12 +15,27 @@ plugins:
       handlers:
         python:
           paths: [.]
+
+markdown_extensions:
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
+
 nav:
   - Welcome to QIRT: index.md
   - Tutorials: tutorials.md
   - How-To Guides: how-to-guides.md
   - Reference: reference.md
-  - Explanation: explanation.md
 
 repo_url: https://github.com/Slope86/QIRT
 
