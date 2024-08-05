@@ -21,11 +21,11 @@ pip install QIRT
 To start using the Quantum Information Research Toolkit, import the necessary modules as shown below:
 
 ```python
-from QIRT import QuantumState, QuantumOperation
+from QIRT import QuantumState, QuantumCircuit
 ```
 
 - **QuantumState**: This class allows you to create and manage quantum states. It provides various methods to initialize, transform, and measure quantum states.
-- **QuantumOperatio**: This class provides a set of operations that can be applied to quantum states. It includes methods for unitary operations, measurements, and other quantum operations.
+- **QuantumCircuit**: This class provides a set of operations that can be applied to quantum states. It includes methods for unitary operations, measurements, and other quantum operations.
 
 ### Creating a Quantum State
 
