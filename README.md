@@ -69,7 +69,8 @@ y1 = j
 ## Requirement
 
 Python >= 3.10  
-qiskit[visualization] == 1.1.0  
+qiskit[visualization] >= 1.1.0
+IPython >= 8.24.0
 
 ## License
 
