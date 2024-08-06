@@ -16,8 +16,7 @@ The functionalities added in this module are:
 - Measurement of specified qubits and obtaining the resulting states.
 - Basis conversion to minimize entropy either globally or locally.
 
-See Also
---------
+See Also:
     [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
 
 """
@@ -50,12 +49,10 @@ class QuantumState:
     This class extends the Statevector class from Qiskit to provide additional
     functionalities specific to quantum state manipulations and measurements.
 
-    Attributes
-    ----------
+    Attributes:
         _num_of_qubit (int): The number of qubits in the quantum state.
 
-    See Also
-    --------
+    See Also:
         [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
 
     """
@@ -72,7 +69,6 @@ class QuantumState:
         and stores the number of qubits in the quantum state.
 
         Args:
-        ----
             data (np.array or list or Statevector or Operator or QuantumCircuit or qiskit.circuit.Instruction):
                 Data from which the statevector can be constructed. This can be either a complex
                 vector, another statevector, a ``Operator`` with only one column or a
@@ -91,7 +87,7 @@ class QuantumState:
 
         This property returns the data of the quantum state vector stored in the object.
 
-        Returns
+        Returns:
             NDArray[np.complex128]: The data of the quantum state vector.
 
         """
@@ -104,7 +100,7 @@ class QuantumState:
         This property returns the total number of qubits that are currently
         represented in the quantum state vector.
 
-        Returns
+        Returns:
             int: The number of qubits in the quantum state.
 
         """
@@ -114,7 +110,7 @@ class QuantumState:
     def from_label(cls, *args: str | tuple[complex, str]) -> QuantumState:
         """Create a state vector from input coefficients and label strings.
 
-        Examples:-
+        Examples:
             >>> QuantumState.from_label("0", "1")
             (|0> + |1>)/√2 QuantumState object.
 
@@ -128,14 +124,12 @@ class QuantumState:
             (√2|0> + |+> - |->)/2 = |+> QuantumState object.
 
         Args:
-        ----
             args (str | Tuple[complex, str]): Input label strings or tuples of coefficients and label strings.
 
         Returns:
             QuantumState: The state vector object.
 
         Raises:
-        ------
             QiskitError: If labels contain invalid characters or if labels have different numbers of qubits.
 
         """
@@ -171,7 +165,7 @@ class QuantumState:
 
         The Shannon  entropy is a measure of the quantum state's uncertainty or mixedness.
 
-        Returns
+        Returns:
             np.float_: The Shannon  entropy of the quantum state, calculated in base 2.
 
         """
@@ -187,7 +181,6 @@ class QuantumState:
         according to the operator's effect.
 
         Args:
-        ----
             other (QuantumCircuit):
                 The operator used to evolve the quantum state.
             qargs (list[int] | None, optional): A list of subsystem positions of
@@ -197,7 +190,6 @@ class QuantumState:
             QuantumState: The quantum state after evolution.
 
         Raises:
-        ------
             QiskitError: If the operator dimension does not match the specified
                 quantum state subsystem dimensions.
 
@@ -215,7 +207,7 @@ class QuantumState:
         it into a column matrix form, which can be useful for various matrix-based
         operations and calculations.
 
-        Returns
+        Returns:
             NDArray[np.complex128]: The quantum state represented as a column matrix.
 
         """
@@ -237,7 +229,6 @@ class QuantumState:
         such as LaTeX, matrix form, or other specified formats.
 
         Args:
-        ----
             output (str, optional): Visualization method. Defaults to "latex". Options include:
                 - "matrix": Outputs the state vector as a LaTeX formatted matrix.
                 - "latex": Outputs the state vector as a LaTeX formatted expression.
@@ -277,7 +268,6 @@ class QuantumState:
         after measurement.
 
         Args:
-        ----
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a
                 string specifying the bits.
             state_basis (List[str] | str, optional): The basis in which to perform the measurement.
@@ -310,7 +300,6 @@ class QuantumState:
         resulting quantum states and their measurement outcomes in a specified format.
 
         Args:
-        ----
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list
                 of indices or a string specifying the bits.
             state_basis (List[str] | str, optional): The basis in which to perform the
@@ -329,7 +318,6 @@ class QuantumState:
             as an image or a string representing the source code.
 
         Raises:
-        ------
             QiskitError: If the measurement basis or bit specifications are invalid.
 
         """
@@ -360,7 +348,6 @@ class QuantumState:
         it will auto-choose the basis with minimum entropy for unspecified qubits.
 
         Args:
-        ----
             target_basis (List[str] | str, optional): The target basis for conversion. Defaults to an empty list.
             current_basis (List[str] | str, optional): The current basis of the quantum state.
                 Defaults to an empty list.
@@ -373,7 +360,6 @@ class QuantumState:
             tuple[QuantumState, List[str]]: The converted quantum state and the list of the basis used for conversion.
 
         Raises:
-        ------
             QiskitError: If the input basis is invalid or if an invalid algorithm is specified.
 
         """
@@ -426,7 +412,6 @@ class QuantumState:
         specified bases at the auto-choose-basis indices.
 
         Args:
-        ----
             auto_basis_index (List[int]): Indices of the qubits for which the basis
                 should be auto-chosen to minimize entropy.
             current_basis (List[str]): The current basis of the quantum state.
@@ -455,7 +440,6 @@ class QuantumState:
         of the quantum state by iteratively selecting the best basis for each qubit.
 
         Args:
-        ----
             auto_basis_index (List[int]): Indices of the qubits for which the basis should be auto-chosen to
                 minimize entropy.
             current_basis (List[str]): The current basis of the quantum state.
@@ -502,7 +486,6 @@ class QuantumState:
         resulting quantum states and measurement outcomes.
 
         Args:
-        ----
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list
                 of indices or a string specifying the bits.
             state_basis (List[str] | str, optional): The basis in which to perform the
