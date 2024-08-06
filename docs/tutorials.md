@@ -10,9 +10,9 @@ To install QIRT, you need Python 3.10 or later. Use pip to install the package:
 pip install QIRT
 ```
 
-## **Setting up your environment**
+## **Setting up jupyter notebook**
 
-We recommend using Jupyter Notebooks for the best experience with QIRT. Here's how to set it up:
+We recommend using Jupyter Notebook for the best experience with QIRT. Here's how to set it up:
 
 1. Install Jupyter:
 
@@ -68,7 +68,7 @@ circuit.draw()
 
 The output will be:
 
-![Image title](.\imgs\bell_state_circ.png)
+![bell_state_circ](.\imgs\bell_state_circ.png)
 
 Showing the quantum circuit with a Hadamard gate on qubit 0 and a CNOT gate with control qubit 0 and target qubit 1.
 
