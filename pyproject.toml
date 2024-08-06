@@ -57,6 +57,7 @@ local_scheme = "no-local-version"
 [tool.ruff]
 line-length = 120
 target-version = "py311"
+pydocstyle.convention = "google"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "N", "D"]
