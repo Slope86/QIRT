@@ -39,6 +39,9 @@ from QIRT.utils import Ket
 if typing.TYPE_CHECKING:
     from IPython.display import Latex
     from numpy.typing import NDArray
+    from qiskit.circuit.instruction import Instruction
+    from qiskit.circuit.quantumcircuit import QuantumCircuit as QiskitQC
+    from qiskit.quantum_info.operators.operator import Operator
 
 
 class QuantumState:
@@ -57,14 +60,18 @@ class QuantumState:
 
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(
+        self,
+        data: np.ndarray | list | Statevector | Operator | QiskitQC | Instruction,
+        dims: int | tuple | list | None = None,
+    ):
         """Initialize a QuantumState object.
 
         This constructor initializes the QuantumState object by calling the
         constructor of the base Statevector class from Qiskit. It also calculates
         and stores the number of qubits in the quantum state.
         """
-        self.state_vector = Statevector(*args, **kwargs)
+        self.state_vector = Statevector(data, dims)
         self._num_of_qubit = int(np.log2(len(self.state_vector.data)))
 
     @property
@@ -548,7 +555,6 @@ class QuantumState:
                             basis_convert_measure_ket += Ket.y1 if int(k) else Ket.y0
 
                 measure_state_z_basis = self.from_label(basis_convert_measure_ket)
-                system_state = QuantumState(system_state)
 
                 z_basis_measure_state_list[int(measure_ket, 2)] = measure_state_z_basis
                 z_basis_system_state_list[int(measure_ket, 2)] = system_state._basis_convert(
