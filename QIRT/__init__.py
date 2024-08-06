@@ -22,8 +22,7 @@ The functionalities added in QIRT are:
 - Visualization of quantum states in LaTeX or matrix form.
 - Measurement of qubits and obtaining resulting states.
 
-See Also
---------
+See Also:
     [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
     [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
 

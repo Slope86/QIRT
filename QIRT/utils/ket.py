@@ -97,11 +97,9 @@ class Ket(metaclass=_ConfigMeta):
         """Check if the input label is valid.
 
         Args:
-        ----
             label (str): The ket notation label to validate.
 
         Returns:
-        -------
             bool: True if the label is valid, False otherwise.
 
         """
@@ -120,11 +118,9 @@ class Ket(metaclass=_ConfigMeta):
         """Convert the custom ket notation to Qiskit-compatible notation.
 
         Args:
-        ----
             label (str): The ket notation label to convert.
 
         Returns:
-        -------
             str: The converted Qiskit-compatible notation.
 
         """
