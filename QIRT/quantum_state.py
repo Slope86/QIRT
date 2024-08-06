@@ -70,6 +70,17 @@ class QuantumState:
         This constructor initializes the QuantumState object by calling the
         constructor of the base Statevector class from Qiskit. It also calculates
         and stores the number of qubits in the quantum state.
+
+        Args:
+        ----
+            data (np.array or list or Statevector or Operator or QuantumCircuit or qiskit.circuit.Instruction):
+                Data from which the statevector can be constructed. This can be either a complex
+                vector, another statevector, a ``Operator`` with only one column or a
+                ``QuantumCircuit`` or ``Instruction``.  If the data is a circuit or instruction,
+                the statevector is constructed by assuming that all qubits are initialized to the
+                zero state.
+            dims (int or tuple or list): Optional. The subsystem dimension of the state (See additional information).
+
         """
         self.state_vector = Statevector(data, dims)
         self._num_of_qubit = int(np.log2(len(self.state_vector.data)))
@@ -81,7 +92,6 @@ class QuantumState:
         This property returns the data of the quantum state vector stored in the object.
 
         Returns
-        -------
             NDArray[np.complex128]: The data of the quantum state vector.
 
         """
@@ -95,7 +105,6 @@ class QuantumState:
         represented in the quantum state vector.
 
         Returns
-        -------
             int: The number of qubits in the quantum state.
 
         """
@@ -105,8 +114,7 @@ class QuantumState:
     def from_label(cls, *args: str | tuple[complex, str]) -> QuantumState:
         """Create a state vector from input coefficients and label strings.
 
-        Examples:
-        --------
+        Examples:-
             >>> QuantumState.from_label("0", "1")
             (|0> + |1>)/√2 QuantumState object.
 
@@ -124,7 +132,6 @@ class QuantumState:
             args (str | Tuple[complex, str]): Input label strings or tuples of coefficients and label strings.
 
         Returns:
-        -------
             QuantumState: The state vector object.
 
         Raises:
@@ -165,7 +172,6 @@ class QuantumState:
         The Shannon  entropy is a measure of the quantum state's uncertainty or mixedness.
 
         Returns
-        -------
             np.float_: The Shannon  entropy of the quantum state, calculated in base 2.
 
         """
@@ -188,7 +194,6 @@ class QuantumState:
                 the QuantumState to apply the operator on. Defaults to None.
 
         Returns:
-        -------
             QuantumState: The quantum state after evolution.
 
         Raises:
@@ -211,7 +216,6 @@ class QuantumState:
         operations and calculations.
 
         Returns
-        -------
             NDArray[np.complex128]: The quantum state represented as a column matrix.
 
         """
@@ -244,7 +248,6 @@ class QuantumState:
             source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.
 
         Returns:
-        -------
             matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization
                 output depending on the chosen method.
 
@@ -282,7 +285,6 @@ class QuantumState:
             shot (int, optional): The number of measurement shots to perform. Defaults to 100.
 
         Returns:
-        -------
             Tuple[List[QuantumState], List[QuantumState]]:
                 - A list of quantum states representing the measurement results in the Z basis.
                 - A list of quantum states representing the system state after the measurement in the Z basis.
@@ -323,7 +325,6 @@ class QuantumState:
                 Defaults to 100.
 
         Returns:
-        -------
             str | Latex: The visualization of the measurement results, either
             as an image or a string representing the source code.
 
@@ -369,7 +370,6 @@ class QuantumState:
                 - "local": Local minimum entropy basis conversion.
 
         Returns:
-        -------
             tuple[QuantumState, List[str]]: The converted quantum state and the list of the basis used for conversion.
 
         Raises:
@@ -432,7 +432,6 @@ class QuantumState:
             current_basis (List[str]): The current basis of the quantum state.
 
         Returns:
-        -------
             List[str]: The basis configuration with the global minimum entropy.
 
         """
@@ -462,7 +461,6 @@ class QuantumState:
             current_basis (List[str]): The current basis of the quantum state.
 
         Returns:
-        -------
             List[str]: The basis configuration with the local minimum entropy.
 
         """
@@ -512,7 +510,6 @@ class QuantumState:
             shot (int, optional): The number of measurement shots to perform. Defaults to 100.
 
         Returns:
-        -------
             Tuple[List[QuantumState], List[QuantumState], List[QuantumState], List[QuantumState], List[str], List[str]]:
                 - z_basis_measure_state_list: Measurement states in the Z basis.
                 - z_basis_system_state_list: System states in the Z basis.

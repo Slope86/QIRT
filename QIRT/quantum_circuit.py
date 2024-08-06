@@ -12,8 +12,7 @@ The functionalities added in this module are:
 - Adding gates to convert qubits from one basis to another.
 - Applying unitary matrices to specified qubits.
 
-See Also
---------
+See Also:
     [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
 
 """
@@ -40,8 +39,7 @@ class QuantumCircuit:
     functionalities for converting basis and visualizing the quantum circuit in
     matrix form.
 
-    See Also
-    --------
+    See Also:
         [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
 
     """
@@ -56,8 +54,7 @@ class QuantumCircuit:
         This method returns the matrix representation of the quantum circuit by
         reversing the order of qubits to match textbook notation.
 
-        Returns
-        -------
+        Returns:
             NDArray[np.complex128]: The matrix representation of the quantum circuit.
 
         """
@@ -68,7 +65,6 @@ class QuantumCircuit:
         r"""Draw the quantum circuit, or show its matrix form if output is 'matrix'.
 
         Args:
-        ----
             output (str | None, optional): The output format for drawing the circuit.
                 If 'text', generates ASCII art TextDrawing that can be printed in the console.
                 If 'mpl', generates images with color rendered purely in Python using matplotlib.
@@ -79,7 +75,6 @@ class QuantumCircuit:
             **kwargs: Additional keyword arguments to pass to the draw method.
 
         Returns:
-        -------
             The drawn circuit in the specified format.
 
         """
@@ -100,7 +95,6 @@ class QuantumCircuit:
         from the current basis to the target basis.
 
         Args:
-        ----
             target_basis (str): The target basis to convert to.
             current_basis (str): The current basis of the qubit.
             qubit_index (int): The index of the qubit to be converted.
@@ -141,13 +135,11 @@ class QuantumCircuit:
         quantum circuit by reversing the order of qubits.
 
         Args:
-        ----
             matrix (NDArray[np.complex128] | list[list[int]]): The unitary matrix to apply.
             qubits (Sequence[QubitSpecifier]): The qubits to which the unitary matrix will be applied.
             label (str | None, optional): An optional label for the unitary gate. Defaults to None.
 
         Returns:
-        -------
             QuantumCircuit: Quantum circuit with the applied unitary matrix.
 
         """
@@ -160,15 +152,12 @@ class QuantumCircuit:
         """Return the original method if it returns an InstructionSet.
 
         Args:
-        ----
             name (str): The name of the method to call
 
         Raises:
-        ------
             AttributeError: If the method is not found in QuantumCircuit
 
         Returns:
-        -------
             The original method if it returns an InstructionSet.
 
         """

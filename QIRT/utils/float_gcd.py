@@ -3,7 +3,6 @@ r"""Calculate the greatest common divisor of a list of floats.
 This module contains a function to calculate the greatest common divisor (GCD) of a list of floats.
 
 Example:
--------
     >>> float_gcd(0.75, 0.25, 0.375)
     0.125
 
@@ -17,16 +16,13 @@ def float_gcd(*numbers: float) -> float:
     """Calculate the greatest common divisor of a list of floats.
 
     Example:
-    -------
         >>> float_gcd(0.75, 0.25, 0.375)
         0.125
 
     Args:
-    ----
         numbers (float): A list of floats.
 
     Returns:
-    -------
         float: The greatest common divisor of the list of floats.
 
     """

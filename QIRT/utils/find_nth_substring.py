@@ -8,7 +8,6 @@ def find_nth_substring(string: str, sub_string: str, n: int) -> int:
     """Find the index of nth substring in a string.
 
     Example:
-    -------
         >>> find_nth_substring('123abcabcabc', 'abc', 2)
         6
 
@@ -19,7 +18,6 @@ def find_nth_substring(string: str, sub_string: str, n: int) -> int:
         n (int): The nth substring to find.
 
     Returns:
-    -------
         int: The index of the nth substring. Returns -1 if the nth substring is not found.
 
     """
