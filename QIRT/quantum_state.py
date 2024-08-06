@@ -78,6 +78,10 @@ class QuantumState:
             dims (int or tuple or list): Optional. The subsystem dimension of the state (See additional information).
 
         """
+        if isinstance(data, (list | np.ndarray)):
+            # Normalize the state vector
+            data = np.asarray(data, dtype=complex)
+            data /= np.linalg.norm(data)
         self.state_vector = Statevector(data, dims)
         self._num_of_qubit = int(np.log2(len(self.state_vector.data)))
 
