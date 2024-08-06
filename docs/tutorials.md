@@ -28,121 +28,68 @@ We recommend using Jupyter Notebooks for the best experience with QIRT. Here's h
 
 3. Create a new notebook and you're ready to start!
 
-## **Basic usage**
+## **Creating a quantum state**
 
-Let's start with the basics of QIRT:
+First let's start with the basics of QIRT,  creating a quantum state $|\texttt{00}\rangle$:
 
 ```python
 from QIRT import QuantumState, QuantumCircuit
 
-# Create a quantum state
-state = QuantumState.from_label('00')
+# Create a quantum state |00>
+init_state = QuantumState.from_label('00')
 
 # Visualize the state
-state.draw()
+init_state.draw()
 ```
 
-Output:
+The output will be:
+
 $|\texttt{00}\rangle_{01}$
 
-## **Working with quantum states**
+Showing the quantum state $|\texttt{00}\rangle$ with qubit number labels 0 and 1.
 
-QIRT provides various methods to manipulate quantum states:
+## **Creating a quantum circuit**
 
-```python
-# Create a superposition state
-superposition = QuantumState.from_label('+0')
-
-# Measure the state
-measurement_result = superposition.measure()
-print(f"Measurement result: {measurement_result}")
-
-# Apply a transformation
-transformed_state = superposition.apply_gate('H', target_qubit=1)
-print(f"Transformed state: {transformed_state}")
-```
-
-## **Quantum circuit**
-
-Use the `QuantumCircuit` class to apply quantum operations to your quantum states:
+Next, let's create a quantum circuit with a Hadamard gate and a CNOT gate:
 
 ```python
-# Create a quantum circuit
-op = QuantumCircuit()
+# Create a two bit quantum circuit
+circuit = QuantumCircuit(2)
 
-# Apply a Hadamard gate
-op.h(0)
+# Add a Hadamard gate on the circuit to qubit 0
+circuit.h(0)
 
-# Apply a CNOT gate
-op.cx(0, 1)
+# Add a CNOT gate on the circuit with control qubit 0 and target qubit 1
+circuit.cx(0, 1)
 
-# Apply the operation to a state
-initial_state = QuantumState.from_label('00')
-final_state = op.apply_to(initial_state)
-print(f"Final state after operations: {final_state}")
+# Visualize the circuit
+circuit.draw()
 ```
 
-## **Visualization**
+The output will be:
 
-QIRT provides powerful visualization tools:
+![Image title](.\imgs\bell_state_circ.png)
+
+Showing the quantum circuit with a Hadamard gate on qubit 0 and a CNOT gate with control qubit 0 and target qubit 1.
+
+## **Applying the quantum circuit to the quantum state**
+
+Now, let's apply the quantum circuit to the quantum state $|\texttt{00}\rangle$, creating a Bell state:
 
 ```python
-# Visualize a quantum state
-state = QuantumState.from_label('++')
-state.draw()
+# Apply the quantum circuit to the quantum state
+Bell_state = init_state.apply(circuit)
 
-# Visualize a quantum operation
-op = QuantumCircuit()
-op.h(0)
-op.cx(0, 1)
-op.draw()
+# Visualize the Bell state
+Bell_state.draw()
 ```
 
-Certainly! Here's a polished version of the Configuration section:
+The output will be:
 
-## **Configuration**
+$\frac{\sqrt{2}}{2}|\texttt{00}\rangle_{01} + \frac{\sqrt{2}}{2}|\texttt{11}\rangle_{01} $
 
-QIRT utilizes a configuration file to customize the ket notation. This file is located at `~/.QIRT/config.ini` in your home directory. You can modify the ket notation by editing the `config.ini` file. Here's an example of the default configuration:
+Now you have turned the quantum state $|\texttt{00}\rangle$ into a Bell state $\frac{1}{\sqrt{2}}(|\texttt{00}\rangle + |\texttt{11}\rangle)$ using the quantum circuit.
 
-```ini
-[ket]
-z0 = 0
-z1 = 1
-x0 = +
-x1 = -
-y0 = i
-y1 = j
-```
-
-This configuration defines how different basis states are represented:
-
-- `z0` and `z1` represent the computational basis states
-- `x0` and `x1` represent the X-basis states
-- `y0` and `y1` represent the Y-basis states
-
-Feel free to adjust these values to match your preferred notation or to align with specific conventions in your work.
-
-**Note:** After making changes to the configuration file, you must restart your Jupyter kernel or Python interpreter for the changes to take effect. This ensures that QIRT loads the updated configuration properly.
-
-## **Custom quantum gates**
-
-You can define custom quantum gates:
-
-```python
-import numpy as np
-from QIRT import QuantumCircuit
-
-# Define a custom gate matrix
-custom_matrix = np.array([[0, 1], [1, 0]])  # X gate
-
-# Create a quantum operation with the custom gate
-op = QuantumCircuit()
-op.unitary(custom_matrix, [0], label='CustomX')
-
-# Visualize
-op.draw()
-```
-
-For more advanced usage and detailed API documentation, please refer to our [API Reference](./reference.md).
+For more advanced usage, check out our [How-To guides](./how-to-guides.md), and for the detailed API documentation, please refer to our [API Reference](./reference.md).
 
 Happy quantum computing with QIRT!
