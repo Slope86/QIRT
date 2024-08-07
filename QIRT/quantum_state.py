@@ -265,7 +265,7 @@ class QuantumState:
             case _:
                 raise QiskitError("Invalid output format.")
 
-    def state_after_measure(
+    def state_after_measurement(
         self, measure_bit: list[int] | str, state_basis: list[str] | str = [], shot=100
     ) -> tuple[list[QuantumState], list[QuantumState]]:
         """Obtain the quantum state after a measurement.
@@ -292,7 +292,7 @@ class QuantumState:
         )
         return (z_basis_measure_state_list, z_basis_system_state_list)
 
-    def draw_measure(
+    def draw_measurement(
         self,
         measure_bit: list[int] | str,
         state_basis: list[str] | str = [],
