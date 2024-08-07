@@ -17,7 +17,3 @@ If you're new to QIRT, we recommend starting with our [Tutorials](../tutorials/i
 ## Support
 
 If you encounter any issues or have questions about using QIRT, please file an issue on our [GitHub repository](https://github.com/Slope86/QIRT/issues) or reach out to our community support channels.
-
----
-
-Remember to check back regularly for updates, as we continually improve and expand QIRT's capabilities.
