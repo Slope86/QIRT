@@ -218,8 +218,8 @@ class QuantumState:
             NDArray[np.complex128]: The quantum state represented as a column matrix.
 
         """
-        vector = self.state_vector.data
-        matrix = vector[np.newaxis].T
+        flat_vector = self.state_vector.data
+        matrix = flat_vector[np.newaxis].T
         return matrix
 
     def draw(
@@ -233,11 +233,11 @@ class QuantumState:
         """Visualize the statevector.
 
         This method provides different visualization options for the quantum state vector,
-        such as LaTeX, matrix form, or other specified formats.
+        such as LaTeX, matrix/vector form, or other specified formats.
 
         Args:
             output (str, optional): Visualization method. Defaults to "latex". Options include:
-                - "matrix": Outputs the state vector as a LaTeX formatted matrix.
+                - "matrix" or "vector": Outputs the state vector as a LaTeX formatted matrix.
                 - "latex": Outputs the state vector as a LaTeX formatted expression.
             target_basis (List[str] | str | None, optional): The target basis for visualization. Defaults to None.
             show_qubit_index (bool, optional): Whether to show qubit indices in the visualization. Defaults to True.
@@ -251,7 +251,7 @@ class QuantumState:
 
         """
         match output:
-            case "matrix":
+            case "matrix" | "vector":
                 return latex_drawer.matrix_to_latex(self.to_matrix(), source=source)
             case "latex":
                 return latex_drawer.state_to_latex(
