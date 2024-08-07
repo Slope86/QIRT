@@ -127,6 +127,9 @@ class QuantumState:
             >>> QuantumState.from_label((2**0.5, "0"), "+", (-1, "-"))
             (√2|0> + |+> - |->)/2 = |+> QuantumState object.
 
+            >>> QuantumState.from_label("0", (1j, "1"))
+            (|0> + i|1>)/√2 = |i> QuantumState object.
+
         Args:
             args (str | Tuple[complex, str]): Input label strings or tuples of coefficients and label strings.
 
