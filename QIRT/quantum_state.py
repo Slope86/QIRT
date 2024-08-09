@@ -298,7 +298,6 @@ class QuantumState:
         show_qubit_index: bool = True,
         output_length: int = 2,
         source: bool = False,
-        shot: int = 100,
     ) -> str | Latex:
         """Visualize the measurement results of the quantum state.
 
@@ -316,8 +315,6 @@ class QuantumState:
                 2^output_length. Defaults to 2 (i.e., 4 terms per line).
             source (bool, optional): Whether to return the source code for the
                 visualization. Defaults to False.
-            shot (int, optional): The number of measurement shots to perform.
-                Defaults to 100.
 
         Returns:
             str | Latex: The visualization of the measurement results, either
@@ -328,7 +325,7 @@ class QuantumState:
 
         """
         _, _, measure_state_list, system_state_list, measure_basis, system_basis = self._measurement(
-            measure_bit, state_basis, shot
+            measure_bit, state_basis
         )
         return latex_drawer.measure_result_to_latex(
             measure_state_list=measure_state_list,
