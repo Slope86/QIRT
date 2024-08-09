@@ -6,8 +6,16 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    # - toc.integrate
+    - navigation.prune
+    - navigation.indexes
+    - navigation.top
   icon:
     repo: fontawesome/brands/github
+
 
 plugins:
   - search
@@ -24,6 +32,8 @@ markdown_extensions:
       generic: true
   - attr_list
   - md_in_html
+  - toc:
+      toc_depth: 3
 
 extra_javascript:
   - javascripts/katex.js
@@ -35,9 +45,18 @@ extra_css:
 
 nav:
   - Welcome to QIRT: index.md
-  - Tutorials: tutorials.md
+  - Tutorials: 
+    - tutorials/index.md
+    - Setup: tutorials/setup.md
+    - Create Quantum State: tutorials/create-quantum-state.md
+    - Create Quantum Circuit: tutorials/create-quantum-circuit.md
+    - Applye Quantum Circuit to Quantum State: tutorials/apply-circuit-to-state.md
+    - Measure Quantum State: tutorials/measure-quantum-state.md
   - How-To Guides: how-to-guides.md
-  - Reference: reference.md
+  - Reference: 
+    - reference/index.md
+    - QuantumState: reference/quantum-state.md
+    - QuantumCircuit: reference/quantum-circuit.md
 
 repo_url: https://github.com/Slope86/QIRT
 
