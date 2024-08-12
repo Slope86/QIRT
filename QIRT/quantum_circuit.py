@@ -14,7 +14,6 @@ The functionalities added in this module are:
 
 See Also:
     [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
-
 """
 
 from __future__ import annotations
@@ -41,7 +40,6 @@ class QuantumCircuit:
 
     See Also:
         [Qiskit QuantumCircuit documentation](https://qiskit.org/documentation/stubs/qiskit.circuit.QuantumCircuit.html)
-
     """
 
     def __init__(self, *args, **kwargs):
@@ -56,7 +54,6 @@ class QuantumCircuit:
 
         Returns:
             NDArray[np.complex128]: The matrix representation of the quantum circuit.
-
         """
         reverse_qc = self._qiskit_qc.reverse_bits()  # REVERSE the order of qubits to match textbook notation
         return np.asarray(quantum_info.Operator(reverse_qc).data, dtype=np.complex128)
@@ -76,7 +73,6 @@ class QuantumCircuit:
 
         Returns:
             The drawn circuit in the specified format.
-
         """
         match output:
             case "matrix":
@@ -98,7 +94,6 @@ class QuantumCircuit:
             target_basis (str): The target basis to convert to.
             current_basis (str): The current basis of the qubit.
             qubit_index (int): The index of the qubit to be converted.
-
         """
         if current_basis == target_basis:
             return self
@@ -141,7 +136,6 @@ class QuantumCircuit:
 
         Returns:
             QuantumCircuit: Quantum circuit with the applied unitary matrix.
-
         """
         matrix = np.asarray(matrix, dtype=np.complex128)
         matrix = inverse_tensor(matrix)  # REVERSE the order of qubits to match textbook notation
@@ -159,7 +153,6 @@ class QuantumCircuit:
 
         Returns:
             The original method if it returns an InstructionSet.
-
         """
         original_method = getattr(self._qiskit_qc, name)
 

@@ -49,7 +49,6 @@ def matrix_to_latex(
 
     Returns:
         Latex: The rendered image of the LaTeX representation of the matrix, or the LaTeX source code if source is True.
-
     """
     prefix = R"$\begin{bmatrix}"
     suffix = R"\end{bmatrix}$"
@@ -111,7 +110,6 @@ def state_to_latex(
     Returns:
         str | Latex: The rendered image of the LaTeX representation of the quantum state,
         or the LaTeX source code if source is True.
-
     """
     prefix = R"$\begin{alignedat}{" + f"{2**(output_length+1)+1}" + R"}&\; \;&\;"
     suffix = R"\end{alignedat}$"
@@ -156,7 +154,6 @@ def measure_result_to_latex(
     Returns:
         str | Latex: The rendered image of the LaTeX representation of the measurement results,
         or the LaTeX source code if source is True.
-
     """
     if isinstance(measure_bit, str):
         measure_bit = [int(i) for i in measure_bit]
@@ -221,7 +218,6 @@ def _state_to_latex_ket(
 
     Returns:
         str: The LaTeX formatted ket representation of the quantum state.
-
     """
     if current_basis is None:
         current_basis = ["z"] * state.num_of_qubit
@@ -290,7 +286,6 @@ def _coeffs_to_latex_terms(coeffs: NDArray[np.complex128], decimals: int = 15) -
 
     Returns:
         List[str]: List of LaTeX formatted terms.
-
     """
     first_term = True
     terms = []
@@ -312,7 +307,6 @@ def _coeff_to_latex_ket(raw_value: complex, first_coeff: bool, decimals: int = 1
 
     Returns:
         str | None: LaTeX code representing the coefficient or None if no term is required.
-
     """
     # Round to the specified number of decimals
     raw_value = np.around(raw_value, decimals=decimals)
@@ -373,7 +367,6 @@ def _num_to_latex_ket(raw_value: complex, decimals: int = 15) -> str:
 
     Returns:
         str: LaTeX element representing the value.
-
     """
     raw_value = np.around(raw_value, decimals=decimals)
     value = sympy.nsimplify(raw_value, constants=(sympy.pi,), rational=False)
@@ -390,7 +383,6 @@ def _latex_line_break(latex_code: str, output_length: int = 2) -> str:
 
     Returns:
         str: The resulting LaTeX code with appropriate line breaks.
-
     """
     latex_code = latex_code.replace("|", "&|")
     max_term = 2**output_length
