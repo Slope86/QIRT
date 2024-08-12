@@ -86,7 +86,7 @@ def matrix_to_latex(
 
 def state_to_latex(
     state: QuantumState,
-    state_basis: list[str] | str | None = None,
+    current_basis: list[str] | str | None = None,
     target_basis: list[str] | str | None = None,
     show_qubit_index: bool = True,
     output_length: int = 2,
@@ -99,10 +99,10 @@ def state_to_latex(
 
     Args:
         state (QuantumState): The quantum state to be converted.
-        state_basis (List[str] | str | None, optional): The basis of the input state.
+        current_basis (List[str] | str | None, optional): The basis of the input state.
             Defaults to None, which sets it to the Z basis.
         target_basis (List[str] | str | None, optional): The target basis for the conversion.
-            Defaults to None, which sets it to the state_basis.
+            Defaults to None, which sets it to the current_basis.
         show_qubit_index (bool, optional): Whether to show the qubit indices in the LaTeX output. Defaults to True.
         output_length (int, optional): The number of terms per line in the LaTeX output, defined as 2^output_length.
             Defaults to 2 (i.e., 4 terms per line).
@@ -116,7 +116,7 @@ def state_to_latex(
     prefix = R"$\begin{alignedat}{" + f"{2**(output_length+1)+1}" + R"}&\; \;&\;"
     suffix = R"\end{alignedat}$"
     latex_code = _state_to_latex_ket(
-        state=state, state_basis=state_basis, target_basis=target_basis, show_qubit_index=show_qubit_index
+        state=state, current_basis=current_basis, target_basis=target_basis, show_qubit_index=show_qubit_index
     )
     latex_code = _latex_line_break(latex_code, output_length)
     latex_code = prefix + latex_code + suffix
@@ -170,7 +170,7 @@ def measure_result_to_latex(
             latex_list.append(
                 _state_to_latex_ket(
                     state=measure_state,
-                    state_basis=measure_basis,
+                    current_basis=measure_basis,
                     target_basis=measure_basis,
                     qubit_index=measure_bit,
                     show_qubit_index=True,
@@ -179,7 +179,7 @@ def measure_result_to_latex(
             latex_list.append(R":&\; \;&\;")
             tmp_str = _state_to_latex_ket(
                 state=system_state,
-                state_basis=system_basis,
+                current_basis=system_basis,
                 target_basis=system_basis,
                 hidden_bit=measure_bit,
                 show_qubit_index=show_qubit_index,
@@ -195,7 +195,7 @@ def measure_result_to_latex(
 
 def _state_to_latex_ket(
     state: QuantumState,
-    state_basis: list[str] | str | None = None,
+    current_basis: list[str] | str | None = None,
     target_basis: list[str] | str | None = None,
     qubit_index: list[int] | None = None,
     hidden_bit: list[int] = [],
@@ -208,7 +208,7 @@ def _state_to_latex_ket(
 
     Args:
         state (QuantumState): The quantum state to be converted.
-        state_basis (List[str] | str | None, optional): The basis of the input state.
+        current_basis (List[str] | str | None, optional): The basis of the input state.
             Defaults to None, which sets it to the Z basis.
         target_basis (List[str] | str | None, optional): The target basis for the conversion.
             Defaults to None, which sets it to basis with minimum entropy.
@@ -223,10 +223,10 @@ def _state_to_latex_ket(
         str: The LaTeX formatted ket representation of the quantum state.
 
     """
-    if state_basis is None:
-        state_basis = ["z"] * state.num_of_qubit
-    if isinstance(state_basis, str):
-        state_basis = list(state_basis)
+    if current_basis is None:
+        current_basis = ["z"] * state.num_of_qubit
+    if isinstance(current_basis, str):
+        current_basis = list(current_basis)
     if target_basis is None:
         target_basis = ["*"] * state.num_of_qubit
     if isinstance(target_basis, str):
@@ -240,7 +240,7 @@ def _state_to_latex_ket(
         if basis == "-":
             hidden_bit.append(qubit_index[i])
 
-    convert_state, convert_basis = state._basis_convert(target_basis, state_basis)
+    convert_state, convert_basis = state._basis_convert(target_basis, current_basis)
     data = convert_state.data
 
     if show_qubit_index:
