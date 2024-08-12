@@ -255,7 +255,7 @@ class QuantumState:
             case "latex":
                 return latex_drawer.state_to_latex(
                     state=self,
-                    state_basis=["z"] * self.num_of_qubit,
+                    current_basis=["z"] * self.num_of_qubit,
                     target_basis=target_basis,
                     show_qubit_index=show_qubit_index,
                     output_length=output_length,
@@ -265,7 +265,7 @@ class QuantumState:
                 raise QiskitError("Invalid output format.")
 
     def state_after_measurement(
-        self, measure_bit: list[int] | str, state_basis: list[str] | str = [], shot=100
+        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=100
     ) -> tuple[list[QuantumState], list[QuantumState]]:
         """Obtain the quantum state after a measurement.
 
@@ -276,7 +276,7 @@ class QuantumState:
         Args:
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a
                 string specifying the bits.
-            state_basis (List[str] | str, optional): The basis in which to perform the measurement.
+            target_basis (List[str] | str, optional): The basis in which to perform the measurement.
                 Defaults to an empty list.
             shot (int, optional): The number of measurement shots to perform. Defaults to 100.
 
@@ -287,14 +287,14 @@ class QuantumState:
 
         """
         z_basis_measure_state_list, z_basis_system_state_list, _, _, _, _ = self._measurement(
-            measure_bit=measure_bit, state_basis=state_basis, shot=shot
+            measure_bit=measure_bit, target_basis=target_basis, shot=shot
         )
         return (z_basis_measure_state_list, z_basis_system_state_list)
 
     def draw_measurement(
         self,
         measure_bit: list[int] | str,
-        state_basis: list[str] | str = [],
+        target_basis: list[str] | str = [],
         show_qubit_index: bool = True,
         output_length: int = 2,
         source: bool = False,
@@ -307,8 +307,8 @@ class QuantumState:
         Args:
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list
                 of indices or a string specifying the bits.
-            state_basis (List[str] | str, optional): The basis in which to perform the
-                measurement. Defaults to an empty list.
+            target_basis (List[str] | str, optional): The basis in which to perform the
+                measurement. Defaults to basis with minimum entropy.
             show_qubit_index (bool, optional): Whether to show qubit indices in the
                 visualization. Defaults to True.
             output_length (int, optional): The number of terms in each line, defined as
@@ -325,7 +325,7 @@ class QuantumState:
 
         """
         _, _, measure_state_list, system_state_list, measure_basis, system_basis = self._measurement(
-            measure_bit, state_basis
+            measure_bit, target_basis
         )
         return latex_drawer.measure_result_to_latex(
             measure_state_list=measure_state_list,
@@ -481,7 +481,7 @@ class QuantumState:
         return min_basis
 
     def _measurement(
-        self, measure_bit: list[int] | str, state_basis: list[str] | str = [], shot=-1
+        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=-1
     ) -> tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]:
         """Perform a measurement on the quantum state.
 
@@ -491,8 +491,8 @@ class QuantumState:
         Args:
             measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list
                 of indices or a string specifying the bits.
-            state_basis (List[str] | str, optional): The basis in which to perform the
-                measurement. Defaults to an empty list.
+            target_basis (List[str] | str, optional): The basis in which to perform the
+                measurement. Defaults to basis with minimum entropy.
             shot (int, optional): The number of measurement shots to perform.
                 Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 2))
 
@@ -513,7 +513,7 @@ class QuantumState:
             measure_bit = [int(i) for i in measure_bit]
 
         converted_state, system_basis = self._basis_convert(
-            target_basis=state_basis, current_basis=["z"] * self.num_of_qubit
+            target_basis=target_basis, current_basis=["z"] * self.num_of_qubit
         )
 
         # crate empty list for output
