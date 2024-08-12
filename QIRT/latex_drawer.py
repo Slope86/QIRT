@@ -46,7 +46,6 @@ def matrix_to_latex(
         matrix (NDArray[np.float128 | np.complex128]): The matrix to be converted.
         source (bool, optional): Whether to return the LaTeX source code instead of the image. Defaults to False.
 
-
     Returns:
         Latex: The rendered image of the LaTeX representation of the matrix, or the LaTeX source code if source is True.
     """
