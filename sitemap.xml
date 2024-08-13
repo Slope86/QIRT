@@ -41,12 +41,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://slope86.github.io/QIRT/reference/quantum-circuit/</loc>
+         <loc>https://slope86.github.io/QIRT/reference/quantum_circuit/</loc>
          <lastmod>2024-08-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://slope86.github.io/QIRT/reference/quantum-state/</loc>
+         <loc>https://slope86.github.io/QIRT/reference/quantum_state/</loc>
          <lastmod>2024-08-13</lastmod>
          <changefreq>daily</changefreq>
     </url>

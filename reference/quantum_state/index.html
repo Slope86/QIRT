@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/quantum-state/">
+        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/quantum_state/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../quantum-circuit/">
+        <link rel="next" href="../quantum_circuit/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quantum-circuit/" class="md-nav__link">
+      <a href="../quantum_circuit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1527,7 +1527,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">        The Shannon  entropy is a measure of the quantum state&#39;s uncertainty or mixedness.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            np.float_: The Shannon  entropy of the quantum state, calculated in base 2.</span>
+<span class="sd">            np.float64: The Shannon  entropy of the quantum state, calculated in base 2.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">entropy</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
@@ -1596,7 +1596,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">            source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization</span>
+<span class="sd">            (matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex): The visualization</span>
 <span class="sd">                output depending on the chosen method.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">match</span> <span class="n">output</span><span class="p">:</span>
@@ -1631,7 +1631,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">            shot (int, optional): The number of measurement shots to perform. Defaults to 100.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[List[QuantumState], List[QuantumState]]:</span>
+<span class="sd">            (Tuple[List[QuantumState], List[QuantumState]]):</span>
 <span class="sd">                - A list of quantum states representing the measurement results in the Z basis.</span>
 <span class="sd">                - A list of quantum states representing the system state after the measurement in the Z basis.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1666,8 +1666,8 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">                visualization. Defaults to False.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            str | Latex: The visualization of the measurement results, either</span>
-<span class="sd">            as an image or a string representing the source code.</span>
+<span class="sd">            (str | Latex): The visualization of the measurement results,</span>
+<span class="sd">                either as an image or a string representing the source code.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            QiskitError: If the measurement basis or bit specifications are invalid.</span>
@@ -1708,7 +1708,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">                - &quot;local&quot;: Local minimum entropy basis conversion.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            tuple[QuantumState, List[str]]: The converted quantum state and the list of the basis used for conversion.</span>
+<span class="sd">            (tuple[QuantumState, List[str]]): The converted quantum state and the list of the basis used for conversion.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            QiskitError: If the input basis is invalid or if an invalid algorithm is specified.</span>
@@ -1842,14 +1842,14 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 2))</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Tuple[List[QuantumState], List[QuantumState], List[QuantumState], List[QuantumState], List[str], List[str]]:</span>
+<span class="sd">            (tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]):</span>
 <span class="sd">                - z_basis_measure_state_list: Measurement states in the Z basis.</span>
 <span class="sd">                - z_basis_system_state_list: System states in the Z basis.</span>
 <span class="sd">                - measure_state_list: Measurement states in the original basis.</span>
 <span class="sd">                - system_state_list: System states in the original basis.</span>
 <span class="sd">                - measure_basis: The basis used for the measurement.</span>
 <span class="sd">                - system_basis: The system basis after conversion.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
         <span class="k">if</span> <span class="n">shot</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">shot</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -2066,7 +2066,7 @@ and stores the number of qubits in the quantum state.</p>
           <tr class="doc-section-item">
             <td><code>data</code></td>
             <td>
-                  <code><span title="numpy.array">array</span> or list or <span title="qiskit.quantum_info.Statevector">Statevector</span> or <span title="qiskit.quantum_info.operators.operator.Operator">Operator</span> or <a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum-circuit/#QIRT.QuantumCircuit">QuantumCircuit</a> or <span title="qiskit.circuit.Instruction">Instruction</span></code>
+                  <code><span title="numpy.array">array</span> or list or <span title="qiskit.quantum_info.Statevector">Statevector</span> or <span title="qiskit.quantum_info.operators.operator.Operator">Operator</span> or <a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum_circuit/#QIRT.QuantumCircuit">QuantumCircuit</a> or <span title="qiskit.circuit.Instruction">Instruction</span></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2187,7 +2187,7 @@ according to the operator's effect.</p>
           <tr class="doc-section-item">
             <td><code>other</code></td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum-circuit/#QIRT.QuantumCircuit">QuantumCircuit</a></code>
+                  <code><a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum_circuit/#QIRT.QuantumCircuit">QuantumCircuit</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -2431,10 +2431,11 @@ such as LaTeX, matrix/vector form, or other specified formats.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
+                  <code><span title="matplotlib.Figure">Figure</span> | str | TextMatrix | <span title="IPython.display.Latex">Latex</span> | <span title="IPython.display.Latex">Latex</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization
+                <p>The visualization
 output depending on the chosen method.</p>
               </div>
             </td>
@@ -2508,7 +2509,7 @@ output depending on the chosen method.</p>
 <span class="sd">        source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization</span>
+<span class="sd">        (matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex): The visualization</span>
 <span class="sd">            output depending on the chosen method.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">match</span> <span class="n">output</span><span class="p">:</span>
@@ -2652,17 +2653,8 @@ visualization. Defaults to False.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>str | Latex: The visualization of the measurement results, either</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                  <code>str | <span title="IPython.display.Latex">Latex</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>as an image or a string representing the source code.</p>
+                <p>The visualization of the measurement results,
+either as an image or a string representing the source code.</p>
               </div>
             </td>
           </tr>
@@ -2764,8 +2756,8 @@ visualization. Defaults to False.</p>
 <span class="sd">            visualization. Defaults to False.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        str | Latex: The visualization of the measurement results, either</span>
-<span class="sd">        as an image or a string representing the source code.</span>
+<span class="sd">        (str | Latex): The visualization of the measurement results,</span>
+<span class="sd">            either as an image or a string representing the source code.</span>
 
 <span class="sd">    Raises:</span>
 <span class="sd">        QiskitError: If the measurement basis or bit specifications are invalid.</span>
@@ -2819,7 +2811,7 @@ visualization. Defaults to False.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>np.float_: The Shannon  entropy of the quantum state, calculated in base 2.</p>
+                <p>np.float64: The Shannon  entropy of the quantum state, calculated in base 2.</p>
               </div>
             </td>
           </tr>
@@ -2845,7 +2837,7 @@ visualization. Defaults to False.</p>
 <span class="sd">    The Shannon  entropy is a measure of the quantum state&#39;s uncertainty or mixedness.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        np.float_: The Shannon  entropy of the quantum state, calculated in base 2.</span>
+<span class="sd">        np.float64: The Shannon  entropy of the quantum state, calculated in base 2.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">entropy</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
@@ -3171,13 +3163,14 @@ Defaults to an empty list.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>tuple[list[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>], list[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>]]</code>
+                  <code>Tuple[List[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>], List[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>]]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Tuple[List[QuantumState], List[QuantumState]]:
-- A list of quantum states representing the measurement results in the Z basis.
-- A list of quantum states representing the system state after the measurement in the Z basis.</p>
+                <ul>
+<li>A list of quantum states representing the measurement results in the Z basis.</li>
+<li>A list of quantum states representing the system state after the measurement in the Z basis.</li>
+</ul>
               </div>
             </td>
           </tr>
@@ -3227,7 +3220,7 @@ Defaults to an empty list.</p>
 <span class="sd">        shot (int, optional): The number of measurement shots to perform. Defaults to 100.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Tuple[List[QuantumState], List[QuantumState]]:</span>
+<span class="sd">        (Tuple[List[QuantumState], List[QuantumState]]):</span>
 <span class="sd">            - A list of quantum states representing the measurement results in the Z basis.</span>
 <span class="sd">            - A list of quantum states representing the system state after the measurement in the Z basis.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

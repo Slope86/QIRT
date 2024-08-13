@@ -8,10 +8,10 @@
       
       
       
-        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/quantum-circuit/">
+        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/quantum_circuit/">
       
       
-        <link rel="prev" href="../quantum-state/">
+        <link rel="prev" href="../quantum_state/">
       
       
       
@@ -510,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quantum-state/" class="md-nav__link">
+      <a href="../quantum_state/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1002,7 +1002,7 @@ matrix form.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">_qiskit_qc</span><span class="o">.</span><span class="n">unitary</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">qubits</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
 
-    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumCircuit</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the original method if it returns an InstructionSet.</span>
 
 <span class="sd">        Args:</span>
@@ -1012,7 +1012,7 @@ matrix form.</p>
 <span class="sd">            AttributeError: If the method is not found in QuantumCircuit</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            The original method if it returns an InstructionSet.</span>
+<span class="sd">            QuantumCircuit: The original method if it returns an InstructionSet.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">original_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_qiskit_qc</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
@@ -1108,13 +1108,14 @@ matrix form.</p>
     <table>
       <thead>
         <tr>
-          <th>Type</th>
+<th>Name</th>          <th>Type</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td>
+<td><code>QuantumCircuit</code></td>            <td>
+                  <code><a class="autorefs autorefs-internal" title="QIRT.quantum_circuit.QuantumCircuit" href="#QIRT.QuantumCircuit">QuantumCircuit</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1147,7 +1148,7 @@ matrix form.</p>
 <span class="normal">162</span>
 <span class="normal">163</span>
 <span class="normal">164</span>
-<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumCircuit</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the original method if it returns an InstructionSet.</span>
 
 <span class="sd">    Args:</span>
@@ -1157,7 +1158,7 @@ matrix form.</p>
 <span class="sd">        AttributeError: If the method is not found in QuantumCircuit</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        The original method if it returns an InstructionSet.</span>
+<span class="sd">        QuantumCircuit: The original method if it returns an InstructionSet.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">original_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_qiskit_qc</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
