@@ -567,9 +567,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-adding-a-custom-xor-gate" class="md-nav__link">
+  <a href="#example-adding-a-cnot-gate" class="md-nav__link">
     <span class="md-ellipsis">
-      Example: Adding a Custom XOR Gate
+      Example: Adding a CNOT Gate
     </span>
   </a>
   
@@ -745,9 +745,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-adding-a-custom-xor-gate" class="md-nav__link">
+  <a href="#example-adding-a-cnot-gate" class="md-nav__link">
     <span class="md-ellipsis">
-      Example: Adding a Custom XOR Gate
+      Example: Adding a CNOT Gate
     </span>
   </a>
   
@@ -802,21 +802,28 @@
 <p>Method chaining can make your code cleaner and more readable, especially for constructing more complex circuits.</p>
 <h2 id="adding-custom-unitary-operators">Adding Custom Unitary Operators</h2>
 <p>QIRT allows you to add custom unitary operators to your quantum circuits using the <code>unitary</code> method. This is particularly useful when you want to apply a specific unitary transformation that isn't available as a built-in gate.</p>
-<h3 id="example-adding-a-custom-xor-gate">Example: Adding a Custom XOR Gate</h3>
-<p>Let's add a custom XOR gate to our circuit:</p>
+<h3 id="example-adding-a-cnot-gate">Example: Adding a CNOT Gate</h3>
+<p>Let's add a CNOT gate to a quantum circuit using the <code>unitary</code> method:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">QIRT</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Create a quantum circuit</span>
 <span class="n">circ</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
+<span class="c1"># Unitary matrix for a CNOT gate</span>
+<span class="n">cnot</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+
 <span class="c1"># Add a custom XOR gate</span>
-<span class="n">circ</span><span class="o">.</span><span class="n">unitary</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="n">qubits</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;XOR&#39;</span><span class="p">)</span>
+<span class="n">circ</span><span class="o">.</span><span class="n">unitary</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="n">cnot</span><span class="p">,</span> <span class="n">qubits</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CNOT&#39;</span><span class="p">)</span>
 
 <span class="c1"># Visualize the circuit</span>
 <span class="n">circ</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 </code></pre></div>
-<p>This adds a custom XOR gate (which is equivalent to a Pauli-X or NOT gate) to the first qubit of our circuit.</p>
+<p>&gt;&gt; Output:</p>
+<p><img alt="unitary_demo" src="../imgs/unitary_demo.png" /></p>
+<p>This adds a CNOT gate to the circuit using a unitary matrix.</p>
 <p>The <code>unitary</code> method allows you to apply any custom unitary matrix to specified qubits. The <code>matrix</code> parameter takes the unitary matrix, <code>qubits</code> specifies which qubits to apply the gate to, and <code>label</code> allows you to give a name to your custom gate.</p>
 <h2 id="finding-more-quantum-gates">Finding More Quantum Gates</h2>
 <p>QIRT is built on top of Qiskit, which is a comprehensive and widely-used framework for quantum computing. As such, QIRT provides support for many different quantum gates. To explore all available gates and their usage, you can refer to the <a href="https://docs.quantum.ibm.com/api/qiskit/circuit_library">Qiskit Circuit Library</a>.</p>
