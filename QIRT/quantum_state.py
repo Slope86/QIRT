@@ -167,7 +167,7 @@ class QuantumState:
         The Shannon  entropy is a measure of the quantum state's uncertainty or mixedness.
 
         Returns:
-            np.float_: The Shannon  entropy of the quantum state, calculated in base 2.
+            np.float64: The Shannon  entropy of the quantum state, calculated in base 2.
         """
         entropy = stats.entropy(self.state_vector.probabilities(), base=2)
         if type(entropy) is np.float64:
@@ -236,7 +236,7 @@ class QuantumState:
             source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.
 
         Returns:
-            matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization
+            (matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex): The visualization
                 output depending on the chosen method.
         """
         match output:
@@ -271,7 +271,7 @@ class QuantumState:
             shot (int, optional): The number of measurement shots to perform. Defaults to 100.
 
         Returns:
-            Tuple[List[QuantumState], List[QuantumState]]:
+            (Tuple[List[QuantumState], List[QuantumState]]):
                 - A list of quantum states representing the measurement results in the Z basis.
                 - A list of quantum states representing the system state after the measurement in the Z basis.
         """
@@ -306,8 +306,8 @@ class QuantumState:
                 visualization. Defaults to False.
 
         Returns:
-            str | Latex: The visualization of the measurement results, either
-            as an image or a string representing the source code.
+            (str | Latex): The visualization of the measurement results,
+                either as an image or a string representing the source code.
 
         Raises:
             QiskitError: If the measurement basis or bit specifications are invalid.
@@ -348,7 +348,7 @@ class QuantumState:
                 - "local": Local minimum entropy basis conversion.
 
         Returns:
-            tuple[QuantumState, List[str]]: The converted quantum state and the list of the basis used for conversion.
+            (tuple[QuantumState, List[str]]): The converted quantum state and the list of the basis used for conversion.
 
         Raises:
             QiskitError: If the input basis is invalid or if an invalid algorithm is specified.
@@ -482,14 +482,14 @@ class QuantumState:
                 Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 2))
 
         Returns:
-            Tuple[List[QuantumState], List[QuantumState], List[QuantumState], List[QuantumState], List[str], List[str]]:
+            (tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]):
                 - z_basis_measure_state_list: Measurement states in the Z basis.
                 - z_basis_system_state_list: System states in the Z basis.
                 - measure_state_list: Measurement states in the original basis.
                 - system_state_list: System states in the original basis.
                 - measure_basis: The basis used for the measurement.
                 - system_basis: The system basis after conversion.
-        """
+        """  # noqa: E501
         if shot == -1:
             shot = 2 ** (len(measure_bit) + 2)
 

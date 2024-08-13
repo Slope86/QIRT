@@ -10,6 +10,6 @@ Welcome to the Quantum Information Research Toolkit (QIRT) tutorials. These guid
 
 Each tutorial provides step-by-step instructions and examples to help you understand and use QIRT effectively. We recommend going through these tutorials in order if you're new to QIRT.
 
-For more advanced usage, check out our [How-To guides](../how-to-guides/index.md), and for detailed API documentation, please refer to our [API Reference](../reference/index.md).
+For more advanced usage, check out our [How-To guides](../how_to_guides/index.md), and for detailed API documentation, please refer to our [API Reference](../reference/index.md).
 
 Happy quantum computing with QIRT!

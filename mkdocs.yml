@@ -61,8 +61,8 @@ nav:
     - Customize Ket Notation: how_to_guides/customize_ket_notation.md
   - Reference: 
     - reference/index.md
-    - QuantumState: reference/quantum-state.md
-    - QuantumCircuit: reference/quantum-circuit.md
+    - QuantumState: reference/quantum_state.md
+    - QuantumCircuit: reference/quantum_circuit.md
 
 repo_url: https://github.com/Slope86/QIRT
 

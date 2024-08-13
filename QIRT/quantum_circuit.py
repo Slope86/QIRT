@@ -142,7 +142,7 @@ class QuantumCircuit:
         self._qiskit_qc.unitary(matrix, qubits, label=label)
         return self
 
-    def __getattr__(self, name: str):
+    def __getattr__(self, name: str) -> QuantumCircuit:
         """Return the original method if it returns an InstructionSet.
 
         Args:
@@ -152,7 +152,7 @@ class QuantumCircuit:
             AttributeError: If the method is not found in QuantumCircuit
 
         Returns:
-            The original method if it returns an InstructionSet.
+            QuantumCircuit: The original method if it returns an InstructionSet.
         """
         original_method = getattr(self._qiskit_qc, name)
 
