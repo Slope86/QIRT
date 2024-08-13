@@ -47,17 +47,18 @@ nav:
   - Welcome to QIRT: index.md
   - Tutorials: 
     - tutorials/index.md
-    - 1. Setup: tutorials/setup.md
-    - 2. Create a Basic Quantum State: tutorials/create_state.md
-    - 3. Create a Basic Quantum Circuit: tutorials/create_circuit.md
-    - 4. Applye the Quantum Circuit to the Quantum State: tutorials/apply_circuit.md
-    - 5. Measure the Quantum State: tutorials/measurement.md
+    - Setup: tutorials/setup.md
+    - Create a Basic Quantum State: tutorials/basic_create_state.md
+    - Create a Basic Quantum Circuit: tutorials/basic_create_circuit.md
+    - Applye the Quantum Circuit to the Quantum State: tutorials/apply_circuit.md
+    - Measure the Quantum State: tutorials/basic_measurement.md
   - How-To Guides: 
-    - how-to-guides/index.md
-    - Create Quantum States: how-to-guides/create-quantum-states.md
-    - Visualize Quantum States: how-to-guides/visualize-quantum-states.md
-    - Quantum Measurement: how-to-guides/quantum-measurement.md
-    - Customize Ket Notation: how-to-guides/customize-ket-notation.md
+    - how_to_guides/index.md
+    - Create Quantum States: how_to_guides/create_states.md
+    - Create Quantum Circuits: how_to_guides/create_circuits.md
+    - Visualize Quantum States: how_to_guides/visualize_states.md
+    - Quantum Measurement: how_to_guides/qubit_measurement.md
+    - Customize Ket Notation: how_to_guides/customize_ket_notation.md
   - Reference: 
     - reference/index.md
     - QuantumState: reference/quantum-state.md

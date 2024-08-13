@@ -1,4 +1,4 @@
-# Create a Basic Quantum State
+# Creating a Basic Quantum State
 
 Let's start with the basics of QIRT: creating a simple quantum state. We'll focus on creating the state $|\texttt{00}\rangle$ using bra-ket notation.
 
@@ -30,8 +30,12 @@ state_01 = QuantumState.from_label("01")
 state_1 = QuantumState.from_label("1")
 ```
 
+## Visualizing Quantum States
+
+As you've seen, we used the `draw()` method to visualize our quantum states. This method provides a basic representation of the state. For more advanced visualization techniques, including different output formats and customization options, please refer to our [How-To Guide on Visualizing Quantum States](../how_to_guides/visualize_states.md).
+
 ## Next Steps
 
-Now that you've learned how to create basic quantum states, you're ready to move on to more advanced operations. For more advanced state creation techniques, including creating states from matrices and using coefficients, check out our [How-To Guide on Creating Quantum States](../how_to_guides/create_states.md).
+Now that you've learned how to create and visualize basic quantum states, you're ready to move on to more advanced operations. For more advanced state creation techniques, including creating states from matrices and using coefficients, check out our [How-To Guide on Creating Quantum States](../how_to_guides/create_states.md).
 
 The next tutorial will show you how to [Create a Quantum Circuit](basic_create_circuit.md), where you'll learn how to apply quantum gates to manipulate these states.

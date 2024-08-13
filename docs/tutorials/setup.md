@@ -50,8 +50,7 @@ We recommend using Jupyter Notebook for the best experience with QIRT. Here's ho
 
 Now that you have QIRT installed and Jupyter Notebook set up, you're ready to dive into quantum computing with QIRT! Here are the next tutorials to guide you through the basics:
 
-1. [Create a Quantum State](create-quantum-state.md): Learn how to create and visualize quantum states using QIRT.
-
-2. [Create a Quantum Circuit](create-quantum-circuit.md): Explore how to build quantum circuits with gates like Hadamard and CNOT.
-
-3. [Apply a Quantum Circuit to a Quantum State](apply-circuit-to-state.md): Discover how to apply quantum circuits to quantum states and observe the results.
+1. [Create a Basic Quantum State](basic_create_state.md)
+2. [Create a Basic Quantum Circuit](basic_create_circuit.md)
+3. [Apply the Quantum Circuit to the Quantum State](apply_circuit.md)
+4. [Measure the Quantum State](basic_measurement.md)
