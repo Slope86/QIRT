@@ -21,9 +21,9 @@ This command will download and install QIRT along with its dependencies.
 To verify that QIRT has been installed correctly, you can import it in a Python environment:
 
 ```python
-import QIRT
+from importlib.metadata import version
 
-print(QIRT.__version__)
+version("QIRT")
 ```
 
 If this runs without any errors and prints the version number, you've successfully installed QIRT!
