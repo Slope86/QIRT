@@ -4,11 +4,11 @@ Welcome to the documentation for the Quantum Information Research Toolkit (QIRT)
 
 ## Documentation overview
 
-1. [Tutorials](tutorials.md)
+1. **[Tutorials](tutorials)**
     - Learn the basics usage of QIRT with hands-on examples.
-2. [How-To Guides](how-to-guides.md)
+2. **[How-To Guides](how_to_guides)**
     - Step-by-step instructions for specific tasks and use cases.
-3. [Reference](reference.md)
+3. **[Reference](reference)**
     - Detailed descriptions of all QIRT functions, classes, and modules.
 
 ## Getting started

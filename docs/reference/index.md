@@ -6,9 +6,11 @@ Welcome to the API reference documentation for the Quantum Information Research 
 
 QIRT is built around two main components, both of which extend Qiskit's functionality:
 
-1. [QuantumState](quantum-state.md): An extended version of Qiskit's Statevector class. It provides additional methods for quantum state manipulations, basis conversions, and visualizations.
+1. **[QuantumState](quantum-state.md)**
+    - An extended version of Qiskit's Statevector class. It provides additional methods for quantum state manipulations, basis conversions, and visualizations.
 
-2. [QuantumCircuit](quantum-circuit.md): An extended version of Qiskit's QuantumCircuit class. It adds methods for basis conversion and visualization in matrix form.
+2. **[QuantumCircuit](quantum-circuit.md)**
+    - An extended version of Qiskit's QuantumCircuit class. It adds methods for basis conversion and visualization in matrix form.
 
 ## Getting Started
 
