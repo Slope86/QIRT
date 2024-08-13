@@ -37,13 +37,15 @@ from QIRT import QuantumCircuit
 circ = QuantumCircuit(2)
 
 # Unitary matrix for a CNOT gate
-cnot = [[1, 0, 0, 0],
-        [0, 1, 0, 0],
-        [0, 0, 0, 1],
-        [0, 0, 1, 0]]
+cnot_matrix = [ 
+                [1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 0, 1],
+                [0, 0, 1, 0]
+              ]
 
-# Add a custom XOR gate
-circ.unitary(matrix=cnot, qubits=[0,1], label='CNOT')
+# Add a CNOT gate to the circuit using a unitary matrix
+circ.unitary(matrix=cnot_matrix, qubits=[0,1], label='CNOT')
 
 # Visualize the circuit
 circ.draw()
