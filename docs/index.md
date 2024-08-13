@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Welcome to Quantum Information Research Toolkit Documentation
 
 Welcome to the documentation for the Quantum Information Research Toolkit (QIRT), your comprehensive guide to leveraging quantum computing for research and development. This toolkit provides various functionalities to help you create, simulate, and analyze quantum circuits and states.
