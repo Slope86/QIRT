@@ -26,25 +26,34 @@ Method chaining can make your code cleaner and more readable, especially for con
 
 QIRT allows you to add custom unitary operators to your quantum circuits using the `unitary` method. This is particularly useful when you want to apply a specific unitary transformation that isn't available as a built-in gate.
 
-### Example: Adding a Custom XOR Gate
+### Example: Adding a CNOT Gate
 
-Let's add a custom XOR gate to our circuit:
+Let's add a CNOT gate to a quantum circuit using the `unitary` method:
 
 ```python
 from QIRT import QuantumCircuit
-import numpy as np
 
 # Create a quantum circuit
 circ = QuantumCircuit(2)
 
+# Unitary matrix for a CNOT gate
+cnot = [[1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 0, 1],
+        [0, 0, 1, 0]]
+
 # Add a custom XOR gate
-circ.unitary(matrix=[[0,1],[1,0]], qubits=[0], label='XOR')
+circ.unitary(matrix=cnot, qubits=[0,1], label='CNOT')
 
 # Visualize the circuit
 circ.draw()
 ```
 
-This adds a custom XOR gate (which is equivalent to a Pauli-X or NOT gate) to the first qubit of our circuit.
+\>> Output:
+
+![unitary_demo](./imgs/unitary_demo.png)
+
+This adds a CNOT gate to the circuit using a unitary matrix.
 
 The `unitary` method allows you to apply any custom unitary matrix to specified qubits. The `matrix` parameter takes the unitary matrix, `qubits` specifies which qubits to apply the gate to, and `label` allows you to give a name to your custom gate.
 
