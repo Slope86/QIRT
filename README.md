@@ -27,7 +27,7 @@ circuit.h(0)  # Apply Hadamard gate to the first qubit
 circuit.cx(0, 1)  # Apply CNOT gate
 
 # Apply circuit to state
-final_state = circuit.run(state)
+final_state = state.apply(circuit)
 final_state.draw()
 ```
 
