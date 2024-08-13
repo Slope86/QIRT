@@ -6,9 +6,10 @@ Welcome to the QIRT How-to Guides. These guides provide detailed instructions on
 
 Each guide provides step-by-step instructions and examples to help you master different aspects of QIRT:
 
-- **[Create Quantum States](creating-quantum-states.md)**: Explore the flexible `from_label` method to create quantum states using ket notation with coefficients.
-- **[Visualize Quantum States](visualize-quantum-states.md)**: Learn how to use QIRT's powerful `draw` method to represent quantum states in various formats.
-- **[Quantum Measurement](quantum-measurement.md)**: Dive deep into the `draw_measurement` function for complex quantum state measurements.
-- **[Customize Ket Notation](customizing-ket-notation.md)**: Discover how to adapt QIRT's ket notation to your preferences using the configuration file.
+- **[Create Quantum States](create_states.md)**: Explore the flexible `from_label` method to create quantum states using ket notation with coefficients.
+- **[Visualize Quantum States](visualize_states.md)**: Learn how to use QIRT's powerful `draw` method to represent quantum states in various formats.
+- **[Create Quantum Circuits](create_circuits.md)**: Learn advanced techniques for creating quantum circuits, including method chaining and adding custom unitary operators.
+- **[Qubit Measurement](qubit_measurement.md)**: Dive deep into the `draw_measurement` function for complex quantum state measurements.
+- **[Customize Ket Notation](customize_ket_notation.md)**: Discover how to adapt QIRT's ket notation to your preferences using the configuration file.
 
 These guides are designed to take you from basic concepts to advanced techniques, helping you leverage the full power of QIRT in your quantum computing projects. Feel free to explore them in any order based on your specific needs and interests.

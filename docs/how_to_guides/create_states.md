@@ -1,4 +1,4 @@
-# Creating Quantum States
+# Creating Quantum States with Ket Notation and Matrices
 
 QIRT provides multiple powerful methods to create quantum states. This guide covers advanced techniques for state creation, including using coefficients, different bases, and creating states from matrices.
 

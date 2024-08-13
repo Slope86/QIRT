@@ -33,4 +33,4 @@ This helps us understand how measurement affects quantum states.
 
 ## Next Steps
 
-Now that you've seen basic measurement, try creating different states and measuring them. For more advanced usage, check our [How-To guide on quantum measurement](../how-to-guides/advanced-quantum-measurement.md).
+Now that you've seen basic measurement, try creating different states and measuring them. For more advanced usage, check our [How-To guide on quantum measurement](../how_to_guides/qubit_measurement.md).
