@@ -1,10 +1,10 @@
-# Create a Quantum Circuit
+# Create a Basic Quantum Circuit
 
-After learning how to create quantum states, the next step is to understand how to build quantum circuits. Quantum circuits are sequences of quantum gates that manipulate quantum states. In this tutorial, we'll create a simple quantum circuit using QIRT.
+After created a basic quantum states $|\texttt{00}\rangle$, the next step is to build a basic quantum circuits.
 
 ## Basic Circuit Creation
 
-Let's start by creating a quantum circuit with two qubits:
+Let's start by creating a basic quantum circuit with two qubits:
 
 ```python
 from QIRT import QuantumCircuit
@@ -35,7 +35,7 @@ circuit.draw()
 
 \>> Output:
 
-![bell_state_circ](./bell_state_circ.png)
+![bell_state_circ](./imgs/bell_state_circ.png)
 
 This circuit shows:
 
@@ -63,7 +63,7 @@ circuit.draw()
 
 \>> Output:
 
-![bell_state_circ](./bell_state_circ.png)
+![bell_state_circ](./imgs/bell_state_circ.png)
 
 Method chaining can make your code cleaner and more readable, especially for constructing more complex circuits.
 
@@ -73,4 +73,4 @@ QIRT provides support for many different quantum gates. To explore all available
 
 ## Next Steps
 
-Now that you know how to create quantum circuits, you're ready to learn how to apply these circuits to quantum states. In the next tutorial, [Applying a Quantum Circuit to a Quantum State](applying-circuit-to-state.md), you'll see how quantum circuits transform quantum states, bringing together everything you've learned so far.
+Now that you know how to create quantum circuits, you're ready to learn how to apply these circuits to quantum states. In the next tutorial, [Applying the Quantum Circuit to the Quantum State](apply_circuit.md), you'll see how quantum circuits transform quantum states, bringing together everything you've learned so far.

@@ -1,6 +1,6 @@
-# Applying a Quantum Circuit to a Quantum State
+# Applying the Quantum Circuit to the Quantum State
 
-After learning how to create quantum circuits, the next step is to understand how to apply these circuits to quantum states. This process is fundamental to quantum computing, as it allows you to manipulate and transform quantum states using the gates defined in your circuit. In this tutorial, we'll apply a quantum circuit to a quantum state to create a Bell state.
+After created a basic quantum circuit, the next step is to apply the circuit to the quantum state we created in step 1. This process is fundamental to quantum computing, as it allows you to manipulate and transform quantum states using the gates defined in your circuit. In this tutorial, we'll apply a quantum circuit to a quantum state to create a Bell state.
 
 ## Preparing the Initial State and Circuit
 
