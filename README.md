@@ -1,79 +1,58 @@
-# QIRT - Quantum Information Research Toolkit (WIP)
+# QIRT - Quantum Information Research Toolkit
 
-A quantum information research toolkit based on Qiskit. **This project is currently a Work in Progress (WIP) and is not yet complete. Features and documentation may be incomplete.**
+A quantum information research toolkit based on Qiskit, designed to facilitate research and development in quantum information science.
 
-## Introduction
+## Quick Start
 
-The Quantum Information Research Toolkit (QIRT) is designed to facilitate research and development in quantum information science using the Qiskit framework. This toolkit provides essential classes and functions to create and manipulate quantum states and operations effectively.
-
-## Quick start
-
-QIRT can be installed using pip:
+Install QIRT using pip:
 
 ```bash
 pip install QIRT
 ```
 
-## Usage
-
-### Importing the Toolkit
-
-To start using the Quantum Information Research Toolkit, import the necessary modules as shown below:
+## Basic Usage
 
 ```python
 from QIRT import QuantumState, QuantumCircuit
+
+# Create a quantum state
+state = QuantumState.from_label('00')
+
+# Visualize the state
+state.draw()
+
+# Create a quantum circuit
+circuit = QuantumCircuit(2)
+circuit.h(0)  # Apply Hadamard gate to the first qubit
+circuit.cx(0, 1)  # Apply CNOT gate
+
+# Apply circuit to state
+final_state = circuit.run(state)
+final_state.draw()
 ```
 
-- **QuantumState**: This class allows you to create and manage quantum states. It provides various methods to initialize, transform, and measure quantum states.
-- **QuantumCircuit**: This class provides a set of operations that can be applied to quantum states. It includes methods for unitary operations, measurements, and other quantum operations.
+## Documentation
 
-### Creating a Quantum State
+For detailed documentation, tutorials, and how-to guides, visit our [documentation website](https://slope86.github.io/QIRT/).
 
-To create a quantum state, you can use the `from_label` method provided by the `QuantumState` class. Below is an example of how to create a quantum state labeled '00':
+- [Tutorials](https://slope86.github.io/QIRT/tutorials): Learn the basics of QIRT with hands-on examples.
+- [How-To Guides](https://slope86.github.io/QIRT/how_to_guides): Step-by-step instructions for specific tasks.
+- [API Reference](https://slope86.github.io/QIRT/reference): Detailed descriptions of QIRT functions, classes, and modules.
 
-```python
-# Create a quantum state labeled '00'
-init_state = QuantumState.from_label('00')
-```
+## Requirements
 
-### Visualizing the Quantum State
-
-Once you have created a quantum state, you can visualize it using the `draw` method. Here is how you can visualize the quantum state `init_state`:
-
-```python
-# Draw the quantum state
-init_state.draw()
-```
-
-## Creating a Quantum Operation
+- Python >= 3.10
+- qiskit[visualization] >= 1.1.0
+- IPython >= 8.24.0
 
 ## Configuration
 
-The configuration file for QIRT is located in the user's home directory under `~/.QIRT/config.ini`. This file allows you to customize various settings for the toolkit.
-
-The default configuration file is as follows:
-
-```ini
-; This section sets up the notation for the StateVector (affects the visualization result and the constructor function from_label()).
-; The default notation uses |j> to represent |-i>. 
-; You can change the notation to another character if necessary. (only accepts single characters.)
-[ket]
-z0 = 0
-z1 = 1
-x0 = +
-x1 = -
-y0 = i
-y1 = j
-```
-
-## Requirement
-
-Python >= 3.10  
-qiskit[visualization] >= 1.1.0
-IPython >= 8.24.0
+QIRT can be configured using `~/.QIRT/config.ini`. See the [documentation](https://slope86.github.io/QIRT/) for more details.
 
 ## License
 
-This QIRT project is open source under the MIT license.
-However, the extensions that are installed separately are not part of the QIRT project.
-They all have their own licenses!
+This project is open source under the MIT license. Note that separately installed extensions are not part of the QIRT project and have their own licenses.
+
+## Support
+
+If you encounter any issues or have questions, please [open an issue](https://github.com/slope86/QIRT/issues) on our GitHub repository.
