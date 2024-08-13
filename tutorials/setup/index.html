@@ -802,9 +802,9 @@
 <p>This command will download and install QIRT along with its dependencies.</p>
 <h2 id="verifying-the-installation">Verifying the Installation</h2>
 <p>To verify that QIRT has been installed correctly, you can import it in a Python environment:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">QIRT</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">version</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">QIRT</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="n">version</span><span class="p">(</span><span class="s2">&quot;QIRT&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>If this runs without any errors and prints the version number, you've successfully installed QIRT!</p>
 <h2 id="setting-up-jupyter-notebook"><strong>Setting up jupyter notebook</strong></h2>
