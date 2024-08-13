@@ -1,0 +1,3388 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/quantum-state/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../quantum-circuit/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>QuantumState - QIRT Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#QIRT.QuantumState" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QIRT Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              QuantumState
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Slope86/QIRT" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Slope86/QIRT
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Welcome to QIRT
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorials/" class="md-tabs__link">
+          
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../how_to_guides/" class="md-tabs__link">
+          
+  
+    
+  
+  How-To Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    QIRT Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Slope86/QIRT" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Slope86/QIRT
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to QIRT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../tutorials/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../how_to_guides/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    How-To Guides
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    QuantumState
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    QuantumState
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuantumState
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.data" class="md-nav__link">
+    <span class="md-ellipsis">
+      data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.num_of_qubit" class="md-nav__link">
+    <span class="md-ellipsis">
+      num_of_qubit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.draw" class="md-nav__link">
+    <span class="md-ellipsis">
+      draw
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.draw_measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      draw_measurement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      entropy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.from_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      from_label
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.state_after_measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      state_after_measurement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.to_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      to_matrix
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quantum-circuit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QuantumCircuit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuantumState
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.data" class="md-nav__link">
+    <span class="md-ellipsis">
+      data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.num_of_qubit" class="md-nav__link">
+    <span class="md-ellipsis">
+      num_of_qubit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.apply" class="md-nav__link">
+    <span class="md-ellipsis">
+      apply
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.draw" class="md-nav__link">
+    <span class="md-ellipsis">
+      draw
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.draw_measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      draw_measurement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      entropy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.from_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      from_label
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.state_after_measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      state_after_measurement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.to_matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      to_matrix
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>QuantumState</h1>
+
+<div class="doc doc-object doc-class">
+
+
+
+<a id="QIRT.QuantumState"></a>
+    <div class="doc doc-contents first">
+
+
+      <p>An extended class of Statevector from Qiskit.</p>
+<p>This class extends the Statevector class from Qiskit to provide additional
+functionalities specific to quantum state manipulations and measurements.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="QIRT.QuantumState._num_of_qubit">_num_of_qubit</span></code></td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The number of qubits in the quantum state.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="see-also" open>
+  <summary>See Also</summary>
+  <p><a href="https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html">Qiskit Statevector documentation</a></p>
+</details>
+              <details class="quote">
+                <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span>
+<span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span>
+<span class="normal">553</span>
+<span class="normal">554</span>
+<span class="normal">555</span>
+<span class="normal">556</span>
+<span class="normal">557</span>
+<span class="normal">558</span>
+<span class="normal">559</span>
+<span class="normal">560</span>
+<span class="normal">561</span>
+<span class="normal">562</span>
+<span class="normal">563</span>
+<span class="normal">564</span>
+<span class="normal">565</span>
+<span class="normal">566</span>
+<span class="normal">567</span>
+<span class="normal">568</span>
+<span class="normal">569</span>
+<span class="normal">570</span>
+<span class="normal">571</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An extended class of Statevector from Qiskit.</span>
+
+<span class="sd">    This class extends the Statevector class from Qiskit to provide additional</span>
+<span class="sd">    functionalities specific to quantum state manipulations and measurements.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        _num_of_qubit (int): The number of qubits in the quantum state.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">Statevector</span> <span class="o">|</span> <span class="n">Operator</span> <span class="o">|</span> <span class="n">QiskitQC</span> <span class="o">|</span> <span class="n">Instruction</span><span class="p">,</span>
+        <span class="n">dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize a QuantumState object.</span>
+
+<span class="sd">        This constructor initializes the QuantumState object by calling the</span>
+<span class="sd">        constructor of the base Statevector class from Qiskit. It also calculates</span>
+<span class="sd">        and stores the number of qubits in the quantum state.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (np.array or list or Statevector or Operator or QuantumCircuit or qiskit.circuit.Instruction):</span>
+<span class="sd">                Data from which the statevector can be constructed. This can be either a complex</span>
+<span class="sd">                vector, another statevector, a ``Operator`` with only one column or a</span>
+<span class="sd">                ``QuantumCircuit`` or ``Instruction``.  If the data is a circuit or instruction,</span>
+<span class="sd">                the statevector is constructed by assuming that all qubits are initialized to the</span>
+<span class="sd">                zero state.</span>
+<span class="sd">            dims (int or tuple or list): Optional. The subsystem dimension of the state (See additional information).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+            <span class="c1"># Normalize the state vector</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span> <span class="o">=</span> <span class="n">Statevector</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_of_qubit</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">data</span><span class="p">)))</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the data of the quantum state vector.</span>
+
+<span class="sd">        This property returns the data of the quantum state vector stored in the object.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            NDArray[np.complex128]: The data of the quantum state vector.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_of_qubit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the number of qubits in the quantum state.</span>
+
+<span class="sd">        This property returns the total number of qubits that are currently</span>
+<span class="sd">        represented in the quantum state vector.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: The number of qubits in the quantum state.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_of_qubit</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_label</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">complex</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a state vector from input coefficients and label strings.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; QuantumState.from_label(&quot;0&quot;, &quot;1&quot;)</span>
+<span class="sd">            (|0&gt; + |1&gt;)/√2 QuantumState object.</span>
+
+<span class="sd">            &gt;&gt;&gt; QuantumState.from_label(&quot;00&quot;, &quot;01&quot;, &quot;10&quot;, &quot;11&quot;)</span>
+<span class="sd">            (|00&gt; + |01&gt; + |10&gt; + |11&gt;)/2 = |++&gt; QuantumState object.</span>
+
+<span class="sd">            &gt;&gt;&gt; QuantumState.from_label(&quot;+&quot;, (-1, &quot;-&quot;))</span>
+<span class="sd">            (|+&gt; - |-&gt;)/√2 QuantumState object.</span>
+
+<span class="sd">            &gt;&gt;&gt; QuantumState.from_label((2**0.5, &quot;0&quot;), &quot;+&quot;, (-1, &quot;-&quot;))</span>
+<span class="sd">            (√2|0&gt; + |+&gt; - |-&gt;)/2 = |+&gt; QuantumState object.</span>
+
+<span class="sd">            &gt;&gt;&gt; QuantumState.from_label(&quot;0&quot;, (1j, &quot;1&quot;))</span>
+<span class="sd">            (|0&gt; + i|1&gt;)/√2 = |i&gt; QuantumState object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            args (str | Tuple[complex, str]): Input label strings or tuples of coefficients and label strings.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            QuantumState: The state vector object.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            QiskitError: If labels contain invalid characters or if labels have different numbers of qubits.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Separate the input into coefficients and labels</span>
+        <span class="n">coefficients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">complex</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>  <span class="c1"># Check if the input is a tuple of coefficient and label or just a label</span>
+                <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">Ket</span><span class="o">.</span><span class="n">check_valid</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid label string.&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Each label&#39;s number of qubits must be the same.&quot;</span><span class="p">)</span>
+
+            <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">to_qiskit_notation</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># Convert the label to qiskit notation</span>
+
+        <span class="c1"># Create the state vector based on the input</span>
+        <span class="n">state_vector</span><span class="p">:</span> <span class="n">Statevector</span> <span class="o">=</span> <span class="n">Statevector</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">coefficient</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="n">state_vector</span> <span class="o">+=</span> <span class="n">Statevector</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">*</span> <span class="n">coefficient</span>
+
+        <span class="n">state_vector</span> <span class="o">/=</span> <span class="n">state_vector</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span> <span class="o">**</span> <span class="mf">0.5</span>  <span class="c1"># Normalize the state</span>
+        <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">state_vector</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate and return the Shannon  entropy of the quantum state.</span>
+
+<span class="sd">        The Shannon  entropy is a measure of the quantum state&#39;s uncertainty or mixedness.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.float_: The Shannon  entropy of the quantum state, calculated in base 2.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">entropy</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">entropy</span>
+        <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Entropy calculation failed.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">qargs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply a quantum circuit to the quantum state.</span>
+
+<span class="sd">        This method applies the given operator to the quantum state, evolving it</span>
+<span class="sd">        according to the operator&#39;s effect.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            other (QuantumCircuit):</span>
+<span class="sd">                The operator used to evolve the quantum state.</span>
+<span class="sd">            qargs (list[int] | None, optional): A list of subsystem positions of</span>
+<span class="sd">                the QuantumState to apply the operator on. Defaults to None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            QuantumState: The quantum state after evolution.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            QiskitError: If the operator dimension does not match the specified</span>
+<span class="sd">                quantum state subsystem dimensions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># REVERSE the order of qubits to fit qiskit notation</span>
+        <span class="n">reversed_state_vector</span><span class="p">:</span> <span class="n">Statevector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">reverse_qargs</span><span class="p">()</span>
+        <span class="n">evolved_state_vector</span><span class="p">:</span> <span class="n">Statevector</span> <span class="o">=</span> <span class="n">reversed_state_vector</span><span class="o">.</span><span class="n">evolve</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">_qiskit_qc</span><span class="p">,</span> <span class="n">qargs</span><span class="p">)</span><span class="o">.</span><span class="n">reverse_qargs</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">evolved_state_vector</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert the quantum state vector to a column matrix representation.</span>
+
+<span class="sd">        This method takes the quantum state vector stored in the object and converts</span>
+<span class="sd">        it into a column matrix form, which can be useful for various matrix-based</span>
+<span class="sd">        operations and calculations.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            NDArray[np.complex128]: The quantum state represented as a column matrix.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">flat_vector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">flat_vector</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">return</span> <span class="n">matrix</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;latex&quot;</span><span class="p">,</span>
+        <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">show_qubit_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">output_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Visualize the statevector.</span>
+
+<span class="sd">        This method provides different visualization options for the quantum state vector,</span>
+<span class="sd">        such as LaTeX, matrix/vector form, or other specified formats.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            output (str, optional): Visualization method. Defaults to &quot;latex&quot;. Options include:</span>
+<span class="sd">                - &quot;matrix&quot; or &quot;vector&quot;: Outputs the state vector as a LaTeX formatted matrix.</span>
+<span class="sd">                - &quot;latex&quot;: Outputs the state vector as a LaTeX formatted expression.</span>
+<span class="sd">            target_basis (List[str] | str | None, optional): The target basis for visualization. Defaults to None.</span>
+<span class="sd">            show_qubit_index (bool, optional): Whether to show qubit indices in the visualization. Defaults to True.</span>
+<span class="sd">            output_length (int, optional): The number of terms in each line, defined as 2^output_length.</span>
+<span class="sd">                                        Defaults to 2 (i.e., 4 terms per line).</span>
+<span class="sd">            source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization</span>
+<span class="sd">                output depending on the chosen method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">match</span> <span class="n">output</span><span class="p">:</span>
+            <span class="k">case</span> <span class="s2">&quot;matrix&quot;</span> <span class="o">|</span> <span class="s2">&quot;vector&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">latex_drawer</span><span class="o">.</span><span class="n">matrix_to_latex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">(),</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+            <span class="k">case</span> <span class="s2">&quot;latex&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">latex_drawer</span><span class="o">.</span><span class="n">state_to_latex</span><span class="p">(</span>
+                    <span class="n">state</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+                    <span class="n">current_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span><span class="p">,</span>
+                    <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span>
+                    <span class="n">show_qubit_index</span><span class="o">=</span><span class="n">show_qubit_index</span><span class="p">,</span>
+                    <span class="n">output_length</span><span class="o">=</span><span class="n">output_length</span><span class="p">,</span>
+                    <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid output format.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the quantum state after a measurement.</span>
+
+<span class="sd">        This method returns the quantum states resulting from measuring specified qubits in a given basis.</span>
+<span class="sd">        It provides two lists of quantum states: the measured states in the Z basis and the system states</span>
+<span class="sd">        after measurement.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a</span>
+<span class="sd">                string specifying the bits.</span>
+<span class="sd">            target_basis (List[str] | str, optional): The basis in which to perform the measurement.</span>
+<span class="sd">                Defaults to an empty list.</span>
+<span class="sd">            shot (int, optional): The number of measurement shots to perform. Defaults to 100.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple[List[QuantumState], List[QuantumState]]:</span>
+<span class="sd">                - A list of quantum states representing the measurement results in the Z basis.</span>
+<span class="sd">                - A list of quantum states representing the system state after the measurement in the Z basis.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
+            <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">shot</span><span class="o">=</span><span class="n">shot</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">draw_measurement</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">show_qubit_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">output_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Latex</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Visualize the measurement results of the quantum state.</span>
+
+<span class="sd">        This method performs a measurement on specified qubits and visualizes the</span>
+<span class="sd">        resulting quantum states and their measurement outcomes in a specified format.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list</span>
+<span class="sd">                of indices or a string specifying the bits.</span>
+<span class="sd">            target_basis (List[str] | str, optional): The basis in which to perform the</span>
+<span class="sd">                measurement. Defaults to basis with minimum entropy.</span>
+<span class="sd">            show_qubit_index (bool, optional): Whether to show qubit indices in the</span>
+<span class="sd">                visualization. Defaults to True.</span>
+<span class="sd">            output_length (int, optional): The number of terms in each line, defined as</span>
+<span class="sd">                2^output_length. Defaults to 2 (i.e., 4 terms per line).</span>
+<span class="sd">            source (bool, optional): Whether to return the source code for the</span>
+<span class="sd">                visualization. Defaults to False.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str | Latex: The visualization of the measurement results, either</span>
+<span class="sd">            as an image or a string representing the source code.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            QiskitError: If the measurement basis or bit specifications are invalid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">measure_state_list</span><span class="p">,</span> <span class="n">system_state_list</span><span class="p">,</span> <span class="n">measure_basis</span><span class="p">,</span> <span class="n">system_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
+            <span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">latex_drawer</span><span class="o">.</span><span class="n">measure_result_to_latex</span><span class="p">(</span>
+            <span class="n">measure_state_list</span><span class="o">=</span><span class="n">measure_state_list</span><span class="p">,</span>
+            <span class="n">system_state_list</span><span class="o">=</span><span class="n">system_state_list</span><span class="p">,</span>
+            <span class="n">measure_basis</span><span class="o">=</span><span class="n">measure_basis</span><span class="p">,</span>
+            <span class="n">system_basis</span><span class="o">=</span><span class="n">system_basis</span><span class="p">,</span>
+            <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span>
+            <span class="n">show_qubit_index</span><span class="o">=</span><span class="n">show_qubit_index</span><span class="p">,</span>
+            <span class="n">output_length</span><span class="o">=</span><span class="n">output_length</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_basis_convert</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">current_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">algorithm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert the quantum state to a target basis.</span>
+
+<span class="sd">        This method converts the quantum state from its current basis to a specified</span>
+<span class="sd">        target basis using a quantum circuit. If the target basis is not fully specified,</span>
+<span class="sd">        it will auto-choose the basis with minimum entropy for unspecified qubits.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            target_basis (List[str] | str, optional): The target basis for conversion. Defaults to an empty list.</span>
+<span class="sd">            current_basis (List[str] | str, optional): The current basis of the quantum state.</span>
+<span class="sd">                Defaults to an empty list.</span>
+<span class="sd">            algorithm (str, optional): The algorithm used for finding the minimum entropy basis. Defaults to &quot;global&quot;.</span>
+<span class="sd">                Options are:</span>
+<span class="sd">                - &quot;global&quot;: Global minimum entropy basis conversion.</span>
+<span class="sd">                - &quot;local&quot;: Local minimum entropy basis conversion.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple[QuantumState, List[str]]: The converted quantum state and the list of the basis used for conversion.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            QiskitError: If the input basis is invalid or if an invalid algorithm is specified.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Default target_basis is auto choose basis with minimum entropy (basis = &quot;*&quot;)</span>
+        <span class="n">target_basis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">target_basis</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_basis</span><span class="p">))</span>
+        <span class="c1"># Default current_basis is Z basis</span>
+        <span class="n">current_basis</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">current_basis</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_basis</span><span class="p">))</span>
+
+        <span class="c1"># Check if input is valid</span>
+        <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">R</span><span class="s2">&quot;^[\-\*xyz]+$&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_basis</span><span class="p">))</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid basis.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Empty list to save auto-choose-basis index</span>
+        <span class="n">auto_basis_index</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Convert basis using QuantumCircuit</span>
+        <span class="n">convert_circ</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">target_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">current_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">target_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span> <span class="ow">or</span> <span class="n">target_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+                <span class="n">auto_basis_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="n">convert_circ</span><span class="o">.</span><span class="n">_xyz_convert_circ</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">current_basis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">qubit_index</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">current_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">target_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="n">converted_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">convert_circ</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">auto_basis_index</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">converted_state</span><span class="p">,</span> <span class="n">current_basis</span><span class="p">)</span>
+
+        <span class="c1"># If user don&#39;t specify which basis to convert, convert basis to basis with minimum entropy</span>
+        <span class="k">match</span> <span class="n">algorithm</span><span class="p">:</span>
+            <span class="k">case</span> <span class="s2">&quot;global&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">auto_basis_index</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span>
+                        <span class="s2">&quot;Notice: global minimum entropy basis convert with more then 8 qubits might take a long time.&quot;</span>
+                    <span class="p">)</span>
+                <span class="n">optimize_basis</span> <span class="o">=</span> <span class="n">converted_state</span><span class="o">.</span><span class="n">_global_min_entropy_basis</span><span class="p">(</span><span class="n">auto_basis_index</span><span class="p">,</span> <span class="n">current_basis</span><span class="p">)</span>
+            <span class="k">case</span> <span class="s2">&quot;local&quot;</span><span class="p">:</span>
+                <span class="n">optimize_basis</span> <span class="o">=</span> <span class="n">converted_state</span><span class="o">.</span><span class="n">_local_min_entropy_basis</span><span class="p">(</span><span class="n">auto_basis_index</span><span class="p">,</span> <span class="n">current_basis</span><span class="p">)</span>
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid min_entropy_basis_find_method.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">converted_state</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="n">optimize_basis</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">current_basis</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_global_min_entropy_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_basis_index</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">current_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find the basis with global minimum entropy.</span>
+
+<span class="sd">        This method searches for the basis configuration that minimizes the entropy</span>
+<span class="sd">        of the quantum state globally, by trying all possible combinations of the</span>
+<span class="sd">        specified bases at the auto-choose-basis indices.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auto_basis_index (List[int]): Indices of the qubits for which the basis</span>
+<span class="sd">                should be auto-chosen to minimize entropy.</span>
+<span class="sd">            current_basis (List[str]): The current basis of the quantum state.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List[str]: The basis configuration with the global minimum entropy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">num_of_auto_basis</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">auto_basis_index</span><span class="p">)</span>
+        <span class="n">min_entropy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+        <span class="n">min_basis</span> <span class="o">=</span> <span class="n">current_basis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">try_basis</span> <span class="o">=</span> <span class="n">current_basis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">basis</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">repeat</span><span class="o">=</span><span class="n">num_of_auto_basis</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_of_auto_basis</span><span class="p">):</span>
+                <span class="n">try_basis</span><span class="p">[</span><span class="n">auto_basis_index</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">try_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="n">try_basis</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">current_basis</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">entropy</span> <span class="o">:=</span> <span class="n">try_state</span><span class="o">.</span><span class="n">entropy</span><span class="p">())</span> <span class="o">&lt;</span> <span class="n">min_entropy</span><span class="p">:</span>
+                <span class="n">min_entropy</span> <span class="o">=</span> <span class="n">entropy</span>
+                <span class="n">min_basis</span> <span class="o">=</span> <span class="n">try_basis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">min_basis</span>
+
+    <span class="k">def</span> <span class="nf">_local_min_entropy_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auto_basis_index</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">current_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Find the basis with local minimum entropy.</span>
+
+<span class="sd">        This method searches for the basis configuration that locally minimizes the entropy</span>
+<span class="sd">        of the quantum state by iteratively selecting the best basis for each qubit.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            auto_basis_index (List[int]): Indices of the qubits for which the basis should be auto-chosen to</span>
+<span class="sd">                minimize entropy.</span>
+<span class="sd">            current_basis (List[str]): The current basis of the quantum state.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List[str]: The basis configuration with the local minimum entropy.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Step 1: Change all auto-choose-basis to y, e.g. [-, -, -, -] -&gt; [z, z, z, z], calculate entropy</span>
+        <span class="c1"># Step 2,3: Same as Step 1, but with x-basis and y-basis</span>
+        <span class="c1"># Step 4: from Step 1 to 3, choose the basis with minimum entropy.</span>
+        <span class="n">min_entropy</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+        <span class="n">min_basis</span> <span class="o">=</span> <span class="n">current_basis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">basis</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]:</span>
+            <span class="n">try_basis</span> <span class="o">=</span> <span class="n">min_basis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">auto_basis_index</span><span class="p">:</span>
+                <span class="n">try_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">basis</span>
+            <span class="n">try_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="n">try_basis</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">current_basis</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">entropy</span> <span class="o">:=</span> <span class="n">try_state</span><span class="o">.</span><span class="n">entropy</span><span class="p">())</span> <span class="o">&lt;</span> <span class="n">min_entropy</span><span class="p">:</span>
+                <span class="n">min_entropy</span> <span class="o">=</span> <span class="n">entropy</span>
+                <span class="n">min_basis</span> <span class="o">=</span> <span class="n">try_basis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="c1"># Step 1: Change the first auto-choose-basis to y, e.g. [-, -, -, -] -&gt; [y, -, -, -], calculate entropy,</span>
+        <span class="c1"># Step 2,3: Same as Step 1, but with x-basis and z-basis</span>
+        <span class="c1"># Step 4: from Step 1 to 3, choose the basis with minimum entropy.</span>
+        <span class="c1"># Step 5: Repeat Step 1 to 4 for the second auto-choose-basis, and so on. (greedy)</span>
+        <span class="c1"># e.g. [-, -, -, -] -&gt; [x, -, -, -] -&gt; [x, z, -, -] -&gt; [x, z, y, -] -&gt; [x, z, y, z]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">auto_basis_index</span><span class="p">:</span>
+            <span class="n">try_basis</span> <span class="o">=</span> <span class="n">min_basis</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">basis</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">]:</span>
+                <span class="n">try_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">basis</span>
+                <span class="n">try_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="n">try_basis</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">current_basis</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">entropy_tmp</span> <span class="o">:=</span> <span class="n">try_state</span><span class="o">.</span><span class="n">entropy</span><span class="p">())</span> <span class="o">&lt;</span> <span class="n">min_entropy</span><span class="p">:</span>
+                    <span class="n">min_entropy</span> <span class="o">=</span> <span class="n">entropy_tmp</span>
+                    <span class="n">min_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">basis</span>
+        <span class="k">return</span> <span class="n">min_basis</span>
+
+    <span class="k">def</span> <span class="nf">_measurement</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a measurement on the quantum state.</span>
+
+<span class="sd">        This method measures the specified qubits in the given basis and returns the</span>
+<span class="sd">        resulting quantum states and measurement outcomes.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list</span>
+<span class="sd">                of indices or a string specifying the bits.</span>
+<span class="sd">            target_basis (List[str] | str, optional): The basis in which to perform the</span>
+<span class="sd">                measurement. Defaults to basis with minimum entropy.</span>
+<span class="sd">            shot (int, optional): The number of measurement shots to perform.</span>
+<span class="sd">                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 2))</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple[List[QuantumState], List[QuantumState], List[QuantumState], List[QuantumState], List[str], List[str]]:</span>
+<span class="sd">                - z_basis_measure_state_list: Measurement states in the Z basis.</span>
+<span class="sd">                - z_basis_system_state_list: System states in the Z basis.</span>
+<span class="sd">                - measure_state_list: Measurement states in the original basis.</span>
+<span class="sd">                - system_state_list: System states in the original basis.</span>
+<span class="sd">                - measure_basis: The basis used for the measurement.</span>
+<span class="sd">                - system_basis: The system basis after conversion.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">shot</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">shot</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">measure_bit</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">]</span>
+
+        <span class="n">converted_state</span><span class="p">,</span> <span class="n">system_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span>
+            <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span>
+        <span class="p">)</span>
+
+        <span class="c1"># crate empty list for output</span>
+        <span class="n">z_basis_measure_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
+        <span class="n">z_basis_system_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
+        <span class="n">measure_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
+        <span class="n">system_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shot</span><span class="p">):</span>
+            <span class="n">measure_ket</span><span class="p">,</span> <span class="n">system_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_perform_single_shot_measurement</span><span class="p">(</span><span class="n">converted_state</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">measure_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">measure_basis</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">:</span>
+                    <span class="n">measure_basis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">system_basis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+                <span class="n">basis_convert_measure_ket</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">measure_basis</span><span class="p">,</span> <span class="n">measure_ket</span><span class="p">):</span>
+                    <span class="k">match</span> <span class="n">b</span><span class="p">:</span>
+                        <span class="k">case</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span>
+                            <span class="n">basis_convert_measure_ket</span> <span class="o">+=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">z1</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">else</span> <span class="n">Ket</span><span class="o">.</span><span class="n">z0</span>
+                        <span class="k">case</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+                            <span class="n">basis_convert_measure_ket</span> <span class="o">+=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">x1</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">else</span> <span class="n">Ket</span><span class="o">.</span><span class="n">x0</span>
+                        <span class="k">case</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+                            <span class="n">basis_convert_measure_ket</span> <span class="o">+=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">y1</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">else</span> <span class="n">Ket</span><span class="o">.</span><span class="n">y0</span>
+
+                <span class="n">measure_state_z_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="n">basis_convert_measure_ket</span><span class="p">)</span>
+
+                <span class="n">z_basis_measure_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">measure_state_z_basis</span>
+                <span class="n">z_basis_system_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">system_state</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span>
+                    <span class="n">target_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">system_basis</span>
+                <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">measure_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">measure_state_z_basis</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span>
+                    <span class="n">target_basis</span><span class="o">=</span><span class="n">measure_basis</span>
+                <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">system_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">system_state</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">z_basis_measure_state_list</span><span class="p">,</span>
+            <span class="n">z_basis_system_state_list</span><span class="p">,</span>
+            <span class="n">measure_state_list</span><span class="p">,</span>
+            <span class="n">system_state_list</span><span class="p">,</span>
+            <span class="n">measure_basis</span><span class="p">,</span>
+            <span class="n">system_basis</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_perform_single_shot_measurement</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">converted_state</span><span class="p">:</span> <span class="n">QuantumState</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QuantumState</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a single shot measurement on the given quantum state.</span>
+
+<span class="sd">        This method measures the specified qubits in the given state and returns</span>
+<span class="sd">        the measurement result along with the post-measurement system state.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            converted_state (QuantumState): The quantum state to measure.</span>
+<span class="sd">            measure_bit (List[int]): The indices of qubits to measure.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple[str, QuantumState]: A tuple containing:</span>
+<span class="sd">                - measure_ket (str): The measurement result as a ket string.</span>
+<span class="sd">                - system_state (QuantumState): The post-measurement system state.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            This method reverses qubit ordering to match Qiskit&#39;s notation for measurement,</span>
+<span class="sd">            and then reverses the result to match standard textbook notation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">measure_result</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Statevector</span><span class="p">]</span> <span class="o">=</span> <span class="n">Statevector</span><span class="p">(</span><span class="n">converted_state</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span>
+            <span class="n">qargs</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">]</span>  <span class="c1"># REVERSE the order of qubits to fit qiskit notation</span>
+        <span class="p">)</span>
+        <span class="n">measure_ket</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">measure_result</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># REVERSE the order of qubits to fit textbook notation</span>
+        <span class="n">system_state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">measure_result</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">measure_ket</span><span class="p">,</span> <span class="n">system_state</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="QIRT.QuantumState.data" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">data</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get the data of the quantum state vector.</p>
+<p>This property returns the data of the quantum state vector stored in the object.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="numpy.typing.NDArray">NDArray</span>[<span title="numpy.complex128">complex128</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>NDArray[np.complex128]: The data of the quantum state vector.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="QIRT.QuantumState.num_of_qubit" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">num_of_qubit</span><span class="p">:</span> <span class="nb">int</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Get the number of qubits in the quantum state.</p>
+<p>This property returns the total number of qubits that are currently
+represented in the quantum state vector.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>int</code></td>            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The number of qubits in the quantum state.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Initialize a QuantumState object.</p>
+<p>This constructor initializes the QuantumState object by calling the
+constructor of the base Statevector class from Qiskit. It also calculates
+and stores the number of qubits in the quantum state.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>data</code></td>
+            <td>
+                  <code><span title="numpy.array">array</span> or list or <span title="qiskit.quantum_info.Statevector">Statevector</span> or <span title="qiskit.quantum_info.operators.operator.Operator">Operator</span> or <a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum-circuit/#QIRT.QuantumCircuit">QuantumCircuit</a> or <span title="qiskit.circuit.Instruction">Instruction</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Data from which the statevector can be constructed. This can be either a complex
+vector, another statevector, a <code>Operator</code> with only one column or a
+<code>QuantumCircuit</code> or <code>Instruction</code>.  If the data is a circuit or instruction,
+the statevector is constructed by assuming that all qubits are initialized to the
+zero state.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>dims</code></td>
+            <td>
+                  <code>int or tuple or list</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Optional. The subsystem dimension of the state (See additional information).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">Statevector</span> <span class="o">|</span> <span class="n">Operator</span> <span class="o">|</span> <span class="n">QiskitQC</span> <span class="o">|</span> <span class="n">Instruction</span><span class="p">,</span>
+    <span class="n">dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize a QuantumState object.</span>
+
+<span class="sd">    This constructor initializes the QuantumState object by calling the</span>
+<span class="sd">    constructor of the base Statevector class from Qiskit. It also calculates</span>
+<span class="sd">    and stores the number of qubits in the quantum state.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (np.array or list or Statevector or Operator or QuantumCircuit or qiskit.circuit.Instruction):</span>
+<span class="sd">            Data from which the statevector can be constructed. This can be either a complex</span>
+<span class="sd">            vector, another statevector, a ``Operator`` with only one column or a</span>
+<span class="sd">            ``QuantumCircuit`` or ``Instruction``.  If the data is a circuit or instruction,</span>
+<span class="sd">            the statevector is constructed by assuming that all qubits are initialized to the</span>
+<span class="sd">            zero state.</span>
+<span class="sd">        dims (int or tuple or list): Optional. The subsystem dimension of the state (See additional information).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="c1"># Normalize the state vector</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span> <span class="o">=</span> <span class="n">Statevector</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_num_of_qubit</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">data</span><span class="p">)))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.apply" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">apply</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">qargs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Apply a quantum circuit to the quantum state.</p>
+<p>This method applies the given operator to the quantum state, evolving it
+according to the operator's effect.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>other</code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum-circuit/#QIRT.QuantumCircuit">QuantumCircuit</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The operator used to evolve the quantum state.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>qargs</code></td>
+            <td>
+                  <code>list[int] | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of subsystem positions of
+the QuantumState to apply the operator on. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>QuantumState</code></td>            <td>
+                  <code><a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The quantum state after evolution.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="qiskit.exceptions.QiskitError">QiskitError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the operator dimension does not match the specified
+quantum state subsystem dimensions.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">qargs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a quantum circuit to the quantum state.</span>
+
+<span class="sd">    This method applies the given operator to the quantum state, evolving it</span>
+<span class="sd">    according to the operator&#39;s effect.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        other (QuantumCircuit):</span>
+<span class="sd">            The operator used to evolve the quantum state.</span>
+<span class="sd">        qargs (list[int] | None, optional): A list of subsystem positions of</span>
+<span class="sd">            the QuantumState to apply the operator on. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        QuantumState: The quantum state after evolution.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        QiskitError: If the operator dimension does not match the specified</span>
+<span class="sd">            quantum state subsystem dimensions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># REVERSE the order of qubits to fit qiskit notation</span>
+    <span class="n">reversed_state_vector</span><span class="p">:</span> <span class="n">Statevector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">reverse_qargs</span><span class="p">()</span>
+    <span class="n">evolved_state_vector</span><span class="p">:</span> <span class="n">Statevector</span> <span class="o">=</span> <span class="n">reversed_state_vector</span><span class="o">.</span><span class="n">evolve</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">_qiskit_qc</span><span class="p">,</span> <span class="n">qargs</span><span class="p">)</span><span class="o">.</span><span class="n">reverse_qargs</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">evolved_state_vector</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.draw" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s1">&#39;latex&#39;</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show_qubit_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Visualize the statevector.</p>
+<p>This method provides different visualization options for the quantum state vector,
+such as LaTeX, matrix/vector form, or other specified formats.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>output</code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Visualization method. Defaults to "latex". Options include:
+- "matrix" or "vector": Outputs the state vector as a LaTeX formatted matrix.
+- "latex": Outputs the state vector as a LaTeX formatted expression.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;latex&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>target_basis</code></td>
+            <td>
+                  <code>List[str] | str | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The target basis for visualization. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>show_qubit_index</code></td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to show qubit indices in the visualization. Defaults to True.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>output_length</code></td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The number of terms in each line, defined as 2^output_length.
+                        Defaults to 2 (i.e., 4 terms per line).</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>source</code></td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to return the latex source code for the visualization. Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization
+output depending on the chosen method.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;latex&quot;</span><span class="p">,</span>
+    <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">show_qubit_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">output_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualize the statevector.</span>
+
+<span class="sd">    This method provides different visualization options for the quantum state vector,</span>
+<span class="sd">    such as LaTeX, matrix/vector form, or other specified formats.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        output (str, optional): Visualization method. Defaults to &quot;latex&quot;. Options include:</span>
+<span class="sd">            - &quot;matrix&quot; or &quot;vector&quot;: Outputs the state vector as a LaTeX formatted matrix.</span>
+<span class="sd">            - &quot;latex&quot;: Outputs the state vector as a LaTeX formatted expression.</span>
+<span class="sd">        target_basis (List[str] | str | None, optional): The target basis for visualization. Defaults to None.</span>
+<span class="sd">        show_qubit_index (bool, optional): Whether to show qubit indices in the visualization. Defaults to True.</span>
+<span class="sd">        output_length (int, optional): The number of terms in each line, defined as 2^output_length.</span>
+<span class="sd">                                    Defaults to 2 (i.e., 4 terms per line).</span>
+<span class="sd">        source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex: The visualization</span>
+<span class="sd">            output depending on the chosen method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">match</span> <span class="n">output</span><span class="p">:</span>
+        <span class="k">case</span> <span class="s2">&quot;matrix&quot;</span> <span class="o">|</span> <span class="s2">&quot;vector&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">latex_drawer</span><span class="o">.</span><span class="n">matrix_to_latex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">(),</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+        <span class="k">case</span> <span class="s2">&quot;latex&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">latex_drawer</span><span class="o">.</span><span class="n">state_to_latex</span><span class="p">(</span>
+                <span class="n">state</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">current_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span><span class="p">,</span>
+                <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span>
+                <span class="n">show_qubit_index</span><span class="o">=</span><span class="n">show_qubit_index</span><span class="p">,</span>
+                <span class="n">output_length</span><span class="o">=</span><span class="n">output_length</span><span class="p">,</span>
+                <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid output format.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.draw_measurement" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="p">[],</span> <span class="n">show_qubit_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Visualize the measurement results of the quantum state.</p>
+<p>This method performs a measurement on specified qubits and visualizes the
+resulting quantum states and their measurement outcomes in a specified format.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>measure_bit</code></td>
+            <td>
+                  <code>List[int] | str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The bits (qubits) to measure. Can be a list
+of indices or a string specifying the bits.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>target_basis</code></td>
+            <td>
+                  <code>List[str] | str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The basis in which to perform the
+measurement. Defaults to basis with minimum entropy.</p>
+              </div>
+            </td>
+            <td>
+                  <code>[]</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>show_qubit_index</code></td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to show qubit indices in the
+visualization. Defaults to True.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>output_length</code></td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The number of terms in each line, defined as
+2^output_length. Defaults to 2 (i.e., 4 terms per line).</p>
+              </div>
+            </td>
+            <td>
+                  <code>2</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>source</code></td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to return the source code for the
+visualization. Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>str | <span title="IPython.display.Latex">Latex</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>str | Latex: The visualization of the measurement results, either</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code>str | <span title="IPython.display.Latex">Latex</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>as an image or a string representing the source code.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="qiskit.exceptions.QiskitError">QiskitError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the measurement basis or bit specifications are invalid.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw_measurement</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">show_qubit_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">output_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Latex</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Visualize the measurement results of the quantum state.</span>
+
+<span class="sd">    This method performs a measurement on specified qubits and visualizes the</span>
+<span class="sd">    resulting quantum states and their measurement outcomes in a specified format.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list</span>
+<span class="sd">            of indices or a string specifying the bits.</span>
+<span class="sd">        target_basis (List[str] | str, optional): The basis in which to perform the</span>
+<span class="sd">            measurement. Defaults to basis with minimum entropy.</span>
+<span class="sd">        show_qubit_index (bool, optional): Whether to show qubit indices in the</span>
+<span class="sd">            visualization. Defaults to True.</span>
+<span class="sd">        output_length (int, optional): The number of terms in each line, defined as</span>
+<span class="sd">            2^output_length. Defaults to 2 (i.e., 4 terms per line).</span>
+<span class="sd">        source (bool, optional): Whether to return the source code for the</span>
+<span class="sd">            visualization. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str | Latex: The visualization of the measurement results, either</span>
+<span class="sd">        as an image or a string representing the source code.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        QiskitError: If the measurement basis or bit specifications are invalid.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">measure_state_list</span><span class="p">,</span> <span class="n">system_state_list</span><span class="p">,</span> <span class="n">measure_basis</span><span class="p">,</span> <span class="n">system_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
+        <span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">latex_drawer</span><span class="o">.</span><span class="n">measure_result_to_latex</span><span class="p">(</span>
+        <span class="n">measure_state_list</span><span class="o">=</span><span class="n">measure_state_list</span><span class="p">,</span>
+        <span class="n">system_state_list</span><span class="o">=</span><span class="n">system_state_list</span><span class="p">,</span>
+        <span class="n">measure_basis</span><span class="o">=</span><span class="n">measure_basis</span><span class="p">,</span>
+        <span class="n">system_basis</span><span class="o">=</span><span class="n">system_basis</span><span class="p">,</span>
+        <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span>
+        <span class="n">show_qubit_index</span><span class="o">=</span><span class="n">show_qubit_index</span><span class="p">,</span>
+        <span class="n">output_length</span><span class="o">=</span><span class="n">output_length</span><span class="p">,</span>
+        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.entropy" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">entropy</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Calculate and return the Shannon  entropy of the quantum state.</p>
+<p>The Shannon  entropy is a measure of the quantum state's uncertainty or mixedness.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="numpy.float64">float64</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>np.float_: The Shannon  entropy of the quantum state, calculated in base 2.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate and return the Shannon  entropy of the quantum state.</span>
+
+<span class="sd">    The Shannon  entropy is a measure of the quantum state&#39;s uncertainty or mixedness.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.float_: The Shannon  entropy of the quantum state, calculated in base 2.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">entropy</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">entropy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">probabilities</span><span class="p">(),</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">entropy</span><span class="p">)</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">entropy</span>
+    <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Entropy calculation failed.&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.from_label" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">from_label</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Create a state vector from input coefficients and label strings.</p>
+
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="go">(|0&gt; + |1&gt;)/√2 QuantumState object.</span>
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;00&quot;</span><span class="p">,</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="s2">&quot;11&quot;</span><span class="p">)</span>
+<span class="go">(|00&gt; + |01&gt; + |10&gt; + |11&gt;)/2 = |++&gt; QuantumState object.</span>
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">))</span>
+<span class="go">(|+&gt; - |-&gt;)/√2 QuantumState object.</span>
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">),</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">))</span>
+<span class="go">(√2|0&gt; + |+&gt; - |-&gt;)/2 = |+&gt; QuantumState object.</span>
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">))</span>
+<span class="go">(|0&gt; + i|1&gt;)/√2 = |i&gt; QuantumState object.</span>
+</code></pre></div>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>args</code></td>
+            <td>
+                  <code>str | Tuple[complex, str]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Input label strings or tuples of coefficients and label strings.</p>
+              </div>
+            </td>
+            <td>
+                  <code>()</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>QuantumState</code></td>            <td>
+                  <code><a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The state vector object.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="qiskit.exceptions.QiskitError">QiskitError</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If labels contain invalid characters or if labels have different numbers of qubits.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_label</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">complex</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a state vector from input coefficients and label strings.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; QuantumState.from_label(&quot;0&quot;, &quot;1&quot;)</span>
+<span class="sd">        (|0&gt; + |1&gt;)/√2 QuantumState object.</span>
+
+<span class="sd">        &gt;&gt;&gt; QuantumState.from_label(&quot;00&quot;, &quot;01&quot;, &quot;10&quot;, &quot;11&quot;)</span>
+<span class="sd">        (|00&gt; + |01&gt; + |10&gt; + |11&gt;)/2 = |++&gt; QuantumState object.</span>
+
+<span class="sd">        &gt;&gt;&gt; QuantumState.from_label(&quot;+&quot;, (-1, &quot;-&quot;))</span>
+<span class="sd">        (|+&gt; - |-&gt;)/√2 QuantumState object.</span>
+
+<span class="sd">        &gt;&gt;&gt; QuantumState.from_label((2**0.5, &quot;0&quot;), &quot;+&quot;, (-1, &quot;-&quot;))</span>
+<span class="sd">        (√2|0&gt; + |+&gt; - |-&gt;)/2 = |+&gt; QuantumState object.</span>
+
+<span class="sd">        &gt;&gt;&gt; QuantumState.from_label(&quot;0&quot;, (1j, &quot;1&quot;))</span>
+<span class="sd">        (|0&gt; + i|1&gt;)/√2 = |i&gt; QuantumState object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        args (str | Tuple[complex, str]): Input label strings or tuples of coefficients and label strings.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        QuantumState: The state vector object.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        QiskitError: If labels contain invalid characters or if labels have different numbers of qubits.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Separate the input into coefficients and labels</span>
+    <span class="n">coefficients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">complex</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>  <span class="c1"># Check if the input is a tuple of coefficient and label or just a label</span>
+            <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">Ket</span><span class="o">.</span><span class="n">check_valid</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid label string.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Each label&#39;s number of qubits must be the same.&quot;</span><span class="p">)</span>
+
+        <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">to_qiskit_notation</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># Convert the label to qiskit notation</span>
+
+    <span class="c1"># Create the state vector based on the input</span>
+    <span class="n">state_vector</span><span class="p">:</span> <span class="n">Statevector</span> <span class="o">=</span> <span class="n">Statevector</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">coefficient</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">state_vector</span> <span class="o">+=</span> <span class="n">Statevector</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">*</span> <span class="n">coefficient</span>
+
+    <span class="n">state_vector</span> <span class="o">/=</span> <span class="n">state_vector</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span> <span class="o">**</span> <span class="mf">0.5</span>  <span class="c1"># Normalize the state</span>
+    <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">state_vector</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.state_after_measurement" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Obtain the quantum state after a measurement.</p>
+<p>This method returns the quantum states resulting from measuring specified qubits in a given basis.
+It provides two lists of quantum states: the measured states in the Z basis and the system states
+after measurement.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>measure_bit</code></td>
+            <td>
+                  <code>List[int] | str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The bits (qubits) to measure. Can be a list of indices or a
+string specifying the bits.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>target_basis</code></td>
+            <td>
+                  <code>List[str] | str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The basis in which to perform the measurement.
+Defaults to an empty list.</p>
+              </div>
+            </td>
+            <td>
+                  <code>[]</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code>shot</code></td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The number of measurement shots to perform. Defaults to 100.</p>
+              </div>
+            </td>
+            <td>
+                  <code>100</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>tuple[list[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>], list[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Tuple[List[QuantumState], List[QuantumState]]:
+- A list of quantum states representing the measurement results in the Z basis.
+- A list of quantum states representing the system state after the measurement in the Z basis.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain the quantum state after a measurement.</span>
+
+<span class="sd">    This method returns the quantum states resulting from measuring specified qubits in a given basis.</span>
+<span class="sd">    It provides two lists of quantum states: the measured states in the Z basis and the system states</span>
+<span class="sd">    after measurement.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a</span>
+<span class="sd">            string specifying the bits.</span>
+<span class="sd">        target_basis (List[str] | str, optional): The basis in which to perform the measurement.</span>
+<span class="sd">            Defaults to an empty list.</span>
+<span class="sd">        shot (int, optional): The number of measurement shots to perform. Defaults to 100.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple[List[QuantumState], List[QuantumState]]:</span>
+<span class="sd">            - A list of quantum states representing the measurement results in the Z basis.</span>
+<span class="sd">            - A list of quantum states representing the system state after the measurement in the Z basis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
+        <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">shot</span><span class="o">=</span><span class="n">shot</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.to_matrix" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_matrix</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Convert the quantum state vector to a column matrix representation.</p>
+<p>This method takes the quantum state vector stored in the object and converts
+it into a column matrix form, which can be useful for various matrix-based
+operations and calculations.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="numpy.typing.NDArray">NDArray</span>[<span title="numpy.complex128">complex128</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>NDArray[np.complex128]: The quantum state represented as a column matrix.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the quantum state vector to a column matrix representation.</span>
+
+<span class="sd">    This method takes the quantum state vector stored in the object and converts</span>
+<span class="sd">    it into a column matrix form, which can be useful for various matrix-based</span>
+<span class="sd">    operations and calculations.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        NDArray[np.complex128]: The quantum state represented as a column matrix.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flat_vector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">data</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">flat_vector</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">matrix</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

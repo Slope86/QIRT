@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/">
+        <link rel="canonical" href="https://slope86.github.io/QIRT/tutorials/basic_create_state/">
       
       
-        <link rel="prev" href="../how_to_guides/customize_ket_notation/">
+        <link rel="prev" href="../setup/">
       
       
-        <link rel="next" href="quantum-state/">
+        <link rel="next" href="../basic_create_circuit/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>QIRT API Reference - QIRT Documentation</title>
+        <title>Create a Basic Quantum State - QIRT Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
@@ -45,11 +45,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qirt-api-reference" class="md-skip">
+        <a href="#creating-a-basic-quantum-state" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              QIRT API Reference
+              Create a Basic Quantum State
             
           </span>
         </div>
@@ -185,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -200,11 +200,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -224,7 +226,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../how_to_guides/" class="md-tabs__link">
+        <a href="../../how_to_guides/" class="md-tabs__link">
           
   
     
@@ -240,13 +242,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
           
   
     
@@ -281,7 +281,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -311,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -328,6 +328,8 @@
       
   
   
+    
+  
   
   
     
@@ -350,33 +352,223 @@
     
     
       
+        
+        
+      
       
     
     
       
-        
-        
-      
     
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
-  
-  
-    <a href="../tutorials/" class="md-nav__link">
-      
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Tutorials
   </span>
   
 
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Create a Basic Quantum State
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Create a Basic Quantum State
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-bra-ket-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Bra-Ket Notation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-quantum-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualizing Quantum States
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_create_circuit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Basic Quantum Circuit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apply_circuit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applye the Quantum Circuit to the Quantum State
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_measurement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measure the Quantum State
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -421,7 +613,7 @@
         
   
   
-    <a href="../how_to_guides/" class="md-nav__link">
+    <a href="../../how_to_guides/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -444,8 +636,6 @@
       
   
   
-    
-  
   
   
     
@@ -462,93 +652,33 @@
     
     
       
-        
-        
-      
       
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
+  
+  
+    <a href="../../reference/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     Reference
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-state/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumState
-  </span>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-circuit/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumCircuit
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -581,27 +711,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#using-bra-ket-notation" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Components
+      Using Bra-Ket Notation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#visualizing-quantum-states" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Visualizing Quantum States
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Next Steps
     </span>
   </a>
   
@@ -625,22 +755,32 @@
   
 
 
-<h1 id="qirt-api-reference">QIRT API Reference</h1>
-<p>Welcome to the API reference documentation for the Quantum Information Research Toolkit (QIRT). This section provides detailed information about the classes, methods, and functions available in QIRT.</p>
-<h2 id="core-components">Core Components</h2>
-<p>QIRT is built around two main components, both of which extend Qiskit's functionality:</p>
-<ol>
-<li>
-<p><a href="quantum-state/">QuantumState</a>: An extended version of Qiskit's Statevector class. It provides additional methods for quantum state manipulations, basis conversions, and visualizations.</p>
-</li>
-<li>
-<p><a href="quantum-circuit/">QuantumCircuit</a>: An extended version of Qiskit's QuantumCircuit class. It adds methods for basis conversion and visualization in matrix form.</p>
-</li>
-</ol>
-<h2 id="getting-started">Getting Started</h2>
-<p>If you're new to QIRT, we recommend starting with our <a href="../tutorials/">Tutorials</a> to get a hands-on introduction to the toolkit. For more specific use cases and advanced techniques, check out our <a href="../how-to-guides/index.md">How-to Guides</a>.</p>
-<h2 id="support">Support</h2>
-<p>If you encounter any issues or have questions about using QIRT, please file an issue on our <a href="https://github.com/Slope86/QIRT/issues">GitHub repository</a> or reach out to our community support channels.</p>
+<h1 id="creating-a-basic-quantum-state">Creating a Basic Quantum State</h1>
+<p>Let's start with the basics of QIRT: creating a simple quantum state. We'll focus on creating the state <span class="arithmatex">\(|\texttt{00}\rangle\)</span> using bra-ket notation.</p>
+<h2 id="using-bra-ket-notation">Using Bra-Ket Notation</h2>
+<p>QIRT provides a convenient method to create quantum states using bra-ket notation through the <code>from_label</code> method.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">QIRT</span> <span class="kn">import</span> <span class="n">QuantumState</span>
+
+<span class="c1"># Create a quantum state |00&gt; from bra-ket notation</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;00&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualize the state</span>
+<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</code></pre></div>
+<p>&gt;&gt; Output: <span class="arithmatex">\(|\texttt{00}\rangle_{01}\)</span></p>
+<p>This creates the quantum state <span class="arithmatex">\(|\texttt{00}\rangle\)</span>, where both qubits are in the <span class="arithmatex">\(|0\rangle\)</span> state.</p>
+<p>You can also create other simple states:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create |01&gt; state</span>
+<span class="n">state_01</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;01&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create |1&gt; state (single qubit)</span>
+<span class="n">state_1</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="visualizing-quantum-states">Visualizing Quantum States</h2>
+<p>As you've seen, we used the <code>draw()</code> method to visualize our quantum states. This method provides a basic representation of the state. For more advanced visualization techniques, including different output formats and customization options, please refer to our <a href="../../how_to_guides/visualize_states/">How-To Guide on Visualizing Quantum States</a>.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Now that you've learned how to create and visualize basic quantum states, you're ready to move on to more advanced operations. For more advanced state creation techniques, including creating states from matrices and using coefficients, check out our <a href="../../how_to_guides/create_states/">How-To Guide on Creating Quantum States</a>.</p>
+<p>The next tutorial will show you how to <a href="../basic_create_circuit/">Create a Quantum Circuit</a>, where you'll learn how to apply quantum gates to manipulate these states.</p>
 
 
 
@@ -693,12 +833,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       

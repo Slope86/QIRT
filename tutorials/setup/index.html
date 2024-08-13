@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/">
+        <link rel="canonical" href="https://slope86.github.io/QIRT/tutorials/setup/">
       
       
-        <link rel="prev" href="../how_to_guides/customize_ket_notation/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="quantum-state/">
+        <link rel="next" href="../basic_create_state/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>QIRT API Reference - QIRT Documentation</title>
+        <title>Setup - QIRT Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
@@ -45,11 +45,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qirt-api-reference" class="md-skip">
+        <a href="#setup" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              QIRT API Reference
+              Setup
             
           </span>
         </div>
@@ -185,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -200,11 +200,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../tutorials/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -224,7 +226,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../how_to_guides/" class="md-tabs__link">
+        <a href="../../how_to_guides/" class="md-tabs__link">
           
   
     
@@ -240,13 +242,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
           
   
     
@@ -281,7 +281,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -311,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -328,6 +328,8 @@
       
   
   
+    
+  
   
   
     
@@ -350,33 +352,241 @@
     
     
       
+        
+        
+      
       
     
     
       
-        
-        
-      
     
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
-  
-  
-    <a href="../tutorials/" class="md-nav__link">
-      
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     Tutorials
   </span>
   
 
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
-        <span class="md-nav__icon md-icon"></span>
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
-    </a>
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
   
 
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-qirt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing QIRT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifying the Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up jupyter notebook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_create_state/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Basic Quantum State
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_create_circuit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create a Basic Quantum Circuit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apply_circuit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Applye the Quantum Circuit to the Quantum State
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_measurement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Measure the Quantum State
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -421,7 +631,7 @@
         
   
   
-    <a href="../how_to_guides/" class="md-nav__link">
+    <a href="../../how_to_guides/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -444,8 +654,6 @@
       
   
   
-    
-  
   
   
     
@@ -462,93 +670,33 @@
     
     
       
-        
-        
-      
       
     
     
       
+        
+        
+      
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
+  
+  
+    <a href="../../reference/" class="md-nav__link">
+      
   
   <span class="md-ellipsis">
     Reference
   </span>
   
 
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-state/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumState
-  </span>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-circuit/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumCircuit
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -581,27 +729,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Components
+      Prerequisites
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#installing-qirt" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Installing QIRT
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#verifying-the-installation" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Verifying the Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-jupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up jupyter notebook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
     </span>
   </a>
   
@@ -625,22 +791,47 @@
   
 
 
-<h1 id="qirt-api-reference">QIRT API Reference</h1>
-<p>Welcome to the API reference documentation for the Quantum Information Research Toolkit (QIRT). This section provides detailed information about the classes, methods, and functions available in QIRT.</p>
-<h2 id="core-components">Core Components</h2>
-<p>QIRT is built around two main components, both of which extend Qiskit's functionality:</p>
+<h1 id="setup">Setup</h1>
+<p>To get started with QIRT, you'll need to install it on your system. This tutorial will guide you through the installation process.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>QIRT requires Python 3.10 or later. Make sure you have a compatible version of Python installed on your system.</p>
+<h2 id="installing-qirt">Installing QIRT</h2>
+<p>You can install QIRT using pip, Python's package installer. Open your terminal or command prompt and run the following command:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>QIRT
+</code></pre></div>
+<p>This command will download and install QIRT along with its dependencies.</p>
+<h2 id="verifying-the-installation">Verifying the Installation</h2>
+<p>To verify that QIRT has been installed correctly, you can import it in a Python environment:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">QIRT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">QIRT</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</code></pre></div>
+<p>If this runs without any errors and prints the version number, you've successfully installed QIRT!</p>
+<h2 id="setting-up-jupyter-notebook"><strong>Setting up jupyter notebook</strong></h2>
+<p>We recommend using Jupyter Notebook for the best experience with QIRT. Here's how to set it up:</p>
 <ol>
 <li>
-<p><a href="quantum-state/">QuantumState</a>: An extended version of Qiskit's Statevector class. It provides additional methods for quantum state manipulations, basis conversions, and visualizations.</p>
+<p>Install Jupyter:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>jupyter
+</code></pre></div>
 </li>
 <li>
-<p><a href="quantum-circuit/">QuantumCircuit</a>: An extended version of Qiskit's QuantumCircuit class. It adds methods for basis conversion and visualization in matrix form.</p>
+<p>Launch Jupyter Notebook:</p>
+<div class="highlight"><pre><span></span><code>jupyter<span class="w"> </span>notebook
+</code></pre></div>
+</li>
+<li>
+<p>Create a new notebook and you're ready to start!</p>
 </li>
 </ol>
-<h2 id="getting-started">Getting Started</h2>
-<p>If you're new to QIRT, we recommend starting with our <a href="../tutorials/">Tutorials</a> to get a hands-on introduction to the toolkit. For more specific use cases and advanced techniques, check out our <a href="../how-to-guides/index.md">How-to Guides</a>.</p>
-<h2 id="support">Support</h2>
-<p>If you encounter any issues or have questions about using QIRT, please file an issue on our <a href="https://github.com/Slope86/QIRT/issues">GitHub repository</a> or reach out to our community support channels.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Now that you have QIRT installed and Jupyter Notebook set up, you're ready to dive into quantum computing with QIRT! Here are the next tutorials to guide you through the basics:</p>
+<ol>
+<li><a href="../basic_create_state/">Create a Basic Quantum State</a></li>
+<li><a href="../basic_create_circuit/">Create a Basic Quantum Circuit</a></li>
+<li><a href="../apply_circuit/">Apply the Quantum Circuit to the Quantum State</a></li>
+<li><a href="../basic_measurement/">Measure the Quantum State</a></li>
+</ol>
 
 
 
@@ -693,12 +884,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       

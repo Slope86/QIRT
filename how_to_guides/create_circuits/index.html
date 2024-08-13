@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/">
+        <link rel="canonical" href="https://slope86.github.io/QIRT/how_to_guides/create_circuits/">
       
       
-        <link rel="prev" href="../how_to_guides/customize_ket_notation/">
+        <link rel="prev" href="../create_states/">
       
       
-        <link rel="next" href="quantum-state/">
+        <link rel="next" href="../visualize_states/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>QIRT API Reference - QIRT Documentation</title>
+        <title>Create Quantum Circuits - QIRT Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
@@ -45,11 +45,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qirt-api-reference" class="md-skip">
+        <a href="#creating-quantum-circuits-with-matrices-and-qiskit-provides-gate" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              QIRT API Reference
+              Create Quantum Circuits
             
           </span>
         </div>
@@ -185,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -204,32 +204,12 @@
     
     
       <li class="md-tabs__item">
-        <a href="../tutorials/" class="md-tabs__link">
+        <a href="../../tutorials/" class="md-tabs__link">
           
   
     
   
   Tutorials
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../how_to_guides/" class="md-tabs__link">
-          
-  
-    
-  
-  How-To Guides
 
         </a>
       </li>
@@ -246,7 +226,27 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  How-To Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
           
   
     
@@ -281,7 +281,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -311,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -363,7 +363,7 @@
         
   
   
-    <a href="../tutorials/" class="md-nav__link">
+    <a href="../../tutorials/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -386,6 +386,8 @@
       
   
   
+    
+  
   
   
     
@@ -399,6 +401,263 @@
       
         
       
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    How-To Guides
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            How-To Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create_states/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Quantum States
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Create Quantum Circuits
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Create Quantum Circuits
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#method-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Chaining
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-custom-unitary-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Custom Unitary Operators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Custom Unitary Operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-adding-a-custom-xor-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Adding a Custom XOR Gate
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finding-more-quantum-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding More Quantum Gates
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualize_states/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualize Quantum States
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qubit_measurement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Measurement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customize_ket_notation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Customize Ket Notation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
         
       
         
@@ -421,11 +680,11 @@
         
   
   
-    <a href="../how_to_guides/" class="md-nav__link">
+    <a href="../../reference/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    How-To Guides
+    Reference
   </span>
   
 
@@ -435,120 +694,6 @@
     </a>
   
 
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-      
-        
-        
-      
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
-  
-  <span class="md-ellipsis">
-    Reference
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-state/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumState
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-circuit/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumCircuit
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -581,27 +726,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#method-chaining" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Components
+      Method Chaining
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#adding-custom-unitary-operators" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Adding Custom Unitary Operators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Custom Unitary Operators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-adding-a-custom-xor-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Adding a Custom XOR Gate
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#finding-more-quantum-gates" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Finding More Quantum Gates
     </span>
   </a>
   
@@ -625,22 +785,41 @@
   
 
 
-<h1 id="qirt-api-reference">QIRT API Reference</h1>
-<p>Welcome to the API reference documentation for the Quantum Information Research Toolkit (QIRT). This section provides detailed information about the classes, methods, and functions available in QIRT.</p>
-<h2 id="core-components">Core Components</h2>
-<p>QIRT is built around two main components, both of which extend Qiskit's functionality:</p>
-<ol>
-<li>
-<p><a href="quantum-state/">QuantumState</a>: An extended version of Qiskit's Statevector class. It provides additional methods for quantum state manipulations, basis conversions, and visualizations.</p>
-</li>
-<li>
-<p><a href="quantum-circuit/">QuantumCircuit</a>: An extended version of Qiskit's QuantumCircuit class. It adds methods for basis conversion and visualization in matrix form.</p>
-</li>
-</ol>
-<h2 id="getting-started">Getting Started</h2>
-<p>If you're new to QIRT, we recommend starting with our <a href="../tutorials/">Tutorials</a> to get a hands-on introduction to the toolkit. For more specific use cases and advanced techniques, check out our <a href="../how-to-guides/index.md">How-to Guides</a>.</p>
-<h2 id="support">Support</h2>
-<p>If you encounter any issues or have questions about using QIRT, please file an issue on our <a href="https://github.com/Slope86/QIRT/issues">GitHub repository</a> or reach out to our community support channels.</p>
+<h1 id="creating-quantum-circuits-with-matrices-and-qiskit-provides-gate">Creating Quantum Circuits with Matrices and Qiskit provides gate</h1>
+<p>This guide covers advanced techniques for creating quantum circuits in QIRT, including method chaining and adding custom unitary operators.</p>
+<h2 id="method-chaining">Method Chaining</h2>
+<p>QIRT's <code>QuantumCircuit</code> class supports method chaining, which allows you to build circuits more concisely. Here's how you can create a Bell state circuit using method chaining:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">QIRT</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
+
+<span class="c1"># Create a two-qubit quantum circuit and add gates using method chaining</span>
+<span class="n">circuit</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Visualize the circuit</span>
+<span class="n">circuit</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</code></pre></div>
+<p>&gt;&gt; Output:</p>
+<p><img alt="bell_state_circ" src="../imgs/bell_state_circ.png" /></p>
+<p>Method chaining can make your code cleaner and more readable, especially for constructing more complex circuits.</p>
+<h2 id="adding-custom-unitary-operators">Adding Custom Unitary Operators</h2>
+<p>QIRT allows you to add custom unitary operators to your quantum circuits using the <code>unitary</code> method. This is particularly useful when you want to apply a specific unitary transformation that isn't available as a built-in gate.</p>
+<h3 id="example-adding-a-custom-xor-gate">Example: Adding a Custom XOR Gate</h3>
+<p>Let's add a custom XOR gate to our circuit:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">QIRT</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create a quantum circuit</span>
+<span class="n">circ</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Add a custom XOR gate</span>
+<span class="n">circ</span><span class="o">.</span><span class="n">unitary</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="n">qubits</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;XOR&#39;</span><span class="p">)</span>
+
+<span class="c1"># Visualize the circuit</span>
+<span class="n">circ</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+</code></pre></div>
+<p>This adds a custom XOR gate (which is equivalent to a Pauli-X or NOT gate) to the first qubit of our circuit.</p>
+<p>The <code>unitary</code> method allows you to apply any custom unitary matrix to specified qubits. The <code>matrix</code> parameter takes the unitary matrix, <code>qubits</code> specifies which qubits to apply the gate to, and <code>label</code> allows you to give a name to your custom gate.</p>
+<h2 id="finding-more-quantum-gates">Finding More Quantum Gates</h2>
+<p>QIRT is built on top of Qiskit, which is a comprehensive and widely-used framework for quantum computing. As such, QIRT provides support for many different quantum gates. To explore all available gates and their usage, you can refer to the <a href="https://docs.quantum.ibm.com/api/qiskit/circuit_library">Qiskit Circuit Library</a>.</p>
 
 
 
@@ -693,12 +872,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       

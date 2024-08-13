@@ -8,25 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://slope86.github.io/QIRT/reference/">
+        <link rel="canonical" href="https://slope86.github.io/QIRT/how_to_guides/customize_ket_notation/">
       
       
-        <link rel="prev" href="../how_to_guides/customize_ket_notation/">
+        <link rel="prev" href="../qubit_measurement/">
       
       
-        <link rel="next" href="quantum-state/">
+        <link rel="next" href="../../reference/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>QIRT API Reference - QIRT Documentation</title>
+        <title>Customize Ket Notation - QIRT Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
       
 
@@ -45,11 +45,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qirt-api-reference" class="md-skip">
+        <a href="#customizing-ket-notation-with-configuration-file" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-header__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              QIRT API Reference
+              Customize Ket Notation
             
           </span>
         </div>
@@ -185,7 +185,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -204,32 +204,12 @@
     
     
       <li class="md-tabs__item">
-        <a href="../tutorials/" class="md-tabs__link">
+        <a href="../../tutorials/" class="md-tabs__link">
           
   
     
   
   Tutorials
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../how_to_guides/" class="md-tabs__link">
-          
-  
-    
-  
-  How-To Guides
 
         </a>
       </li>
@@ -246,7 +226,27 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  How-To Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
           
   
     
@@ -281,7 +281,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
+    <a href="../.." title="QIRT Documentation" class="md-nav__button md-logo" aria-label="QIRT Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -311,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -363,7 +363,7 @@
         
   
   
-    <a href="../tutorials/" class="md-nav__link">
+    <a href="../../tutorials/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -386,6 +386,8 @@
       
   
   
+    
+  
   
   
     
@@ -399,6 +401,266 @@
       
         
       
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    How-To Guides
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            How-To Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create_states/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Quantum States
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create_circuits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create Quantum Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visualize_states/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualize Quantum States
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qubit_measurement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quantum Measurement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Customize Ket Notation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Customize Ket Notation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-file-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration File Location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-the-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customizing the Notation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applying-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
         
       
         
@@ -421,11 +683,11 @@
         
   
   
-    <a href="../how_to_guides/" class="md-nav__link">
+    <a href="../../reference/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    How-To Guides
+    Reference
   </span>
   
 
@@ -435,120 +697,6 @@
     </a>
   
 
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-      
-        
-        
-      
-      
-    
-    
-      
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
-  
-  <span class="md-ellipsis">
-    Reference
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Reference
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-state/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumState
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="quantum-circuit/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    QuantumCircuit
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -581,27 +729,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
+  <a href="#configuration-file-location" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Components
+      Configuration File Location
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#default-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Default Configuration
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
+  <a href="#customizing-the-notation" class="md-nav__link">
     <span class="md-ellipsis">
-      Support
+      Customizing the Notation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applying-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying Changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Example
     </span>
   </a>
   
@@ -625,22 +791,56 @@
   
 
 
-<h1 id="qirt-api-reference">QIRT API Reference</h1>
-<p>Welcome to the API reference documentation for the Quantum Information Research Toolkit (QIRT). This section provides detailed information about the classes, methods, and functions available in QIRT.</p>
-<h2 id="core-components">Core Components</h2>
-<p>QIRT is built around two main components, both of which extend Qiskit's functionality:</p>
+<h1 id="customizing-ket-notation-with-configuration-file">Customizing Ket Notation with Configuration File</h1>
+<p>QIRT allows you to customize the ket notation using a configuration file. This feature enables you to adapt the notation to your preferences or to match specific conventions in your work.</p>
+<h2 id="configuration-file-location">Configuration File Location</h2>
+<p>The configuration file is located at:</p>
+<div class="highlight"><pre><span></span><code>~/.QIRT/config.ini
+</code></pre></div>
+<p>in your home directory.</p>
+<h2 id="default-configuration">Default Configuration</h2>
+<p>Here's an example of the default configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[ket]</span>
+<span class="na">z0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span>
+<span class="na">z1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1</span>
+<span class="na">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">+</span>
+<span class="na">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-</span>
+<span class="na">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">i</span>
+<span class="na">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">j</span>
+</code></pre></div>
+<p>This configuration defines how different basis states are represented:</p>
+<ul>
+<li><code>z0</code> and <code>z1</code> represent the computational basis states</li>
+<li><code>x0</code> and <code>x1</code> represent the X-basis states</li>
+<li><code>y0</code> and <code>y1</code> represent the Y-basis states</li>
+</ul>
+<h2 id="customizing-the-notation">Customizing the Notation</h2>
+<p>To customize the ket notation:</p>
 <ol>
-<li>
-<p><a href="quantum-state/">QuantumState</a>: An extended version of Qiskit's Statevector class. It provides additional methods for quantum state manipulations, basis conversions, and visualizations.</p>
-</li>
-<li>
-<p><a href="quantum-circuit/">QuantumCircuit</a>: An extended version of Qiskit's QuantumCircuit class. It adds methods for basis conversion and visualization in matrix form.</p>
-</li>
+<li>Open the <code>config.ini</code> file in a text editor.</li>
+<li>Modify the values for each basis state as desired.</li>
+<li>Save the file.</li>
 </ol>
-<h2 id="getting-started">Getting Started</h2>
-<p>If you're new to QIRT, we recommend starting with our <a href="../tutorials/">Tutorials</a> to get a hands-on introduction to the toolkit. For more specific use cases and advanced techniques, check out our <a href="../how-to-guides/index.md">How-to Guides</a>.</p>
-<h2 id="support">Support</h2>
-<p>If you encounter any issues or have questions about using QIRT, please file an issue on our <a href="https://github.com/Slope86/QIRT/issues">GitHub repository</a> or reach out to our community support channels.</p>
+<p>For example, if you prefer to use "r" and "l" for the Y-basis states, you could modify the configuration like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[ket]</span>
+<span class="na">z0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span>
+<span class="na">z1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1</span>
+<span class="na">x0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">+</span>
+<span class="na">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">-</span>
+<span class="na">y0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">r</span>
+<span class="na">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">l</span>
+</code></pre></div>
+<h2 id="applying-changes">Applying Changes</h2>
+<p>After making changes to the configuration file, you must restart your Jupyter kernel or Python interpreter for the changes to take effect. This ensures that QIRT loads the updated configuration properly.</p>
+<h2 id="usage-example">Usage Example</h2>
+<p>After customizing the notation, your quantum states will be represented using the new notation:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">QIRT</span> <span class="kn">import</span> <span class="n">QuantumState</span>
+
+<span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="p">)</span>
+<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>With the custom configuration above, this would output:</p>
+<p>$ \frac{\sqrt{2}}{2}|\texttt{r}\rangle_{0} +\frac{\sqrt{2}}{2}|\texttt{l}\rangle_{0} $</p>
 
 
 
@@ -693,12 +893,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
         <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
       
