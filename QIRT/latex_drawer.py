@@ -328,7 +328,7 @@ def _coeff_to_latex_ket(raw_value: complex, first_coeff: bool, decimals: int = 1
     latex_element = sympy.latex(value, full_prec=False)
 
     # Check if the value has more than one term
-    two_term = real_value != 0 and imag_value != 0
+    two_term = (real_value != 0) and (imag_value != 0)
     if isinstance(value, sympy.Add):
         # can happen for expressions like 1 + sqrt(2)
         two_term = True
