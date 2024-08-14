@@ -4,13 +4,22 @@ A quantum information research toolkit based on Qiskit, designed to facilitate r
 
 ## Quick Start
 
-Install QIRT using pip:
+1. Install QIRT using pip:
 
-```bash
-pip install QIRT
-```
+    ```bash
+    pip install QIRT
+    ```
 
-## Basic Usage
+2. Set up Jupyter Notebook (if not already installed):
+
+    ```bash
+    pip install jupyter
+    jupyter notebook
+    ```
+
+## Basic Usage in Jupyter Notebook
+
+Create a new notebook and run the following:
 
 ```python
 from QIRT import QuantumState, QuantumCircuit
@@ -44,6 +53,7 @@ For detailed documentation, tutorials, and how-to guides, visit our [documentati
 - Python >= 3.10
 - qiskit[visualization] >= 1.1.0
 - IPython >= 8.24.0
+- Jupyter Notebook (for visualization)
 
 ## Configuration
 
