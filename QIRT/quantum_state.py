@@ -55,6 +55,9 @@ class QuantumState:
         [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
     """
 
+    # TODO: Add optional argument to disable coefficient simplification in draw & draw_measurement methods.
+    # TODO: Use mathematical method to get all the measurement results instead of using Qiskit's measure method.
+
     def __init__(
         self,
         data: np.ndarray | list | Statevector | Operator | QiskitQC | Instruction,
