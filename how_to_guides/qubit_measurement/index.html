@@ -620,39 +620,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-measurement-scenarios" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced Measurement Scenarios
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Measurement Scenarios">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#partial-measurement-of-entangled-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      Partial Measurement of Entangled States
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measuring-in-different-bases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Measuring in Different Bases
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusion
@@ -828,39 +795,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-measurement-scenarios" class="md-nav__link">
-    <span class="md-ellipsis">
-      Advanced Measurement Scenarios
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Advanced Measurement Scenarios">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#partial-measurement-of-entangled-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      Partial Measurement of Entangled States
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measuring-in-different-bases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Measuring in Different Bases
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusion
@@ -914,21 +848,24 @@
 <div class="highlight"><pre><span></span><code><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;+-&quot;</span><span class="p">)</span>
 <span class="n">state</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;zx&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p>In this case:</p>
+<p>&gt;&gt; Output: <span class="arithmatex">\(|\texttt{-}\rangle_{1} : \frac{\sqrt{2}}{2}|\texttt{0}\rangle_{0} +\frac{\sqrt{2}}{2}|\texttt{1}\rangle_{0} \\\)</span></p>
+<p>Here:</p>
 <ul>
 <li>Qubit 1 (second qubit) is measured in the X basis.</li>
 <li>Qubit 0 (first qubit) is displayed in the Z basis.</li>
 </ul>
 <h3 id="example-2-four-qubit-state">Example 2: Four-qubit state</h3>
 <div class="highlight"><pre><span></span><code><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;+-+0&quot;</span><span class="p">)</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;xzzx&quot;</span><span class="p">)</span>
+<span class="n">state</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;xzzy&quot;</span><span class="p">)</span>
 </code></pre></div>
+<p>&gt;&gt; Output:</p>
+<p><span class="arithmatex">\(|\texttt{+0}\rangle_{02} : \frac{\sqrt{2}}{2}|\texttt{0i}\rangle_{13} +\frac{\sqrt{2}}{2}|\texttt{0j}\rangle_{13} \\|\texttt{-0}\rangle_{02} : \frac{\sqrt{2}}{2}|\texttt{0i}\rangle_{13} +\frac{\sqrt{2}}{2}|\texttt{0j}\rangle_{13} \\\)</span></p>
 <p>Here:</p>
 <ul>
 <li>Qubit 0 is measured in the X basis.</li>
 <li>Qubit 2 is measured in the Z basis.</li>
 <li>Qubit 1 is displayed in the Z basis.</li>
-<li>Qubit 3 is displayed in the X basis.</li>
+<li>Qubit 3 is displayed in the Y basis. (Note: In the Y basis, the default ket notation uses |i⟩ and |j⟩ to represent |+i⟩ and |-i⟩ respectively.)</li>
 </ul>
 <h2 id="interpreting-complex-measurement-results">Interpreting Complex Measurement Results</h2>
 <p>The output of <code>draw_measurement</code> provides a wealth of information:</p>
@@ -942,25 +879,13 @@
 <span class="n">state</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div>
 <p>The output might look like:</p>
-<p><span class="arithmatex">\(|\texttt{0}\rangle_{0} : |\texttt{00}\rangle_{12} (50\%) \\
-|\texttt{1}\rangle_{0} : |\texttt{11}\rangle_{12} (50\%)\)</span></p>
+<p><span class="arithmatex">\(|\texttt{0}\rangle_{0} : |\texttt{00}\rangle_{12}\\
+|\texttt{1}\rangle_{0} : |\texttt{11}\rangle_{12}\)</span></p>
 <p>This tells us:</p>
 <ul>
 <li>There's a 50% chance of measuring |0⟩ in the first qubit, leaving the other qubits in state |00⟩.</li>
 <li>There's a 50% chance of measuring |1⟩ in the first qubit, leaving the other qubits in state |11⟩.</li>
 </ul>
-<h2 id="advanced-measurement-scenarios">Advanced Measurement Scenarios</h2>
-<h3 id="partial-measurement-of-entangled-states">Partial Measurement of Entangled States</h3>
-<p>Consider the GHZ state:</p>
-<div class="highlight"><pre><span></span><code><span class="n">ghz</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;000&quot;</span><span class="p">,</span> <span class="s2">&quot;111&quot;</span><span class="p">)</span>
-<span class="n">ghz</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;zx&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>This measures the first qubit in the Z basis and the second in the X basis, demonstrating how entanglement affects measurement outcomes.</p>
-<h3 id="measuring-in-different-bases">Measuring in Different Bases</h3>
-<div class="highlight"><pre><span></span><code><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>This measures a two-qubit state where the first qubit is in the X basis and the second in the Y basis, showcasing how measurement basis affects outcomes.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Mastering <code>draw_measurement</code> allows for deep exploration of quantum measurement phenomena. Experiment with different states, measurement configurations, and bases to gain intuition about quantum behavior.</p>
 <p>Remember, quantum measurement is probabilistic and can dramatically alter the state of a system. Use these tools to visualize and understand these complex quantum effects.</p>
