@@ -333,7 +333,7 @@ class QuantumState:
         self,
         target_basis: list[str] | str = [],
         current_basis: list[str] | str = [],
-        algorithm: str = "global",
+        algorithm: str = "local",
     ) -> tuple[QuantumState, list[str]]:
         """Convert the quantum state to a target basis.
 
