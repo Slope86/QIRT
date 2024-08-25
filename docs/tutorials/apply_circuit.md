@@ -50,8 +50,6 @@ The resulting state is a Bell state, which is one of the four maximally entangle
 
 Congratulations! You have now learned how to apply a quantum circuit to a quantum state.
 
+To learn about measuring quantum states, proceed to our next tutorial: [Measuring Quantum States](basic_measurement.md). This tutorial will teach you how to perform measurements on your quantum states and interpret the results.
+
 For more advanced usage, check out our [How-To guides](../how_to_guides/index.md). These guides provide step-by-step instructions for specific tasks and use cases.
-
-For the detailed API documentation, please refer to our [API Reference](../reference/index.md). This section includes comprehensive information on all QIRT functions, classes, and modules.
-
-Happy quantum computing with QIRT!
