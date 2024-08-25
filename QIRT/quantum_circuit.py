@@ -163,7 +163,7 @@ class QuantumCircuit:
             label (str): The string label of the barrier.
 
         Returns:
-            qiskit.circuit.QuantumCircuit: handle to the added instructions.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.barrier(*qargs, label=label)
         return self
@@ -187,7 +187,7 @@ class QuantumCircuit:
                 depending on the target backend.
 
         Returns:
-            qiskit.circuit.QuantumCircuit: handle to the added instructions.
+            QuantumCircuit: Quantum circuit with the applied gate.
 
         Raises:
             CircuitError: if arguments have bad format.
@@ -204,7 +204,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.h(qubit)
         return self
@@ -229,7 +229,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.ch(control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -243,7 +243,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.id(qubit)
         return self
@@ -258,7 +258,7 @@ class QuantumCircuit:
             qubits: The qubits to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.ms(theta, qubits)
         return self
@@ -273,7 +273,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.p(theta, qubit)
         return self
@@ -300,7 +300,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cp(theta, control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -325,7 +325,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.mcp(lam, control_qubits, target_qubit, ctrl_state=ctrl_state)
         return self
@@ -343,7 +343,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.r(theta, phi, qubit)
         return self
@@ -369,7 +369,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rv(vx, vy, vz, qubit)
         return self
@@ -390,7 +390,7 @@ class QuantumCircuit:
             target_qubit: The qubit(s) targeted by the gate.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rccx(control_qubit1, control_qubit2, target_qubit)
         return self
@@ -413,7 +413,7 @@ class QuantumCircuit:
             target_qubit: The qubit(s) targeted by the gate.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rcccx(control_qubit1, control_qubit2, control_qubit3, target_qubit)
         return self
@@ -429,7 +429,7 @@ class QuantumCircuit:
             label: The string label of the gate in the circuit.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rx(theta, qubit, label=label)
         return self
@@ -456,7 +456,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.crx(theta, control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -472,7 +472,7 @@ class QuantumCircuit:
             qubit2: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rxx(theta, qubit1, qubit2)
         return self
@@ -488,7 +488,7 @@ class QuantumCircuit:
             label: The string label of the gate in the circuit.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.ry(theta, qubit, label=label)
         return self
@@ -515,7 +515,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cry(theta, control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -531,7 +531,7 @@ class QuantumCircuit:
             qubit2: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.ryy(theta, qubit1, qubit2)
         return self
@@ -546,7 +546,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rz(phi, qubit)
         return self
@@ -573,7 +573,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.crz(theta, control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -589,7 +589,7 @@ class QuantumCircuit:
             qubit2: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rzx(theta, qubit1, qubit2)
         return self
@@ -605,7 +605,7 @@ class QuantumCircuit:
             qubit2: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.rzz(theta, qubit1, qubit2)
         return self
@@ -620,7 +620,7 @@ class QuantumCircuit:
             qubit2: The second qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.ecr(qubit1, qubit2)
         return self
@@ -634,7 +634,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.s(qubit)
         return self
@@ -648,7 +648,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.sdg(qubit)
         return self
@@ -673,7 +673,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cs(control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -698,7 +698,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.csdg(control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -713,7 +713,7 @@ class QuantumCircuit:
             qubit2: The second qubit to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.swap(qubit1, qubit2)
         return self
@@ -728,7 +728,7 @@ class QuantumCircuit:
             qubit2: The second qubit to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.iswap(qubit1, qubit2)
         return self
@@ -755,7 +755,7 @@ class QuantumCircuit:
                 on the ``'1'`` state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cswap(control_qubit, target_qubit1, target_qubit2, label=label, ctrl_state=ctrl_state)
         return self
@@ -769,7 +769,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.sx(qubit)
         return self
@@ -783,7 +783,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.sxdg(qubit)
         return self
@@ -808,7 +808,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.csx(control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -822,7 +822,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.t(qubit)
         return self
@@ -836,7 +836,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.tdg(qubit)
         return self
@@ -859,7 +859,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.u(theta, phi, lam, qubit)
         return self
@@ -892,7 +892,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cu(theta, phi, lam, gamma, control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -907,7 +907,7 @@ class QuantumCircuit:
             label: The string label of the gate in the circuit.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.x(qubit, label=label)
         return self
@@ -932,7 +932,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cx(control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -947,7 +947,7 @@ class QuantumCircuit:
             qubit2: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.dcx(qubit1, qubit2)
         return self
@@ -972,7 +972,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.ccx(control_qubit1, control_qubit2, target_qubit, ctrl_state=ctrl_state)
         return self
@@ -1007,7 +1007,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
 
         Raises:
             ValueError: if the given mode is not known, or if too few ancilla qubits are passed.
@@ -1027,7 +1027,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.y(qubit)
         return self
@@ -1052,7 +1052,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cy(control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -1066,7 +1066,7 @@ class QuantumCircuit:
             qubit: The qubit(s) to apply the gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.z(qubit)
         return self
@@ -1091,7 +1091,7 @@ class QuantumCircuit:
                 on the '1' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.cz(control_qubit, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -1118,7 +1118,7 @@ class QuantumCircuit:
                 on the '11' state.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.ccz(control_qubit1, control_qubit2, target_qubit, label=label, ctrl_state=ctrl_state)
         return self
@@ -1135,7 +1135,7 @@ class QuantumCircuit:
             qubits: The qubits to apply this gate to.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
         """
         self._qiskit_qc.pauli(pauli_string, qubits)
         return self
@@ -1274,7 +1274,7 @@ class QuantumCircuit:
             normalize: Whether to normalize an input array to a unit vector.
 
         Returns:
-            A handle to the instructions created.
+            QuantumCircuit: Quantum circuit with the applied gate.
 
         Examples:
             Prepare a qubit in the state :math:`(|0\rangle - |1\rangle) / \sqrt{2}`.
