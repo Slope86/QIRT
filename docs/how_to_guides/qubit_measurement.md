@@ -71,28 +71,6 @@ This tells us:
 - There's a 50% chance of measuring |0⟩ in the first qubit, leaving the other qubits in state |00⟩.
 - There's a 50% chance of measuring |1⟩ in the first qubit, leaving the other qubits in state |11⟩.
 
-## Advanced Measurement Scenarios
-
-### Partial Measurement of Entangled States
-
-Consider the GHZ state:
-
-```python
-ghz = QuantumState.from_label("000", "111")
-ghz.draw_measurement(measure_bit=[0, 1], target_basis="zx")
-```
-
-This measures the first qubit in the Z basis and the second in the X basis, demonstrating how entanglement affects measurement outcomes.
-
-### Measuring in Different Bases
-
-```python
-state = QuantumState.from_label("+", "-")
-state.draw_measurement(measure_bit=[0, 1], target_basis="xy")
-```
-
-This measures a two-qubit state where the first qubit is in the X basis and the second in the Y basis, showcasing how measurement basis affects outcomes.
-
 ## Conclusion
 
 Mastering `draw_measurement` allows for deep exploration of quantum measurement phenomena. Experiment with different states, measurement configurations, and bases to gain intuition about quantum behavior.
