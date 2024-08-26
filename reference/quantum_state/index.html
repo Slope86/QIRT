@@ -1405,7 +1405,10 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="normal">571</span>
 <span class="normal">572</span>
 <span class="normal">573</span>
-<span class="normal">574</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
+<span class="normal">574</span>
+<span class="normal">575</span>
+<span class="normal">576</span>
+<span class="normal">577</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An extended class of Statevector from Qiskit.</span>
 
 <span class="sd">    This class extends the Statevector class from Qiskit to provide additional</span>
@@ -1417,9 +1420,6 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">    See Also:</span>
 <span class="sd">        [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># TODO: Add optional argument to disable coefficient simplification in draw &amp; draw_measurement methods.</span>
-    <span class="c1"># TODO: Use mathematical method to get all the measurement results instead of using Qiskit&#39;s measure method.</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -1578,6 +1578,9 @@ functionalities specific to quantum state manipulations and measurements.</p>
         <span class="n">matrix</span> <span class="o">=</span> <span class="n">flat_vector</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
         <span class="k">return</span> <span class="n">matrix</span>
 
+    <span class="c1"># TODO: Add optional argument to disable coefficient simplification in draw() &amp; draw_measurement() methods.</span>
+    <span class="c1"># TODO: Add document about draw() &amp; draw_measurement() methods&#39; output options:</span>
+    <span class="c1">#           target_basis can be &quot;-&quot; to hide the corresponding qubit or &quot;*&quot; to auto-choose basis.</span>
     <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;latex&quot;</span><span class="p">,</span>
@@ -1620,6 +1623,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
             <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid output format.&quot;</span><span class="p">)</span>
 
+    <span class="c1"># TODO: Add document explaining how to use state_after_measurement() method.</span>
     <span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]]:</span>
@@ -1871,6 +1875,8 @@ functionalities specific to quantum state manipulations and measurements.</p>
         <span class="n">z_basis_system_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
         <span class="n">measure_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
         <span class="n">system_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
+
+        <span class="c1"># TODO: Use mathematical method to get all the measurement results instead of using Qiskit&#39;s measure method.</span>
         <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shot</span><span class="p">):</span>
             <span class="n">measure_ket</span><span class="p">,</span> <span class="n">system_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_perform_single_shot_measurement</span><span class="p">(</span><span class="n">converted_state</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">measure_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2106,7 +2112,10 @@ zero state.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">61</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
 <span class="normal">62</span>
 <span class="normal">63</span>
 <span class="normal">64</span>
@@ -2128,10 +2137,7 @@ zero state.</p>
 <span class="normal">80</span>
 <span class="normal">81</span>
 <span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">Statevector</span> <span class="o">|</span> <span class="n">Operator</span> <span class="o">|</span> <span class="n">QiskitQC</span> <span class="o">|</span> <span class="n">Instruction</span><span class="p">,</span>
     <span class="n">dims</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2271,7 +2277,10 @@ quantum state subsystem dimensions.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">180</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
 <span class="normal">181</span>
 <span class="normal">182</span>
 <span class="normal">183</span>
@@ -2290,10 +2299,7 @@ quantum state subsystem dimensions.</p>
 <span class="normal">196</span>
 <span class="normal">197</span>
 <span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">qargs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="normal">199</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">qargs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a quantum circuit to the quantum state.</span>
 
 <span class="sd">    This method applies the given operator to the quantum state, evolving it</span>
@@ -2692,8 +2698,7 @@ either as an image or a string representing the source code.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">286</span>
-<span class="normal">287</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">287</span>
 <span class="normal">288</span>
 <span class="normal">289</span>
 <span class="normal">290</span>
@@ -2736,7 +2741,8 @@ either as an image or a string representing the source code.</p>
 <span class="normal">327</span>
 <span class="normal">328</span>
 <span class="normal">329</span>
-<span class="normal">330</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw_measurement</span><span class="p">(</span>
+<span class="normal">330</span>
+<span class="normal">331</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw_measurement</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span>
@@ -2826,7 +2832,10 @@ either as an image or a string representing the source code.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">167</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
 <span class="normal">168</span>
 <span class="normal">169</span>
 <span class="normal">170</span>
@@ -2834,10 +2843,7 @@ either as an image or a string representing the source code.</p>
 <span class="normal">172</span>
 <span class="normal">173</span>
 <span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+<span class="normal">175</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate and return the Shannon  entropy of the quantum state.</span>
 
 <span class="sd">    The Shannon  entropy is a measure of the quantum state&#39;s uncertainty or mixedness.</span>
@@ -2967,7 +2973,10 @@ either as an image or a string representing the source code.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">111</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
 <span class="normal">112</span>
 <span class="normal">113</span>
 <span class="normal">114</span>
@@ -3018,10 +3027,7 @@ either as an image or a string representing the source code.</p>
 <span class="normal">159</span>
 <span class="normal">160</span>
 <span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">162</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">from_label</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">complex</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a state vector from input coefficients and label strings.</span>
 
@@ -3185,8 +3191,7 @@ Defaults to an empty list.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">260</span>
-<span class="normal">261</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">261</span>
 <span class="normal">262</span>
 <span class="normal">263</span>
 <span class="normal">264</span>
@@ -3209,7 +3214,8 @@ Defaults to an empty list.</p>
 <span class="normal">281</span>
 <span class="normal">282</span>
 <span class="normal">283</span>
-<span class="normal">284</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+<span class="normal">284</span>
+<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain the quantum state after a measurement.</span>
@@ -3281,7 +3287,10 @@ operations and calculations.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">204</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
 <span class="normal">205</span>
 <span class="normal">206</span>
 <span class="normal">207</span>
@@ -3290,10 +3299,7 @@ operations and calculations.</p>
 <span class="normal">210</span>
 <span class="normal">211</span>
 <span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
-<span class="normal">216</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
+<span class="normal">213</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the quantum state vector to a column matrix representation.</span>
 
 <span class="sd">    This method takes the quantum state vector stored in the object and converts</span>
