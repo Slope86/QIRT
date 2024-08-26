@@ -16,9 +16,11 @@ pip install QIRT
 
 This command will download and install QIRT along with its dependencies.
 
-## Setting up jupyter notebook
+## Setting up a Jupyter Notebook Environment
 
-We recommend using Jupyter Notebook for the best experience with QIRT. Here's how to set it up:
+QIRT requires a Jupyter Notebook compatible environment for result visualization. We recommend using Jupyter Notebook for the best interactive experience with QIRT.
+
+Here's how to set it up:
 
 1. Install Jupyter:
 
@@ -33,6 +35,8 @@ We recommend using Jupyter Notebook for the best experience with QIRT. Here's ho
     ```
 
 3. Create a new notebook and you're ready to start!
+
+Note: While we recommend Jupyter Notebook for beginners, QIRT can also be used in other Jupyter Notebook compatible environments, such as Google Colab or IDEs with Jupyter support. Choose the option that best suits your development preferences and workflow.
 
 ## Next Steps
 
