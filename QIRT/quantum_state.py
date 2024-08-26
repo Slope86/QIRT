@@ -161,6 +161,20 @@ class QuantumState:
         state_vector /= state_vector.trace() ** 0.5  # Normalize the state
         return QuantumState(state_vector)
 
+    def tensor(self, other: QuantumState) -> QuantumState:
+        """Return the tensor product state self ⊗ other.
+
+        This method calculates the tensor product of the quantum states stored in the
+        object and another given quantum state, returning the resulting quantum state.
+
+        Args:
+            other (QuantumState): The other quantum state to tensor with.
+
+        Returns:
+            QuantumState: the tensor product operator self ⊗ other.
+        """
+        return QuantumState(self.state_vector.tensor(other.state_vector))
+
     def entropy(self) -> np.float64:
         """Calculate and return the Shannon  entropy of the quantum state.
 
@@ -257,33 +271,6 @@ class QuantumState:
             case _:
                 raise QiskitError("Invalid output format.")
 
-    # TODO: Add document explaining how to use state_after_measurement() method.
-    def state_after_measurement(
-        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=100
-    ) -> tuple[list[QuantumState], list[QuantumState]]:
-        """Obtain the quantum state after a measurement.
-
-        This method returns the quantum states resulting from measuring specified qubits in a given basis.
-        It provides two lists of quantum states: the measured states in the Z basis and the system states
-        after measurement.
-
-        Args:
-            measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a
-                string specifying the bits.
-            target_basis (List[str] | str, optional): The basis in which to perform the measurement.
-                Defaults to an empty list.
-            shot (int, optional): The number of measurement shots to perform. Defaults to 100.
-
-        Returns:
-            (Tuple[List[QuantumState], List[QuantumState]]):
-                - A list of quantum states representing the measurement results in the Z basis.
-                - A list of quantum states representing the system state after the measurement in the Z basis.
-        """
-        z_basis_measure_state_list, z_basis_system_state_list, _, _, _, _ = self._measurement(
-            measure_bit=measure_bit, target_basis=target_basis, shot=shot
-        )
-        return (z_basis_measure_state_list, z_basis_system_state_list)
-
     def draw_measurement(
         self,
         measure_bit: list[int] | str,
@@ -329,6 +316,98 @@ class QuantumState:
             output_length=output_length,
             source=source,
         )
+
+    # TODO: Add document explaining how to use state_after_measurement() method.
+    def state_after_measurement(
+        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=100
+    ) -> list[QuantumState]:
+        """Simulate quantum measurement and return resulting states.
+
+        This method simulates the measurement of specified qubits in a given basis and returns the possible
+        post-measurement states of the system.
+
+        Examples:
+            >>> state = QuantumState.from_label("000", "111")
+
+            Measure qubit 0 in Z-basis:
+            >>> z_states = state.state_after_measurement(measure_bit=[0], target_basis="z--")
+            >>> z_states[0].draw()
+            |000>
+            >>> z_states[1].draw()
+            |111>
+
+            Measure qubit 0 in X-basis:
+            >>> x_states = state.state_after_measurement(measure_bit=[0], target_basis="x--")
+            >>> x_states[0].draw()
+            1/√2(|+++> + |+-->)
+            >>> x_states[1].draw()
+            1/√2(|-+-> - |--+>)
+
+            Measure qubit 0 in Y-basis:
+            >>> y_states = state.state_after_measurement(measure_bit=[0], target_basis="y--")
+            >>> y_states[0].draw()
+            1/√2(|i00> - i|i11>)
+            >>> y_states[1].draw()
+            1/√2(|j00> + i|j11>)
+
+            Measure qubit 2 in Y-basis:
+            >>> y_states = state.state_after_measurement(measure_bit=[2], target_basis="--y")
+            >>> y_states[0].draw()
+            1/√2(|00i> - i|11i>)
+            >>> y_states[1].draw()
+            1/√2(|00j> + i|11j>)
+
+            Measure qubits 1 and 2 in X-basis:
+            >>> x_states = state.state_after_measurement(measure_bit=[1, 2], target_basis="-xx")
+            >>> x_states[0b00].draw()
+            |+++>
+            >>> x_states[0b01].draw()
+            |-+->
+            >>> x_states[0b10].draw()
+            |--+>
+            >>> x_states[0b11].draw()
+            |+-->
+
+        Understanding and Using the Results:
+            1. List Structure:
+            The returned list contains QuantumState objects, each representing a possible
+            post-measurement state. The number of states in the list depends on the number
+            of measured qubits.
+
+            2. Indexing:
+            - For a single qubit measurement (in any basis: Z, X, or Y):
+                * states[0]: State corresponding to the measurement result '0'
+                * states[1]: State corresponding to the measurement result '1'
+            - For multi-qubit measurements:
+                The index corresponds to the binary representation of the measurement outcome.
+                E.g., for a two-qubit measurement:
+                * states[0b00]: Outcome '00'
+                * states[0b01]: Outcome '01'
+                * states[0b10]: Outcome '10'
+                * states[0b11]: Outcome '11'
+
+            3. Basis-Specific Interpretations:
+            - Z-basis: '0' represents |0>, '1' represents |1>
+            - X-basis: '0' represents |+>, '1' represents |->
+            - Y-basis: '0' represents |+i>, '1' represents |-i>
+
+        Args:
+            measure_bit (List[int] | str): Indices of qubits to be measured. Can be a list of integers
+                or a string of qubit indices (e.g., "01" for qubits 0 and 1).
+            target_basis (List[str] | str, optional): Measurement basis for each measured qubit.
+                Supported bases are "x", "y", "z". If not specified, Z-basis is used by default.
+                Can be a list of strings or a string (e.g., ["x", "z"] or "xz").
+            shot (int, optional): Number of measurement simulations to perform. Higher values give
+                more accurate probability distributions. Defaults to 100.
+
+        Returns:
+            List[QuantumState]: A list of possible post-measurement quantum states. Each state
+            represents a possible outcome of the measurement process.
+        """
+        _, z_basis_system_state_list, _, _, _, _ = self._measurement(
+            measure_bit=measure_bit, target_basis=target_basis, shot=shot
+        )
+        return z_basis_system_state_list
 
     def _basis_convert(
         self,
