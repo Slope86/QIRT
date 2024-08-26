@@ -239,7 +239,7 @@ def _state_to_latex_ket(
     data = convert_state.data
 
     if show_qubit_index:
-        qubit_index_str = "".join([str(i) for i in qubit_index if i not in hidden_bit])
+        qubit_index_str = ",".join([str(i) for i in qubit_index if i not in hidden_bit])
     else:
         qubit_index_str = ""
 
