@@ -644,6 +644,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.tensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      tensor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#QIRT.QuantumState.to_matrix" class="md-nav__link">
     <span class="md-ellipsis">
       to_matrix
@@ -798,6 +807,15 @@
   <a href="#QIRT.QuantumState.state_after_measurement" class="md-nav__link">
     <span class="md-ellipsis">
       state_after_measurement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#QIRT.QuantumState.tensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      tensor
     </span>
   </a>
   
@@ -1408,7 +1426,86 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="normal">574</span>
 <span class="normal">575</span>
 <span class="normal">576</span>
-<span class="normal">577</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
+<span class="normal">577</span>
+<span class="normal">578</span>
+<span class="normal">579</span>
+<span class="normal">580</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span>
+<span class="normal">608</span>
+<span class="normal">609</span>
+<span class="normal">610</span>
+<span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span>
+<span class="normal">614</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span>
+<span class="normal">634</span>
+<span class="normal">635</span>
+<span class="normal">636</span>
+<span class="normal">637</span>
+<span class="normal">638</span>
+<span class="normal">639</span>
+<span class="normal">640</span>
+<span class="normal">641</span>
+<span class="normal">642</span>
+<span class="normal">643</span>
+<span class="normal">644</span>
+<span class="normal">645</span>
+<span class="normal">646</span>
+<span class="normal">647</span>
+<span class="normal">648</span>
+<span class="normal">649</span>
+<span class="normal">650</span>
+<span class="normal">651</span>
+<span class="normal">652</span>
+<span class="normal">653</span>
+<span class="normal">654</span>
+<span class="normal">655</span>
+<span class="normal">656</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An extended class of Statevector from Qiskit.</span>
 
 <span class="sd">    This class extends the Statevector class from Qiskit to provide additional</span>
@@ -1527,6 +1624,20 @@ functionalities specific to quantum state manipulations and measurements.</p>
         <span class="n">state_vector</span> <span class="o">/=</span> <span class="n">state_vector</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span> <span class="o">**</span> <span class="mf">0.5</span>  <span class="c1"># Normalize the state</span>
         <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">state_vector</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the tensor product state self ⊗ other.</span>
+
+<span class="sd">        This method calculates the tensor product of the quantum states stored in the</span>
+<span class="sd">        object and another given quantum state, returning the resulting quantum state.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            other (QuantumState): The other quantum state to tensor with.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            QuantumState: the tensor product operator self ⊗ other.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">state_vector</span><span class="p">))</span>
+
     <span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate and return the Shannon  entropy of the quantum state.</span>
 
@@ -1623,33 +1734,6 @@ functionalities specific to quantum state manipulations and measurements.</p>
             <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">QiskitError</span><span class="p">(</span><span class="s2">&quot;Invalid output format.&quot;</span><span class="p">)</span>
 
-    <span class="c1"># TODO: Add document explaining how to use state_after_measurement() method.</span>
-    <span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtain the quantum state after a measurement.</span>
-
-<span class="sd">        This method returns the quantum states resulting from measuring specified qubits in a given basis.</span>
-<span class="sd">        It provides two lists of quantum states: the measured states in the Z basis and the system states</span>
-<span class="sd">        after measurement.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a</span>
-<span class="sd">                string specifying the bits.</span>
-<span class="sd">            target_basis (List[str] | str, optional): The basis in which to perform the measurement.</span>
-<span class="sd">                Defaults to an empty list.</span>
-<span class="sd">            shot (int, optional): The number of measurement shots to perform. Defaults to 100.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            (Tuple[List[QuantumState], List[QuantumState]]):</span>
-<span class="sd">                - A list of quantum states representing the measurement results in the Z basis.</span>
-<span class="sd">                - A list of quantum states representing the system state after the measurement in the Z basis.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
-            <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">shot</span><span class="o">=</span><span class="n">shot</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">)</span>
-
     <span class="k">def</span> <span class="nf">draw_measurement</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
@@ -1695,6 +1779,98 @@ functionalities specific to quantum state manipulations and measurements.</p>
             <span class="n">output_length</span><span class="o">=</span><span class="n">output_length</span><span class="p">,</span>
             <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
         <span class="p">)</span>
+
+    <span class="c1"># TODO: Add document explaining how to use state_after_measurement() method.</span>
+    <span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate quantum measurement and return resulting states.</span>
+
+<span class="sd">        This method simulates the measurement of specified qubits in a given basis and returns the possible</span>
+<span class="sd">        post-measurement states of the system.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; state = QuantumState.from_label(&quot;000&quot;, &quot;111&quot;)</span>
+
+<span class="sd">            Measure qubit 0 in Z-basis:</span>
+<span class="sd">            &gt;&gt;&gt; z_states = state.state_after_measurement(measure_bit=[0], target_basis=&quot;z--&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; z_states[0].draw()</span>
+<span class="sd">            |000&gt;</span>
+<span class="sd">            &gt;&gt;&gt; z_states[1].draw()</span>
+<span class="sd">            |111&gt;</span>
+
+<span class="sd">            Measure qubit 0 in X-basis:</span>
+<span class="sd">            &gt;&gt;&gt; x_states = state.state_after_measurement(measure_bit=[0], target_basis=&quot;x--&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; x_states[0].draw()</span>
+<span class="sd">            1/√2(|+++&gt; + |+--&gt;)</span>
+<span class="sd">            &gt;&gt;&gt; x_states[1].draw()</span>
+<span class="sd">            1/√2(|-+-&gt; - |--+&gt;)</span>
+
+<span class="sd">            Measure qubit 0 in Y-basis:</span>
+<span class="sd">            &gt;&gt;&gt; y_states = state.state_after_measurement(measure_bit=[0], target_basis=&quot;y--&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; y_states[0].draw()</span>
+<span class="sd">            1/√2(|i00&gt; - i|i11&gt;)</span>
+<span class="sd">            &gt;&gt;&gt; y_states[1].draw()</span>
+<span class="sd">            1/√2(|j00&gt; + i|j11&gt;)</span>
+
+<span class="sd">            Measure qubit 2 in Y-basis:</span>
+<span class="sd">            &gt;&gt;&gt; y_states = state.state_after_measurement(measure_bit=[2], target_basis=&quot;--y&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; y_states[0].draw()</span>
+<span class="sd">            1/√2(|00i&gt; - i|11i&gt;)</span>
+<span class="sd">            &gt;&gt;&gt; y_states[1].draw()</span>
+<span class="sd">            1/√2(|00j&gt; + i|11j&gt;)</span>
+
+<span class="sd">            Measure qubits 1 and 2 in X-basis:</span>
+<span class="sd">            &gt;&gt;&gt; x_states = state.state_after_measurement(measure_bit=[1, 2], target_basis=&quot;-xx&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; x_states[0b00].draw()</span>
+<span class="sd">            |+++&gt;</span>
+<span class="sd">            &gt;&gt;&gt; x_states[0b01].draw()</span>
+<span class="sd">            |-+-&gt;</span>
+<span class="sd">            &gt;&gt;&gt; x_states[0b10].draw()</span>
+<span class="sd">            |--+&gt;</span>
+<span class="sd">            &gt;&gt;&gt; x_states[0b11].draw()</span>
+<span class="sd">            |+--&gt;</span>
+
+<span class="sd">        Understanding and Using the Results:</span>
+<span class="sd">            1. List Structure:</span>
+<span class="sd">            The returned list contains QuantumState objects, each representing a possible</span>
+<span class="sd">            post-measurement state. The number of states in the list depends on the number</span>
+<span class="sd">            of measured qubits.</span>
+
+<span class="sd">            2. Indexing:</span>
+<span class="sd">            - For a single qubit measurement (in any basis: Z, X, or Y):</span>
+<span class="sd">                * states[0]: State corresponding to the measurement result &#39;0&#39;</span>
+<span class="sd">                * states[1]: State corresponding to the measurement result &#39;1&#39;</span>
+<span class="sd">            - For multi-qubit measurements:</span>
+<span class="sd">                The index corresponds to the binary representation of the measurement outcome.</span>
+<span class="sd">                E.g., for a two-qubit measurement:</span>
+<span class="sd">                * states[0b00]: Outcome &#39;00&#39;</span>
+<span class="sd">                * states[0b01]: Outcome &#39;01&#39;</span>
+<span class="sd">                * states[0b10]: Outcome &#39;10&#39;</span>
+<span class="sd">                * states[0b11]: Outcome &#39;11&#39;</span>
+
+<span class="sd">            3. Basis-Specific Interpretations:</span>
+<span class="sd">            - Z-basis: &#39;0&#39; represents |0&gt;, &#39;1&#39; represents |1&gt;</span>
+<span class="sd">            - X-basis: &#39;0&#39; represents |+&gt;, &#39;1&#39; represents |-&gt;</span>
+<span class="sd">            - Y-basis: &#39;0&#39; represents |+i&gt;, &#39;1&#39; represents |-i&gt;</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            measure_bit (List[int] | str): Indices of qubits to be measured. Can be a list of integers</span>
+<span class="sd">                or a string of qubit indices (e.g., &quot;01&quot; for qubits 0 and 1).</span>
+<span class="sd">            target_basis (List[str] | str, optional): Measurement basis for each measured qubit.</span>
+<span class="sd">                Supported bases are &quot;x&quot;, &quot;y&quot;, &quot;z&quot;. If not specified, Z-basis is used by default.</span>
+<span class="sd">                Can be a list of strings or a string (e.g., [&quot;x&quot;, &quot;z&quot;] or &quot;xz&quot;).</span>
+<span class="sd">            shot (int, optional): Number of measurement simulations to perform. Higher values give</span>
+<span class="sd">                more accurate probability distributions. Defaults to 100.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List[QuantumState]: A list of possible post-measurement quantum states. Each state</span>
+<span class="sd">            represents a possible outcome of the measurement process.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
+            <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">shot</span><span class="o">=</span><span class="n">shot</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">z_basis_system_state_list</span>
 
     <span class="k">def</span> <span class="nf">_basis_convert</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -2277,21 +2453,7 @@ quantum state subsystem dimensions.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">191</span>
 <span class="normal">192</span>
 <span class="normal">193</span>
 <span class="normal">194</span>
@@ -2299,7 +2461,21 @@ quantum state subsystem dimensions.</p>
 <span class="normal">196</span>
 <span class="normal">197</span>
 <span class="normal">198</span>
-<span class="normal">199</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">qargs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">qargs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a quantum circuit to the quantum state.</span>
 
 <span class="sd">    This method applies the given operator to the quantum state, evolving it</span>
@@ -2457,21 +2633,7 @@ output depending on the chosen method.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">218</span>
-<span class="normal">219</span>
-<span class="normal">220</span>
-<span class="normal">221</span>
-<span class="normal">222</span>
-<span class="normal">223</span>
-<span class="normal">224</span>
-<span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">232</span>
 <span class="normal">233</span>
 <span class="normal">234</span>
 <span class="normal">235</span>
@@ -2497,7 +2659,21 @@ output depending on the chosen method.</p>
 <span class="normal">255</span>
 <span class="normal">256</span>
 <span class="normal">257</span>
-<span class="normal">258</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;latex&quot;</span><span class="p">,</span>
     <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2698,7 +2874,20 @@ either as an image or a string representing the source code.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">287</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
 <span class="normal">288</span>
 <span class="normal">289</span>
 <span class="normal">290</span>
@@ -2729,20 +2918,7 @@ either as an image or a string representing the source code.</p>
 <span class="normal">315</span>
 <span class="normal">316</span>
 <span class="normal">317</span>
-<span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw_measurement</span><span class="p">(</span>
+<span class="normal">318</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">draw_measurement</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span>
@@ -2832,18 +3008,18 @@ either as an image or a string representing the source code.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span>
-<span class="normal">170</span>
-<span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">entropy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate and return the Shannon  entropy of the quantum state.</span>
 
 <span class="sd">    The Shannon  entropy is a measure of the quantum state&#39;s uncertainty or mixedness.</span>
@@ -3099,11 +3275,91 @@ either as an image or a string representing the source code.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Obtain the quantum state after a measurement.</p>
-<p>This method returns the quantum states resulting from measuring specified qubits in a given basis.
-It provides two lists of quantum states: the measured states in the Z basis and the system states
-after measurement.</p>
+      <p>Simulate quantum measurement and return resulting states.</p>
+<p>This method simulates the measurement of specified qubits in a given basis and returns the possible
+post-measurement states of the system.</p>
 
+
+<p><span class="doc-section-title">Examples:</span></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;000&quot;</span><span class="p">,</span> <span class="s2">&quot;111&quot;</span><span class="p">)</span>
+</code></pre></div>
+    <p>Measure qubit 0 in Z-basis:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">z_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;z--&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">|000&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">|111&gt;</span>
+</code></pre></div>
+    <p>Measure qubit 0 in X-basis:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;x--&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">1/√2(|+++&gt; + |+--&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">1/√2(|-+-&gt; - |--+&gt;)</span>
+</code></pre></div>
+    <p>Measure qubit 0 in Y-basis:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">y_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;y--&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">1/√2(|i00&gt; - i|i11&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">1/√2(|j00&gt; + i|j11&gt;)</span>
+</code></pre></div>
+    <p>Measure qubit 2 in Y-basis:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">y_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;--y&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">1/√2(|00i&gt; - i|11i&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">1/√2(|00j&gt; + i|11j&gt;)</span>
+</code></pre></div>
+    <p>Measure qubits 1 and 2 in X-basis:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;-xx&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span><span class="p">[</span><span class="mb">0b00</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">|+++&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span><span class="p">[</span><span class="mb">0b01</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">|-+-&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span><span class="p">[</span><span class="mb">0b10</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">|--+&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_states</span><span class="p">[</span><span class="mb">0b11</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="go">|+--&gt;</span>
+</code></pre></div>
+
+
+<details class="understanding-and-using-the-results" open>
+  <summary>Understanding and Using the Results</summary>
+  <ol>
+<li>
+<p>List Structure:
+The returned list contains QuantumState objects, each representing a possible
+post-measurement state. The number of states in the list depends on the number
+of measured qubits.</p>
+</li>
+<li>
+<p>Indexing:</p>
+</li>
+<li>For a single qubit measurement (in any basis: Z, X, or Y):<ul>
+<li>states[0]: State corresponding to the measurement result '0'</li>
+<li>states[1]: State corresponding to the measurement result '1'</li>
+</ul>
+</li>
+<li>
+<p>For multi-qubit measurements:
+    The index corresponds to the binary representation of the measurement outcome.
+    E.g., for a two-qubit measurement:</p>
+<ul>
+<li>states[0b00]: Outcome '00'</li>
+<li>states[0b01]: Outcome '01'</li>
+<li>states[0b10]: Outcome '10'</li>
+<li>states[0b11]: Outcome '11'</li>
+</ul>
+</li>
+<li>
+<p>Basis-Specific Interpretations:</p>
+</li>
+<li>Z-basis: '0' represents |0&gt;, '1' represents |1&gt;</li>
+<li>X-basis: '0' represents |+&gt;, '1' represents |-&gt;</li>
+<li>Y-basis: '0' represents |+i&gt;, '1' represents |-i&gt;</li>
+</ol>
+</details>
 
 <p><span class="doc-section-title">Parameters:</span></p>
     <table>
@@ -3123,8 +3379,8 @@ after measurement.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The bits (qubits) to measure. Can be a list of indices or a
-string specifying the bits.</p>
+                <p>Indices of qubits to be measured. Can be a list of integers
+or a string of qubit indices (e.g., "01" for qubits 0 and 1).</p>
               </div>
             </td>
             <td>
@@ -3138,8 +3394,9 @@ string specifying the bits.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The basis in which to perform the measurement.
-Defaults to an empty list.</p>
+                <p>Measurement basis for each measured qubit.
+Supported bases are "x", "y", "z". If not specified, Z-basis is used by default.
+Can be a list of strings or a string (e.g., ["x", "z"] or "xz").</p>
               </div>
             </td>
             <td>
@@ -3153,7 +3410,8 @@ Defaults to an empty list.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The number of measurement shots to perform. Defaults to 100.</p>
+                <p>Number of measurement simulations to perform. Higher values give
+more accurate probability distributions. Defaults to 100.</p>
               </div>
             </td>
             <td>
@@ -3175,14 +3433,21 @@ Defaults to an empty list.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>Tuple[List[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>], List[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>]]</code>
+                  <code>list[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <ul>
-<li>A list of quantum states representing the measurement results in the Z basis.</li>
-<li>A list of quantum states representing the system state after the measurement in the Z basis.</li>
-</ul>
+                <p>List[QuantumState]: A list of possible post-measurement quantum states. Each state</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                  <code>list[<a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>represents a possible outcome of the measurement process.</p>
               </div>
             </td>
           </tr>
@@ -3191,55 +3456,285 @@ Defaults to an empty list.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span>
-<span class="normal">269</span>
-<span class="normal">270</span>
-<span class="normal">271</span>
-<span class="normal">272</span>
-<span class="normal">273</span>
-<span class="normal">274</span>
-<span class="normal">275</span>
-<span class="normal">276</span>
-<span class="normal">277</span>
-<span class="normal">278</span>
-<span class="normal">279</span>
-<span class="normal">280</span>
-<span class="normal">281</span>
-<span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain the quantum state after a measurement.</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate quantum measurement and return resulting states.</span>
 
-<span class="sd">    This method returns the quantum states resulting from measuring specified qubits in a given basis.</span>
-<span class="sd">    It provides two lists of quantum states: the measured states in the Z basis and the system states</span>
-<span class="sd">    after measurement.</span>
+<span class="sd">    This method simulates the measurement of specified qubits in a given basis and returns the possible</span>
+<span class="sd">    post-measurement states of the system.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; state = QuantumState.from_label(&quot;000&quot;, &quot;111&quot;)</span>
+
+<span class="sd">        Measure qubit 0 in Z-basis:</span>
+<span class="sd">        &gt;&gt;&gt; z_states = state.state_after_measurement(measure_bit=[0], target_basis=&quot;z--&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; z_states[0].draw()</span>
+<span class="sd">        |000&gt;</span>
+<span class="sd">        &gt;&gt;&gt; z_states[1].draw()</span>
+<span class="sd">        |111&gt;</span>
+
+<span class="sd">        Measure qubit 0 in X-basis:</span>
+<span class="sd">        &gt;&gt;&gt; x_states = state.state_after_measurement(measure_bit=[0], target_basis=&quot;x--&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; x_states[0].draw()</span>
+<span class="sd">        1/√2(|+++&gt; + |+--&gt;)</span>
+<span class="sd">        &gt;&gt;&gt; x_states[1].draw()</span>
+<span class="sd">        1/√2(|-+-&gt; - |--+&gt;)</span>
+
+<span class="sd">        Measure qubit 0 in Y-basis:</span>
+<span class="sd">        &gt;&gt;&gt; y_states = state.state_after_measurement(measure_bit=[0], target_basis=&quot;y--&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; y_states[0].draw()</span>
+<span class="sd">        1/√2(|i00&gt; - i|i11&gt;)</span>
+<span class="sd">        &gt;&gt;&gt; y_states[1].draw()</span>
+<span class="sd">        1/√2(|j00&gt; + i|j11&gt;)</span>
+
+<span class="sd">        Measure qubit 2 in Y-basis:</span>
+<span class="sd">        &gt;&gt;&gt; y_states = state.state_after_measurement(measure_bit=[2], target_basis=&quot;--y&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; y_states[0].draw()</span>
+<span class="sd">        1/√2(|00i&gt; - i|11i&gt;)</span>
+<span class="sd">        &gt;&gt;&gt; y_states[1].draw()</span>
+<span class="sd">        1/√2(|00j&gt; + i|11j&gt;)</span>
+
+<span class="sd">        Measure qubits 1 and 2 in X-basis:</span>
+<span class="sd">        &gt;&gt;&gt; x_states = state.state_after_measurement(measure_bit=[1, 2], target_basis=&quot;-xx&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; x_states[0b00].draw()</span>
+<span class="sd">        |+++&gt;</span>
+<span class="sd">        &gt;&gt;&gt; x_states[0b01].draw()</span>
+<span class="sd">        |-+-&gt;</span>
+<span class="sd">        &gt;&gt;&gt; x_states[0b10].draw()</span>
+<span class="sd">        |--+&gt;</span>
+<span class="sd">        &gt;&gt;&gt; x_states[0b11].draw()</span>
+<span class="sd">        |+--&gt;</span>
+
+<span class="sd">    Understanding and Using the Results:</span>
+<span class="sd">        1. List Structure:</span>
+<span class="sd">        The returned list contains QuantumState objects, each representing a possible</span>
+<span class="sd">        post-measurement state. The number of states in the list depends on the number</span>
+<span class="sd">        of measured qubits.</span>
+
+<span class="sd">        2. Indexing:</span>
+<span class="sd">        - For a single qubit measurement (in any basis: Z, X, or Y):</span>
+<span class="sd">            * states[0]: State corresponding to the measurement result &#39;0&#39;</span>
+<span class="sd">            * states[1]: State corresponding to the measurement result &#39;1&#39;</span>
+<span class="sd">        - For multi-qubit measurements:</span>
+<span class="sd">            The index corresponds to the binary representation of the measurement outcome.</span>
+<span class="sd">            E.g., for a two-qubit measurement:</span>
+<span class="sd">            * states[0b00]: Outcome &#39;00&#39;</span>
+<span class="sd">            * states[0b01]: Outcome &#39;01&#39;</span>
+<span class="sd">            * states[0b10]: Outcome &#39;10&#39;</span>
+<span class="sd">            * states[0b11]: Outcome &#39;11&#39;</span>
+
+<span class="sd">        3. Basis-Specific Interpretations:</span>
+<span class="sd">        - Z-basis: &#39;0&#39; represents |0&gt;, &#39;1&#39; represents |1&gt;</span>
+<span class="sd">        - X-basis: &#39;0&#39; represents |+&gt;, &#39;1&#39; represents |-&gt;</span>
+<span class="sd">        - Y-basis: &#39;0&#39; represents |+i&gt;, &#39;1&#39; represents |-i&gt;</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        measure_bit (List[int] | str): The bits (qubits) to measure. Can be a list of indices or a</span>
-<span class="sd">            string specifying the bits.</span>
-<span class="sd">        target_basis (List[str] | str, optional): The basis in which to perform the measurement.</span>
-<span class="sd">            Defaults to an empty list.</span>
-<span class="sd">        shot (int, optional): The number of measurement shots to perform. Defaults to 100.</span>
+<span class="sd">        measure_bit (List[int] | str): Indices of qubits to be measured. Can be a list of integers</span>
+<span class="sd">            or a string of qubit indices (e.g., &quot;01&quot; for qubits 0 and 1).</span>
+<span class="sd">        target_basis (List[str] | str, optional): Measurement basis for each measured qubit.</span>
+<span class="sd">            Supported bases are &quot;x&quot;, &quot;y&quot;, &quot;z&quot;. If not specified, Z-basis is used by default.</span>
+<span class="sd">            Can be a list of strings or a string (e.g., [&quot;x&quot;, &quot;z&quot;] or &quot;xz&quot;).</span>
+<span class="sd">        shot (int, optional): Number of measurement simulations to perform. Higher values give</span>
+<span class="sd">            more accurate probability distributions. Defaults to 100.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (Tuple[List[QuantumState], List[QuantumState]]):</span>
-<span class="sd">            - A list of quantum states representing the measurement results in the Z basis.</span>
-<span class="sd">            - A list of quantum states representing the system state after the measurement in the Z basis.</span>
+<span class="sd">        List[QuantumState]: A list of possible post-measurement quantum states. Each state</span>
+<span class="sd">        represents a possible outcome of the measurement process.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
         <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">shot</span><span class="o">=</span><span class="n">shot</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">z_basis_measure_state_list</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">z_basis_system_state_list</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="QIRT.QuantumState.tensor" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">tensor</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+      <p>Return the tensor product state self ⊗ other.</p>
+<p>This method calculates the tensor product of the quantum states stored in the
+object and another given quantum state, returning the resulting quantum state.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code>other</code></td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The other quantum state to tensor with.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>QuantumState</code></td>            <td>
+                  <code><a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the tensor product operator self ⊗ other.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+            <details class="quote">
+              <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">QuantumState</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the tensor product state self ⊗ other.</span>
+
+<span class="sd">    This method calculates the tensor product of the quantum states stored in the</span>
+<span class="sd">    object and another given quantum state, returning the resulting quantum state.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        other (QuantumState): The other quantum state to tensor with.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        QuantumState: the tensor product operator self ⊗ other.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">state_vector</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -3287,19 +3782,19 @@ operations and calculations.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the quantum state vector to a column matrix representation.</span>
 
 <span class="sd">    This method takes the quantum state vector stored in the object and converts</span>
