@@ -37,4 +37,10 @@ This helps us understand how measurement affects quantum states.
 
 ## Next Steps
 
-Now that you've seen basic measurement, try creating different states and measuring them. For more advanced usage, check our [How-To guide on quantum measurement](../how_to_guides/qubit_measurement.md).
+Now that you've seen basic measurement, you can explore more advanced topics:
+
+1. For a deeper dive into visualizing quantum measurements, check our [How-To guide on visualizing quantum measurements](../how_to_guides/visualize_measurements.md). This guide will show you how to use the `draw_measurement` function for complex quantum state measurements visualization.
+
+2. To learn how to obtain and work with post-measurement quantum states, see our [How-To guide on obtaining post-measurement states](../how_to_guides/post_measurement_states.md). This guide covers the use of the `state_after_measurement` function to obtain and analyze quantum states after measurement.
+
+These guides will help you master the intricacies of quantum measurement in QIRT and apply these concepts to more complex quantum systems.

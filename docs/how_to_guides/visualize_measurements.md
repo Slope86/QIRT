@@ -1,6 +1,6 @@
-# Qubit Measurement
+# Visualizing Quantum Measurement Results
 
-This guide covers advanced usage of QIRT's `draw_measurement` function for quantum state measurement. We'll explore the function's parameters in depth and look at complex examples.
+This guide covers advanced usage of QIRT's `draw_measurement` function for visualizing quantum state measurements.
 
 ## Detailed Parameters of `draw_measurement`
 

@@ -59,7 +59,8 @@ nav:
     - Create Quantum States: how_to_guides/create_states.md
     - Visualize Quantum States: how_to_guides/visualize_states.md
     - Create Quantum Circuits: how_to_guides/create_circuits.md
-    - Quantum Measurement: how_to_guides/qubit_measurement.md
+    - Visualize Quantum Measurements: how_to_guides/visualize_measurements.md
+    - Obtain Post-Measurement States: how_to_guides/post_measurement_states.md
     - Customize Ket Notation: how_to_guides/customize_ket_notation.md
   - Reference:
     - reference/index.md

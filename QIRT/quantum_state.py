@@ -317,7 +317,6 @@ class QuantumState:
             source=source,
         )
 
-    # TODO: Add document explaining how to use state_after_measurement() method.
     def state_after_measurement(
         self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=100
     ) -> list[QuantumState]:
