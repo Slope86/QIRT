@@ -27,7 +27,3 @@ Finally, our [Reference](reference/index.md) section offers in-depth documentati
 ## About QIRT
 
 The Quantum Information Research Toolkit is designed to support researchers, educators, and developers working in the field of quantum information. Our goal is to provide researchers with a convenient computational tool to facilitate research and development in quantum computing. QIRT is built on top of Qiskit, a widely-used quantum computing framework, and provides additional functionalities to enhance your quantum computing experience.
-
----
-
-Thank you for using the Quantum Information Research Toolkit. We hope you find it valuable in your quantum computing endeavors.
