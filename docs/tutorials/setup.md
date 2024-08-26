@@ -36,7 +36,9 @@ Here's how to set it up:
 
 3. Create a new notebook and you're ready to start!
 
-Note: While we recommend Jupyter Notebook for beginners, QIRT can also be used in other Jupyter Notebook compatible environments, such as Google Colab or IDEs with Jupyter support. Choose the option that best suits your development preferences and workflow.
+!!! note
+
+    While we recommend Jupyter Notebook for beginners, QIRT can also be used in other Jupyter Notebook compatible environments, such as Google Colab or IDEs with Jupyter support. Choose the option that best suits your development preferences and workflow.
 
 ## Next Steps
 

@@ -25,6 +25,8 @@ plugins:
           paths: [.]
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
@@ -45,21 +47,21 @@ extra_css:
 
 nav:
   - Welcome to QIRT: index.md
-  - Tutorials: 
+  - Tutorials:
     - tutorials/index.md
     - Setup: tutorials/setup.md
     - Create a Basic Quantum State: tutorials/basic_create_state.md
     - Create a Basic Quantum Circuit: tutorials/basic_create_circuit.md
     - Applye the Quantum Circuit to the Quantum State: tutorials/apply_circuit.md
     - Measure the Quantum State: tutorials/basic_measurement.md
-  - How-To Guides: 
+  - How-To Guides:
     - how_to_guides/index.md
     - Create Quantum States: how_to_guides/create_states.md
     - Visualize Quantum States: how_to_guides/visualize_states.md
     - Create Quantum Circuits: how_to_guides/create_circuits.md
     - Quantum Measurement: how_to_guides/qubit_measurement.md
     - Customize Ket Notation: how_to_guides/customize_ket_notation.md
-  - Reference: 
+  - Reference:
     - reference/index.md
     - QuantumState: reference/quantum_state.md
     - QuantumCircuit: reference/quantum_circuit.md
