@@ -55,9 +55,6 @@ class QuantumState:
         [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
     """
 
-    # TODO: Add optional argument to disable coefficient simplification in draw & draw_measurement methods.
-    # TODO: Use mathematical method to get all the measurement results instead of using Qiskit's measure method.
-
     def __init__(
         self,
         data: np.ndarray | list | Statevector | Operator | QiskitQC | Instruction,
@@ -215,6 +212,9 @@ class QuantumState:
         matrix = flat_vector[np.newaxis].T
         return matrix
 
+    # TODO: Add optional argument to disable coefficient simplification in draw() & draw_measurement() methods.
+    # TODO: Add document about draw() & draw_measurement() methods' output options:
+    #           target_basis can be "-" to hide the corresponding qubit or "*" to auto-choose basis.
     def draw(
         self,
         output: str = "latex",
@@ -257,6 +257,7 @@ class QuantumState:
             case _:
                 raise QiskitError("Invalid output format.")
 
+    # TODO: Add document explaining how to use state_after_measurement() method.
     def state_after_measurement(
         self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=100
     ) -> tuple[list[QuantumState], list[QuantumState]]:
@@ -508,6 +509,8 @@ class QuantumState:
         z_basis_system_state_list: list[QuantumState] = [None] * 2 ** len(measure_bit)
         measure_state_list: list[QuantumState] = [None] * 2 ** len(measure_bit)
         system_state_list: list[QuantumState] = [None] * 2 ** len(measure_bit)
+
+        # TODO: Use mathematical method to get all the measurement results instead of using Qiskit's measure method.
         for _ in range(shot):
             measure_ket, system_state = self._perform_single_shot_measurement(converted_state, measure_bit)
             if measure_state_list[int(measure_ket, 2)] is None:
