@@ -385,7 +385,7 @@ def _latex_line_break(latex_code: str, output_length: int = 2) -> str:
     """
     latex_code = latex_code.replace("|", "&|")
     max_term = 2**output_length
-    rangle_terms = re.findall(r"\\rangle(?:_{\d*})?", latex_code)
+    rangle_terms = re.findall(r"\\rangle(?:_{\d+(?:,\d+)*})?", latex_code)
     for i in range(max_term, len(rangle_terms), max_term):
         rangle_term = rangle_terms[i - 1]
         new_line_index = find_nth_substring(latex_code, rangle_term, i) + len(rangle_term)
