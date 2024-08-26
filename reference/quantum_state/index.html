@@ -405,6 +405,8 @@
       
         
       
+        
+      
     
     
       
@@ -1504,8 +1506,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="normal">652</span>
 <span class="normal">653</span>
 <span class="normal">654</span>
-<span class="normal">655</span>
-<span class="normal">656</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
+<span class="normal">655</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An extended class of Statevector from Qiskit.</span>
 
 <span class="sd">    This class extends the Statevector class from Qiskit to provide additional</span>
@@ -1780,7 +1781,6 @@ functionalities specific to quantum state manipulations and measurements.</p>
             <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
         <span class="p">)</span>
 
-    <span class="c1"># TODO: Add document explaining how to use state_after_measurement() method.</span>
     <span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
@@ -3456,7 +3456,8 @@ more accurate probability distributions. Defaults to 100.</p>
 
             <details class="quote">
               <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">321</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">320</span>
+<span class="normal">321</span>
 <span class="normal">322</span>
 <span class="normal">323</span>
 <span class="normal">324</span>
@@ -3544,8 +3545,7 @@ more accurate probability distributions. Defaults to 100.</p>
 <span class="normal">406</span>
 <span class="normal">407</span>
 <span class="normal">408</span>
-<span class="normal">409</span>
-<span class="normal">410</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+<span class="normal">409</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate quantum measurement and return resulting states.</span>

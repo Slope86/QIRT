@@ -26,7 +26,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://slope86.github.io/QIRT/how_to_guides/qubit_measurement/</loc>
+         <loc>https://slope86.github.io/QIRT/how_to_guides/post_measurement_states/</loc>
+         <lastmod>2024-08-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://slope86.github.io/QIRT/how_to_guides/visualize_measurements/</loc>
          <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>

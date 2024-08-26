@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://slope86.github.io/QIRT/how_to_guides/visualize_states/">
+        <link rel="canonical" href="https://slope86.github.io/QIRT/how_to_guides/post_measurement_states/">
       
       
-        <link rel="prev" href="../create_states/">
+        <link rel="prev" href="../visualize_measurements/">
       
       
-        <link rel="next" href="../create_circuits/">
+        <link rel="next" href="../customize_ket_notation/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Visualize Quantum States - QIRT Documentation</title>
+        <title>Obtain Post-Measurement States - QIRT Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#visualizing-quantum-states" class="md-skip">
+        <a href="#obtaining-post-measurement-quantum-states" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Visualize Quantum States
+              Obtain Post-Measurement States
             
           </span>
         </div>
@@ -480,30 +480,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Visualize Quantum States
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../visualize_states/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -512,104 +492,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Usage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customizing-the-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      Customizing the Output
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Customizing the Output">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-output-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Output Format
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-target-basis" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Target Basis
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-qubit-indexing" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Qubit Indexing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-output-length" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Output Length
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-latex-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. LaTeX Source
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      Examples
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -661,10 +543,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../post_measurement_states/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Obtain Post-Measurement States
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -673,6 +575,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-state_after_measurement-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using state_after_measurement Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using state_after_measurement Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function Signature
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -785,64 +776,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
+  <a href="#using-state_after_measurement-function" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Usage
+      Using state_after_measurement Function
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customizing-the-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      Customizing the Output
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Customizing the Output">
+    <nav class="md-nav" aria-label="Using state_after_measurement Function">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-output-format" class="md-nav__link">
+  <a href="#function-signature" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Output Format
+      Function Signature
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-target-basis" class="md-nav__link">
+  <a href="#parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Target Basis
+      Parameters
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-qubit-indexing" class="md-nav__link">
+  <a href="#return-value" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Qubit Indexing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-output-length" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Output Length
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-latex-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. LaTeX Source
+      Return Value
     </span>
   </a>
   
@@ -857,8 +821,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#understanding-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Results
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
   
 </li>
       
@@ -880,88 +862,89 @@
   
 
 
-<h1 id="visualizing-quantum-states">Visualizing Quantum States</h1>
-<p>QIRT provides a powerful <code>draw</code> method to visualize quantum states in various formats. This method offers flexibility in how you want to represent and view your quantum states.</p>
-<h2 id="basic-usage">Basic Usage</h2>
-<p>To visualize a quantum state, simply call the <code>draw</code> method on a <code>QuantumState</code> object:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">QIRT</span> <span class="kn">import</span> <span class="n">QuantumState</span>
-
-<span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;00&quot;</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;11&quot;</span><span class="p">))</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<h1 id="obtaining-post-measurement-quantum-states">Obtaining Post-Measurement Quantum States</h1>
+<p>This guide covers the usage of QIRT's <code>state_after_measurement</code> function for obtaining post-measurement quantum states.</p>
+<h2 id="using-state_after_measurement-function">Using <code>state_after_measurement</code> Function</h2>
+<p>The <code>state_after_measurement</code> function allows you to simulate quantum measurements and obtain the resulting post-measurement states. This is particularly useful when you need to work with or analyze the quantum states after a measurement has been performed.</p>
+<h3 id="function-signature">Function Signature</h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
 </code></pre></div>
-<p>By default, this will produce a LaTeX representation of the state.</p>
-<h2 id="customizing-the-output">Customizing the Output</h2>
-<p>The <code>draw</code> method accepts several parameters to customize the visualization:</p>
-<h3 id="1-output-format">1. Output Format</h3>
-<p>You can specify the output format using the <code>output</code> parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># LaTeX format (default)</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;latex&quot;</span><span class="p">)</span>
-
-<span class="c1"># Matrix format</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;matrix&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="2-target-basis">2. Target Basis</h3>
-<p>You can visualize the state in different bases:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Visualize in X-basis</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-
-<span class="c1"># Visualize in Y-basis</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-
-<span class="c1"># Mix of bases</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">])</span>  <span class="c1"># For a two-qubit state</span>
-</code></pre></div>
-<h3 id="3-qubit-indexing">3. Qubit Indexing</h3>
-<p>Control whether to show qubit indices:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Hide qubit indices</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">show_qubit_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="4-output-length">4. Output Length</h3>
-<p>Control how many terms appear per line:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 8 terms per line (2^3)</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output_length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="5-latex-source">5. LaTeX Source</h3>
-<p>Get the LaTeX source code instead of rendering:</p>
-<div class="highlight"><pre><span></span><code><span class="n">latex_source</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">latex_source</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="examples">Examples</h3>
-<p>Let's go through some examples to showcase these features:</p>
+<h3 id="parameters">Parameters</h3>
 <ol>
 <li>
-<p>Visualizing a Bell state</p>
-<div class="highlight"><pre><span></span><code><span class="n">bell_state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;00&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;11&quot;</span><span class="p">))</span>
-<span class="n">bell_state</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</code></pre></div>
-<p>&gt;&gt; Output:
-<span class="arithmatex">\(\frac{\sqrt{2}}{2}|\texttt{00}\rangle_{01} + \frac{\sqrt{2}}{2}|\texttt{11}\rangle_{01}\)</span></p>
+<p><code>measure_bit</code>: List of integers or string specifying which qubits to measure. For example, [0, 2] or "02" would measure the first and third qubits.</p>
 </li>
 <li>
-<p>Matrix representation</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># This will display the state vector as a column matrix.</span>
-<span class="n">bell_state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="s2">&quot;matrix&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>&gt;&gt; Output:<br />
-<img alt="Bell State Matrix" src="../imgs/bell_state_matrix.png" /></p>
+<p><code>target_basis</code>: List or string determining the measurement basis for measured qubits. Each element corresponds to a measured qubit. Default is Z-basis for all measured qubits.</p>
 </li>
 <li>
-<p>Changing basis</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># This will show the Bell state represented in the X-basis.</span>
-<span class="n">bell_state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>&gt;&gt; Output: $ \frac{\sqrt{2}}{2}|\texttt{++}\rangle_{01} +\frac{\sqrt{2}}{2}|\texttt{--}\rangle_{01} $</p>
-</li>
-<li>
-<p>Changing output length</p>
-<div class="highlight"><pre><span></span><code><span class="n">complex_state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;000&quot;</span><span class="p">,</span> <span class="s2">&quot;001&quot;</span><span class="p">,</span> <span class="s2">&quot;010&quot;</span><span class="p">,</span> <span class="s2">&quot;011&quot;</span><span class="p">,</span> <span class="s2">&quot;100&quot;</span><span class="p">,</span> <span class="s2">&quot;101&quot;</span><span class="p">,</span> <span class="s2">&quot;110&quot;</span><span class="p">,</span> <span class="s2">&quot;111&quot;</span><span class="p">)</span>
-<span class="c1"># This will display the state with (2^output_length) terms per line.</span>
-<span class="n">complex_state</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">output_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
-<p>&gt;&gt; Output:<br />
-<img alt="Output length demo" src="../imgs/output_length_demo.png" /></p>
+<p><code>shot</code>: Number of measurement simulations to perform. Higher values give more accurate probability distributions. Defaults to 100.</p>
 </li>
 </ol>
+<h3 id="return-value">Return Value</h3>
+<p>The function returns a list of <code>QuantumState</code> objects, each representing a possible post-measurement state.</p>
+<h3 id="examples">Examples</h3>
+<p>Let's explore some examples to understand how to use <code>state_after_measurement</code>:</p>
+<h4 id="example-1-single-qubit-measurement-in-different-bases">Example 1: Single Qubit Measurement in Different Bases</h4>
+<div class="highlight"><pre><span></span><code><span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;000&quot;</span><span class="p">,</span> <span class="s2">&quot;111&quot;</span><span class="p">)</span>  <span class="c1"># (|000&gt; + |111&gt;)/√2</span>
+
+<span class="c1"># Z-basis measurement of qubit 0</span>
+<span class="n">z_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;z--&quot;</span><span class="p">)</span>
+<span class="n">z_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># |000&gt;</span>
+<span class="n">z_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># |111&gt;</span>
+
+<span class="c1"># X-basis measurement of qubit 0</span>
+<span class="n">x_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;x--&quot;</span><span class="p">)</span>
+<span class="n">x_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># 1/√2(|+++&gt; + |+--&gt;)</span>
+<span class="n">x_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># 1/√2(|-+-&gt; - |--+&gt;)</span>
+
+<span class="c1"># Y-basis measurement of qubit 0</span>
+<span class="n">y_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;y--&quot;</span><span class="p">)</span>
+<span class="n">y_states</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># 1/√2(|i00&gt; - i|i11&gt;)</span>
+<span class="n">y_states</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># 1/√2(|j00&gt; + i|j11&gt;)</span>
+</code></pre></div>
+<h4 id="example-2-multi-qubit-measurement">Example 2: Multi-Qubit Measurement</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># Measure qubits 1 and 2 in X-basis</span>
+<span class="n">x_states</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;-xx&quot;</span><span class="p">)</span>
+<span class="n">x_states</span><span class="p">[</span><span class="mb">0b00</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># |+++&gt;</span>
+<span class="n">x_states</span><span class="p">[</span><span class="mb">0b01</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># |-+-&gt;</span>
+<span class="n">x_states</span><span class="p">[</span><span class="mb">0b10</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># |--+&gt;</span>
+<span class="n">x_states</span><span class="p">[</span><span class="mb">0b11</span><span class="p">]</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>  <span class="c1"># |+--&gt;</span>
+</code></pre></div>
+<h3 id="understanding-the-results">Understanding the Results</h3>
+<ol>
+<li>
+<p>The returned list contains <code>QuantumState</code> objects, each representing a possible post-measurement state.</p>
+</li>
+<li>
+<p>For a single qubit measurement:</p>
+<ul>
+<li><code>states[0]</code>: State corresponding to the measurement result '0'</li>
+<li><code>states[1]</code>: State corresponding to the measurement result '1'</li>
+</ul>
+</li>
+<li>
+<p>For multi-qubit measurements, the index corresponds to the binary representation of the measurement outcome. For example, in a two-qubit measurement:</p>
+<ul>
+<li><code>states[0b00]</code>: Outcome '00'</li>
+<li><code>states[0b01]</code>: Outcome '01'</li>
+<li><code>states[0b10]</code>: Outcome '10'</li>
+<li><code>states[0b11]</code>: Outcome '11'</li>
+</ul>
+</li>
+<li>
+<p>The basis-specific interpretations are:</p>
+<ul>
+<li>Z-basis: '0' represents |0&gt;, '1' represents |1&gt;</li>
+<li>X-basis: '0' represents |+&gt;, '1' represents |-&gt;</li>
+<li>Y-basis: '0' represents |+i&gt;, '1' represents |-i&gt;</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>The <code>state_after_measurement</code> function provides a powerful tool for exploring post-measurement quantum states. It allows for a comprehensive analysis of quantum measurement phenomena, enabling deeper insights into quantum behavior and facilitating the development and testing of quantum algorithms.</p>
 
 
 
