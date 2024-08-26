@@ -57,7 +57,7 @@ For detailed documentation, tutorials, and how-to guides, visit our [documentati
 
 ## Configuration
 
-QIRT can be configured using `~/.QIRT/config.ini`. See the [documentation](https://slope86.github.io/QIRT/) for more details.
+QIRT can be configured using `~/.QIRT/config.ini`. See the [documentation](https://slope86.github.io/QIRT/how_to_guides/customize_ket_notation/) for more details.
 
 ## License
 

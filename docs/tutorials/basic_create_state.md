@@ -36,6 +36,8 @@ As you've seen, we used the `draw()` method to visualize our quantum states. Thi
 
 ## Next Steps
 
-Now that you've learned how to create and visualize basic quantum states, you're ready to move on to more advanced operations. For more advanced state creation techniques, including creating states from matrices and using coefficients, check out our [How-To Guide on Creating Quantum States](../how_to_guides/create_states.md).
+Now that you've learned how to create and visualize basic quantum states, you're ready to move on to more advanced operations.
 
 The next tutorial will show you how to [Create a Quantum Circuit](basic_create_circuit.md), where you'll learn how to apply quantum gates to manipulate these states.
+
+For more advanced state creation techniques, including creating states from matrices and using coefficients, check out our [How-To Guide on Creating Quantum States](../how_to_guides/create_states.md).

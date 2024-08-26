@@ -20,6 +20,10 @@ state = QuantumState.from_label("01","10")  # Creates the state (|01> + |10>) / 
 state.draw_measurement(measure_bit=[0])
 ```
 
+\>> Output:
+
+$|\texttt{0}\rangle_{0} : |\texttt{1}\rangle_{1} \\|\texttt{1}\rangle_{0} : |\texttt{0}\rangle_{1} \\$
+
 This code creates a two-qubit state and measures the first qubit.
 
 ## Interpreting the Results

@@ -51,6 +51,8 @@ This particular circuit creates a Bell state, which is a fundamental resource in
 
 ## Next Steps
 
-Now that you know how to create basic quantum circuits, you're ready to learn how to apply these circuits to quantum states. For more advanced circuit creation techniques, including method chaining and adding custom unitary operators, check out our [How-To Guide on Creating Quantum Circuits](../how_to_guides/create_circuits.md).
+Now that you know how to create basic quantum circuits, you're ready to learn how to apply these circuits to quantum states.
 
 In the next tutorial, [Applying the Quantum Circuit to the Quantum State](apply_circuit.md), you'll see how quantum circuits transform quantum states, bringing together everything you've learned so far.
+
+For more advanced circuit creation techniques, including method chaining and adding custom unitary operators, check out our [How-To Guide on Creating Quantum Circuits](../how_to_guides/create_circuits.md).

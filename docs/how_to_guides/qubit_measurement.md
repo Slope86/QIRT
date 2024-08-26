@@ -27,7 +27,9 @@ state = QuantumState.from_label("+-")
 state.draw_measurement(measure_bit=[1], target_basis="zx")
 ```
 
-In this case:
+\>> Output: $|\texttt{-}\rangle_{1} : \frac{\sqrt{2}}{2}|\texttt{0}\rangle_{0} +\frac{\sqrt{2}}{2}|\texttt{1}\rangle_{0} \\$
+
+Here:
 
 - Qubit 1 (second qubit) is measured in the X basis.
 - Qubit 0 (first qubit) is displayed in the Z basis.
@@ -36,15 +38,19 @@ In this case:
 
 ```python
 state = QuantumState.from_label("+-+0")
-state.draw_measurement(measure_bit=[0, 2], target_basis="xzzx")
+state.draw_measurement(measure_bit=[0, 2], target_basis="xzzy")
 ```
+
+\>> Output:
+
+$|\texttt{+0}\rangle_{02} : \frac{\sqrt{2}}{2}|\texttt{0i}\rangle_{13} +\frac{\sqrt{2}}{2}|\texttt{0j}\rangle_{13} \\|\texttt{-0}\rangle_{02} : \frac{\sqrt{2}}{2}|\texttt{0i}\rangle_{13} +\frac{\sqrt{2}}{2}|\texttt{0j}\rangle_{13} \\$
 
 Here:
 
 - Qubit 0 is measured in the X basis.
 - Qubit 2 is measured in the Z basis.
 - Qubit 1 is displayed in the Z basis.
-- Qubit 3 is displayed in the X basis.
+- Qubit 3 is displayed in the Y basis. (Note: In the Y basis, the default ket notation uses |i⟩ and |j⟩ to represent |+i⟩ and |-i⟩ respectively.)
 
 ## Interpreting Complex Measurement Results
 
@@ -63,35 +69,13 @@ state.draw_measurement(measure_bit=[0])
 
 The output might look like:
 
-$|\texttt{0}\rangle_{0} : |\texttt{00}\rangle_{12} (50\%) \\
-|\texttt{1}\rangle_{0} : |\texttt{11}\rangle_{12} (50\%)$
+$|\texttt{0}\rangle_{0} : |\texttt{00}\rangle_{12}\\
+|\texttt{1}\rangle_{0} : |\texttt{11}\rangle_{12}$
 
 This tells us:
 
 - There's a 50% chance of measuring |0⟩ in the first qubit, leaving the other qubits in state |00⟩.
 - There's a 50% chance of measuring |1⟩ in the first qubit, leaving the other qubits in state |11⟩.
-
-## Advanced Measurement Scenarios
-
-### Partial Measurement of Entangled States
-
-Consider the GHZ state:
-
-```python
-ghz = QuantumState.from_label("000", "111")
-ghz.draw_measurement(measure_bit=[0, 1], target_basis="zx")
-```
-
-This measures the first qubit in the Z basis and the second in the X basis, demonstrating how entanglement affects measurement outcomes.
-
-### Measuring in Different Bases
-
-```python
-state = QuantumState.from_label("+", "-")
-state.draw_measurement(measure_bit=[0, 1], target_basis="xy")
-```
-
-This measures a two-qubit state where the first qubit is in the X basis and the second in the Y basis, showcasing how measurement basis affects outcomes.
 
 ## Conclusion
 

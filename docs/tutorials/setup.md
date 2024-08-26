@@ -16,19 +16,7 @@ pip install QIRT
 
 This command will download and install QIRT along with its dependencies.
 
-## Verifying the Installation
-
-To verify that QIRT has been installed correctly, you can import it in a Python environment:
-
-```python
-from importlib.metadata import version
-
-version("QIRT")
-```
-
-If this runs without any errors and prints the version number, you've successfully installed QIRT!
-
-## **Setting up jupyter notebook**
+## Setting up jupyter notebook
 
 We recommend using Jupyter Notebook for the best experience with QIRT. Here's how to set it up:
 
