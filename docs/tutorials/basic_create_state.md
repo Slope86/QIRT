@@ -32,7 +32,7 @@ state_1 = QuantumState.from_label("1")
 
 ## Visualizing Quantum States
 
-As you've seen, we used the `draw()` method to visualize our quantum states. This method provides a basic representation of the state. For more advanced visualization techniques, including different output formats and customization options, please refer to our [How-To Guide on Visualizing Quantum States](../how_to_guides/visualize_states.md).
+As you've seen, we used the `draw()` method to visualize our quantum states. This method provides a basic representation of the state. For more advanced visualization options, including different output formats and customization, please refer to our [How-To Guide on Visualizing Quantum States](../how_to_guides/visualize_states.md).
 
 ## Next Steps
 
