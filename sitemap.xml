@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://slope86.github.io/QIRT/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/how_to_guides/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/how_to_guides/create_circuits/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/how_to_guides/create_states/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/how_to_guides/customize_ket_notation/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/how_to_guides/qubit_measurement/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/how_to_guides/visualize_states/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/reference/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/reference/quantum_circuit/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/reference/quantum_state/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/tutorials/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/tutorials/apply_circuit/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/tutorials/basic_create_circuit/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/tutorials/basic_create_state/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/tutorials/basic_measurement/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://slope86.github.io/QIRT/tutorials/setup/</loc>
-         <lastmod>2024-08-25</lastmod>
+         <lastmod>2024-08-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
