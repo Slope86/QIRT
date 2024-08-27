@@ -1238,6 +1238,8 @@ class QuantumCircuit:
                 q_1: ┤1                                          ├
                      └───────────────────────────────────────────┘
         """
+        from QIRT import QuantumState
+
         if isinstance(state, QuantumState):
             state = state.state_vector
         self._qiskit_qc.prepare_state(state, qubits=qubits, label=label, normalize=normalize)
@@ -1342,6 +1344,8 @@ class QuantumCircuit:
                 q_1: ┤1                                   ├
                      └────────────────────────────────────┘
         """
+        from QIRT import QuantumState
+
         if isinstance(params, QuantumState):
             params = params.state_vector
         self._qiskit_qc.initialize(params, qubits=qubits, normalize=normalize)
