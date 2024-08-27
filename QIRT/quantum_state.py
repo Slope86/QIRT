@@ -244,13 +244,21 @@ class QuantumState:
 
         Args:
             output (str, optional): Visualization method. Defaults to "latex". Options include:
-                - "matrix" or "vector": Outputs the state vector as a LaTeX formatted matrix.
-                - "latex": Outputs the state vector as a LaTeX formatted expression.
+                - "matrix" or "vector": Outputs the QuantumState as a LaTeX formatted matrix.
+                - "latex": Outputs the QuantumState as a LaTeX formatted expression.
+                - "repr": ASCII TextMatrix of the QuantumState's `__repr__`.
+                - "text": ASCII TextMatrix that can be printed in the console.
+                - "qsphere": Matplotlib figure rendering the QuantumState using `plot_state_qsphere()`.
+                - "hinton": Matplotlib figure rendering the QuantumState using `plot_state_hinton()`.
+                - "bloch": Matplotlib figure rendering the QuantumState using `plot_bloch_multivector()`.
+                - "city": Matplotlib figure rendering the QuantumState using `plot_state_city()`.
+                - "paulivec": Matplotlib figure rendering the QuantumState using `plot_state_paulivec()`.
             target_basis (List[str] | str | None, optional): The target basis for visualization. Defaults to None.
             show_qubit_index (bool, optional): Whether to show qubit indices in the visualization. Defaults to True.
             output_length (int, optional): The number of terms in each line, defined as 2^output_length.
-                                        Defaults to 2 (i.e., 4 terms per line).
-            source (bool, optional): Whether to return the latex source code for the visualization. Defaults to False.
+                Defaults to 2 (i.e., 4 terms per line).
+            source (bool, optional): Whether to return the latex source code for the visualization option "matrix" and
+                "latex". Defaults to False.
 
         Returns:
             (matplotlib.Figure | str | TextMatrix | IPython.display.Latex | Latex): The visualization
@@ -268,6 +276,11 @@ class QuantumState:
                     output_length=output_length,
                     source=source,
                 )
+            case "repr" | "text" | "qsphere" | "hinton" | "city" | "paulivec":
+                return self.state_vector.draw(output=output)
+            case "bloch":
+                reversed_state_vector = self.state_vector.reverse_qargs()
+                return reversed_state_vector.draw(output=output)
             case _:
                 raise QiskitError("Invalid output format.")
 
