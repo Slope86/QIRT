@@ -45,7 +45,7 @@ final_state.draw()
 For detailed documentation, tutorials, and how-to guides, visit our [documentation website](https://slope86.github.io/QIRT/).
 
 - [Tutorials](https://slope86.github.io/QIRT/tutorials): Learn the basics of QIRT with hands-on examples.
-- [How-To Guides](https://slope86.github.io/QIRT/how_to_guides): Step-by-step instructions for specific tasks.
+- [How-To Guides](https://slope86.github.io/QIRT/how_to_guides): Detailed instructions for specific tasks.
 - [API Reference](https://slope86.github.io/QIRT/reference): Detailed descriptions of QIRT functions, classes, and modules.
 
 ## Requirements
