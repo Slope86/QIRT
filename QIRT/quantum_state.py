@@ -55,6 +55,8 @@ class QuantumState:
         [Qiskit Statevector documentation](https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html)
     """
 
+    # TODO: Add Bell measurement method.
+
     def __init__(
         self,
         data: np.ndarray | list | Statevector | Operator | QiskitQC | Instruction,
