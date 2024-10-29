@@ -57,11 +57,11 @@ local_scheme = "no-local-version"
 [tool.ruff]
 line-length = 120
 target-version = "py311"
-pydocstyle.convention = "google"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "N", "D"]
-ignore = ["N999"]
+ignore = ["N999", "D211", "D213"]
+pydocstyle.convention = "google"
 
 [tool.ruff.format]
 quote-style = "double"

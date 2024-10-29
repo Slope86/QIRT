@@ -333,7 +333,7 @@ class QuantumState:
         )
 
     def state_after_measurement(
-        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=100
+        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=-1
     ) -> list[QuantumState]:
         """Simulate quantum measurement and return resulting states.
 
@@ -412,7 +412,8 @@ class QuantumState:
                 Supported bases are "x", "y", "z". If not specified, Z-basis is used by default.
                 Can be a list of strings or a string (e.g., ["x", "z"] or "xz").
             shot (int, optional): Number of measurement simulations to perform. Higher values give
-                more accurate probability distributions. Defaults to 100.
+                more accurate probability distributions.
+                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))
 
         Returns:
             List[QuantumState]: A list of possible post-measurement quantum states. Each state
@@ -576,7 +577,7 @@ class QuantumState:
             target_basis (List[str] | str, optional): The basis in which to perform the
                 measurement. Defaults to basis with minimum entropy.
             shot (int, optional): The number of measurement shots to perform.
-                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 2))
+                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))
 
         Returns:
             (tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]):
@@ -588,7 +589,7 @@ class QuantumState:
                 - system_basis: The system basis after conversion.
         """  # noqa: E501
         if shot == -1:
-            shot = 2 ** (len(measure_bit) + 2)
+            shot = 2 ** (len(measure_bit) + 4)
 
         if isinstance(measure_bit, str):
             measure_bit = [int(i) for i in measure_bit]
