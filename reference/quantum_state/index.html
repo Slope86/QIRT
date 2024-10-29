@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -894,6 +894,11 @@ functionalities specific to quantum state manipulations and measurements.</p>
   <summary>See Also</summary>
   <p><a href="https://qiskit.org/documentation/stubs/qiskit.quantum_info.Statevector.html">Qiskit Statevector documentation</a></p>
 </details>
+
+
+
+
+
               <details class="quote">
                 <summary>Source code in <code>QIRT/quantum_state.py</code></summary>
                 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 45</span>
@@ -1521,7 +1526,8 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="normal">667</span>
 <span class="normal">668</span>
 <span class="normal">669</span>
-<span class="normal">670</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
+<span class="normal">670</span>
+<span class="normal">671</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An extended class of Statevector from Qiskit.</span>
 
 <span class="sd">    This class extends the Statevector class from Qiskit to provide additional</span>
@@ -1812,7 +1818,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate quantum measurement and return resulting states.</span>
 
@@ -1891,7 +1897,8 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">                Supported bases are &quot;x&quot;, &quot;y&quot;, &quot;z&quot;. If not specified, Z-basis is used by default.</span>
 <span class="sd">                Can be a list of strings or a string (e.g., [&quot;x&quot;, &quot;z&quot;] or &quot;xz&quot;).</span>
 <span class="sd">            shot (int, optional): Number of measurement simulations to perform. Higher values give</span>
-<span class="sd">                more accurate probability distributions. Defaults to 100.</span>
+<span class="sd">                more accurate probability distributions.</span>
+<span class="sd">                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            List[QuantumState]: A list of possible post-measurement quantum states. Each state</span>
@@ -2055,7 +2062,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">            target_basis (List[str] | str, optional): The basis in which to perform the</span>
 <span class="sd">                measurement. Defaults to basis with minimum entropy.</span>
 <span class="sd">            shot (int, optional): The number of measurement shots to perform.</span>
-<span class="sd">                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 2))</span>
+<span class="sd">                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            (tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]):</span>
@@ -2067,7 +2074,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">                - system_basis: The system basis after conversion.</span>
 <span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
         <span class="k">if</span> <span class="n">shot</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">shot</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">shot</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">measure_bit</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">]</span>
@@ -2282,7 +2289,9 @@ and stores the number of qubits in the quantum state.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>data</code></td>
+            <td>
+                <code>data</code>
+            </td>
             <td>
                   <code><span title="numpy.array">array</span> or list or <span title="qiskit.quantum_info.Statevector">Statevector</span> or <span title="qiskit.quantum_info.operators.operator.Operator">Operator</span> or <a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum_circuit/#QIRT.QuantumCircuit">QuantumCircuit</a> or <span title="qiskit.circuit.Instruction">Instruction</span></code>
             </td>
@@ -2300,7 +2309,9 @@ zero state.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>dims</code></td>
+            <td>
+                <code>dims</code>
+            </td>
             <td>
                   <code>int or tuple or list</code>
             </td>
@@ -2403,7 +2414,9 @@ according to the operator's effect.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>other</code></td>
+            <td>
+                <code>other</code>
+            </td>
             <td>
                   <code><a class="autorefs autorefs-internal" title="QIRT.QuantumCircuit" href="../quantum_circuit/#QIRT.QuantumCircuit">QuantumCircuit</a></code>
             </td>
@@ -2417,7 +2430,9 @@ according to the operator's effect.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>qargs</code></td>
+            <td>
+                <code>qargs</code>
+            </td>
             <td>
                   <code>list[int] | None</code>
             </td>
@@ -2562,7 +2577,9 @@ such as LaTeX, matrix/vector form, or other specified formats.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>output</code></td>
+            <td>
+                <code>output</code>
+            </td>
             <td>
                   <code>str</code>
             </td>
@@ -2585,7 +2602,9 @@ such as LaTeX, matrix/vector form, or other specified formats.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>target_basis</code></td>
+            <td>
+                <code>target_basis</code>
+            </td>
             <td>
                   <code>List[str] | str | None</code>
             </td>
@@ -2599,7 +2618,9 @@ such as LaTeX, matrix/vector form, or other specified formats.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>show_qubit_index</code></td>
+            <td>
+                <code>show_qubit_index</code>
+            </td>
             <td>
                   <code>bool</code>
             </td>
@@ -2613,7 +2634,9 @@ such as LaTeX, matrix/vector form, or other specified formats.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>output_length</code></td>
+            <td>
+                <code>output_length</code>
+            </td>
             <td>
                   <code>int</code>
             </td>
@@ -2628,7 +2651,9 @@ Defaults to 2 (i.e., 4 terms per line).</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>source</code></td>
+            <td>
+                <code>source</code>
+            </td>
             <td>
                   <code>bool</code>
             </td>
@@ -2812,7 +2837,9 @@ resulting quantum states and their measurement outcomes in a specified format.</
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>measure_bit</code></td>
+            <td>
+                <code>measure_bit</code>
+            </td>
             <td>
                   <code>List[int] | str</code>
             </td>
@@ -2827,7 +2854,9 @@ of indices or a string specifying the bits.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>target_basis</code></td>
+            <td>
+                <code>target_basis</code>
+            </td>
             <td>
                   <code>List[str] | str</code>
             </td>
@@ -2842,7 +2871,9 @@ measurement. Defaults to basis with minimum entropy.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>show_qubit_index</code></td>
+            <td>
+                <code>show_qubit_index</code>
+            </td>
             <td>
                   <code>bool</code>
             </td>
@@ -2857,7 +2888,9 @@ visualization. Defaults to True.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>output_length</code></td>
+            <td>
+                <code>output_length</code>
+            </td>
             <td>
                   <code>int</code>
             </td>
@@ -2872,7 +2905,9 @@ visualization. Defaults to True.</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>source</code></td>
+            <td>
+                <code>source</code>
+            </td>
             <td>
                   <code>bool</code>
             </td>
@@ -3149,7 +3184,9 @@ either as an image or a string representing the source code.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>args</code></td>
+            <td>
+                <code>args</code>
+            </td>
             <td>
                   <code>str | Tuple[complex, str]</code>
             </td>
@@ -3332,7 +3369,7 @@ either as an image or a string representing the source code.</p>
 
 
 <h2 id="QIRT.QuantumState.state_after_measurement" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code>
 
 </h2>
 
@@ -3437,7 +3474,9 @@ of measured qubits.</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>measure_bit</code></td>
+            <td>
+                <code>measure_bit</code>
+            </td>
             <td>
                   <code>List[int] | str</code>
             </td>
@@ -3452,7 +3491,9 @@ or a string of qubit indices (e.g., "01" for qubits 0 and 1).</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>target_basis</code></td>
+            <td>
+                <code>target_basis</code>
+            </td>
             <td>
                   <code>List[str] | str</code>
             </td>
@@ -3468,18 +3509,21 @@ Can be a list of strings or a string (e.g., ["x", "z"] or "xz").</p>
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code>shot</code></td>
+            <td>
+                <code>shot</code>
+            </td>
             <td>
                   <code>int</code>
             </td>
             <td>
               <div class="doc-md-description">
                 <p>Number of measurement simulations to perform. Higher values give
-more accurate probability distributions. Defaults to 100.</p>
+more accurate probability distributions.
+Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</p>
               </div>
             </td>
             <td>
-                  <code>100</code>
+                  <code>-1</code>
             </td>
           </tr>
       </tbody>
@@ -3609,8 +3653,9 @@ more accurate probability distributions. Defaults to 100.</p>
 <span class="normal">421</span>
 <span class="normal">422</span>
 <span class="normal">423</span>
-<span class="normal">424</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
-    <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=</span><span class="mi">100</span>
+<span class="normal">424</span>
+<span class="normal">425</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate quantum measurement and return resulting states.</span>
 
@@ -3689,7 +3734,8 @@ more accurate probability distributions. Defaults to 100.</p>
 <span class="sd">            Supported bases are &quot;x&quot;, &quot;y&quot;, &quot;z&quot;. If not specified, Z-basis is used by default.</span>
 <span class="sd">            Can be a list of strings or a string (e.g., [&quot;x&quot;, &quot;z&quot;] or &quot;xz&quot;).</span>
 <span class="sd">        shot (int, optional): Number of measurement simulations to perform. Higher values give</span>
-<span class="sd">            more accurate probability distributions. Defaults to 100.</span>
+<span class="sd">            more accurate probability distributions.</span>
+<span class="sd">            Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        List[QuantumState]: A list of possible post-measurement quantum states. Each state</span>
@@ -3733,7 +3779,9 @@ object and another given quantum state, returning the resulting quantum state.</
       </thead>
       <tbody>
           <tr class="doc-section-item">
-            <td><code>other</code></td>
+            <td>
+                <code>other</code>
+            </td>
             <td>
                   <code><a class="autorefs autorefs-internal" title="QIRT.quantum_state.QuantumState" href="#QIRT.QuantumState">QuantumState</a></code>
             </td>
@@ -3939,7 +3987,7 @@ operations and calculations.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../javascripts/katex.js"></script>
       
