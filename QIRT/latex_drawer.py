@@ -243,20 +243,28 @@ def _state_to_latex_ket(
     else:
         qubit_index_str = ""
 
-    def ket_name(i):
-        ket = bin(i)[2:].zfill(state.num_of_qubit)
-        new_ket = ""
-        for b, k, i in zip(convert_basis, ket, qubit_index):
+    def ket_name(i: int) -> str:
+        """Convert 0, 1 (int) to "0", "1" or "+", "-" or "i", "-i" (str) based on the basis.
+
+        Args:
+            i (int): The integer to convert.
+
+        Returns:
+            str: The converted ket name.
+        """
+        ket_01 = bin(i)[2:].zfill(state.num_of_qubit)
+        ket_name = ""
+        for b, k, i in zip(convert_basis, ket_01, qubit_index):
             if i in hidden_bit:
                 continue
             match b:
                 case "z":
-                    new_ket += Ket.z1 if int(k) else Ket.z0
+                    ket_name += Ket.z1 if int(k) else Ket.z0
                 case "x":
-                    new_ket += Ket.x1 if int(k) else Ket.x0
+                    ket_name += Ket.x1 if int(k) else Ket.x0
                 case "y":
-                    new_ket += Ket.y1 if int(k) else Ket.y0
-        return new_ket
+                    ket_name += Ket.y1 if int(k) else Ket.y0
+        return ket_name
 
     data = np.around(data, 15)
     nonzero_indices = np.where(data != 0)[0].tolist()
