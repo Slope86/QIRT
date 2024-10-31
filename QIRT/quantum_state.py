@@ -28,7 +28,7 @@ import typing
 
 import numpy as np
 from qiskit.exceptions import QiskitError
-from qiskit.quantum_info import Statevector
+from qiskit.quantum_info import Operator, Statevector
 from scipy import stats
 
 from QIRT import QuantumCircuit, latex_drawer
@@ -333,7 +333,7 @@ class QuantumState:
         )
 
     def state_after_measurement(
-        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=-1
+        self, measure_bit: list[int] | str, target_basis: list[str] | str = []
     ) -> list[QuantumState]:
         """Simulate quantum measurement and return resulting states.
 
@@ -411,17 +411,12 @@ class QuantumState:
             target_basis (List[str] | str, optional): Measurement basis for each measured qubit.
                 Supported bases are "x", "y", "z". If not specified, Z-basis is used by default.
                 Can be a list of strings or a string (e.g., ["x", "z"] or "xz").
-            shot (int, optional): Number of measurement simulations to perform. Higher values give
-                more accurate probability distributions.
-                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))
 
         Returns:
             List[QuantumState]: A list of possible post-measurement quantum states. Each state
             represents a possible outcome of the measurement process.
         """
-        _, z_basis_system_state_list, _, _, _, _ = self._measurement(
-            measure_bit=measure_bit, target_basis=target_basis, shot=shot
-        )
+        _, z_basis_system_state_list, _, _, _, _ = self._measurement(measure_bit=measure_bit, target_basis=target_basis)
         return z_basis_system_state_list
 
     def _basis_convert(
@@ -564,7 +559,7 @@ class QuantumState:
         return min_basis
 
     def _measurement(
-        self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=-1
+        self, measure_bit: list[int] | str, target_basis: list[str] | str = []
     ) -> tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]:
         """Perform a measurement on the quantum state.
 
@@ -576,8 +571,6 @@ class QuantumState:
                 of indices or a string specifying the bits.
             target_basis (List[str] | str, optional): The basis in which to perform the
                 measurement. Defaults to basis with minimum entropy.
-            shot (int, optional): The number of measurement shots to perform.
-                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))
 
         Returns:
             (tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]):
@@ -588,15 +581,13 @@ class QuantumState:
                 - measure_basis: The basis used for the measurement.
                 - system_basis: The system basis after conversion.
         """  # noqa: E501
-        if shot == -1:
-            shot = 2 ** (len(measure_bit) + 4)
-
         if isinstance(measure_bit, str):
             measure_bit = [int(i) for i in measure_bit]
 
         converted_state, system_basis = self._basis_convert(
             target_basis=target_basis, current_basis=["z"] * self.num_of_qubit
         )
+        measure_basis = [system_basis[i] for i in measure_bit]
 
         # crate empty list for output
         z_basis_measure_state_list: list[QuantumState] = [None] * 2 ** len(measure_bit)
@@ -604,34 +595,26 @@ class QuantumState:
         measure_state_list: list[QuantumState] = [None] * 2 ** len(measure_bit)
         system_state_list: list[QuantumState] = [None] * 2 ** len(measure_bit)
 
-        # TODO: Use mathematical method to get all the measurement results instead of using Qiskit's measure method.
-        for _ in range(shot):
-            measure_ket, system_state = self._perform_single_shot_measurement(converted_state, measure_bit)
-            if measure_state_list[int(measure_ket, 2)] is None:
-                measure_basis = []
-                for i in measure_bit:
-                    measure_basis.append(system_basis[i])
+        for i in range(2 ** len(measure_bit)):
+            # Convert i to binary string with leading zeros
+            project_label = format(i, f"0{len(measure_bit)}b")
 
-                basis_convert_measure_ket = ""
-                for b, k in zip(measure_basis, measure_ket):
-                    match b:
-                        case "z":
-                            basis_convert_measure_ket += Ket.z1 if int(k) else Ket.z0
-                        case "x":
-                            basis_convert_measure_ket += Ket.x1 if int(k) else Ket.x0
-                        case "y":
-                            basis_convert_measure_ket += Ket.y1 if int(k) else Ket.y0
+            # Perform projection measurement
+            system_state = converted_state._perform_projection_measurement(measure_bit, project_label)
+            if system_state is None:
+                continue
 
-                measure_state_z_basis = self.from_label(basis_convert_measure_ket)
+            measure_state_label = "".join(
+                Ket.from_basis_and_label(basis, label) for basis, label in zip(measure_basis, project_label)
+            )
+            z_basis_measure_state = self.from_label(measure_state_label)
 
-                z_basis_measure_state_list[int(measure_ket, 2)] = measure_state_z_basis
-                z_basis_system_state_list[int(measure_ket, 2)] = system_state._basis_convert(
-                    target_basis=["z"] * self.num_of_qubit, current_basis=system_basis
-                )[0]
-                measure_state_list[int(measure_ket, 2)] = measure_state_z_basis._basis_convert(
-                    target_basis=measure_basis
-                )[0]
-                system_state_list[int(measure_ket, 2)] = system_state
+            z_basis_measure_state_list[i] = z_basis_measure_state
+            z_basis_system_state_list[i] = system_state._basis_convert(
+                target_basis=["z"] * self.num_of_qubit, current_basis=system_basis
+            )[0]
+            measure_state_list[i] = z_basis_measure_state._basis_convert(target_basis=measure_basis)[0]
+            system_state_list[i] = system_state
 
         return (
             z_basis_measure_state_list,
@@ -642,16 +625,41 @@ class QuantumState:
             system_basis,
         )
 
-    def _perform_single_shot_measurement(
-        self, converted_state: QuantumState, measure_bit: list[int]
-    ) -> tuple[str, QuantumState]:
+    def _perform_projection_measurement(self, measure_bit: list[int], project_label: str) -> QuantumState | None:
+        """Perform a projection measurement on the given quantum state.
+
+        This method performs a projection measurement on the specified qubits in the given projection
+        state and returns the post-measurement system state.
+
+        Args:
+            measure_bit (List[int]): The indices of qubits to measure.
+            project_label (str): The label of the projection state.
+                For example, "0" for |0><0|, "1" for |1><1|, "0+" for |0+><0+|, etc.
+
+        Returns:
+            QuantumState | None: The post-measurement system state, or None if the state is zero.
+        """
+        project_label = Ket.to_qiskit_notation(project_label)
+        extend_project_label = ["I"] * self.num_of_qubit
+        for bit, label in zip(measure_bit, project_label):
+            extend_project_label[bit] = label
+        project_operator = Operator.from_label("".join(extend_project_label))
+
+        result_state_vector = self.state_vector.evolve(project_operator)
+
+        normalize_factor = result_state_vector.trace() ** 0.5
+        if normalize_factor < 1e-10:
+            return None
+        result_state_vector /= normalize_factor
+        return QuantumState(result_state_vector)
+
+    def _perform_single_shot_measurement(self, measure_bit: list[int]) -> tuple[str, QuantumState]:
         """Perform a single shot measurement on the given quantum state.
 
         This method measures the specified qubits in the given state and returns
         the measurement result along with the post-measurement system state.
 
         Args:
-            converted_state (QuantumState): The quantum state to measure.
             measure_bit (List[int]): The indices of qubits to measure.
 
         Returns:
@@ -663,7 +671,7 @@ class QuantumState:
             This method reverses qubit ordering to match Qiskit's notation for measurement,
             and then reverses the result to match standard textbook notation.
         """
-        measure_result: tuple[str, Statevector] = Statevector(converted_state.data).measure(
+        measure_result: tuple[str, Statevector] = Statevector(self.data).measure(
             qargs=[self.num_of_qubit - 1 - i for i in measure_bit]  # REVERSE the order of qubits to fit qiskit notation
         )
         measure_ket: str = measure_result[0][::-1]  # REVERSE the order of qubits to fit textbook notation
