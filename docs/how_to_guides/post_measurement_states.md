@@ -10,7 +10,7 @@ The `state_after_measurement` function allows you to simulate quantum measuremen
 
 ```python
 def state_after_measurement(
-    self, measure_bit: list[int] | str, target_basis: list[str] | str = [], shot=100
+    self, measure_bit: list[int] | str, target_basis: list[str] | str = []
 ) -> list[QuantumState]:
 ```
 
@@ -19,8 +19,6 @@ def state_after_measurement(
 1. `measure_bit`: List of integers or string specifying which qubits to measure. For example, [0, 2] or "02" would measure the first and third qubits.
 
 2. `target_basis`: List or string determining the measurement basis for measured qubits. Each element corresponds to a measured qubit. Default is Z-basis for all measured qubits.
-
-3. `shot`: Number of measurement simulations to perform. Higher values give more accurate probability distributions. Defaults to 100.
 
 ### Return Value
 
