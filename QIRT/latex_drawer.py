@@ -252,7 +252,7 @@ def _state_to_latex_ket(
         Returns:
             str: The converted ket name.
         """
-        ket_01 = bin(i)[2:].zfill(state.num_of_qubit)
+        ket_01 = format(i, f'0{state.num_of_qubit}b')
         ket_name = ""
         for b, k, i in zip(convert_basis, ket_01, qubit_index):
             if i in hidden_bit:
