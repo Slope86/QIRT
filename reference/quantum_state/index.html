@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
     
     
       
@@ -1527,7 +1527,15 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="normal">668</span>
 <span class="normal">669</span>
 <span class="normal">670</span>
-<span class="normal">671</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
+<span class="normal">671</span>
+<span class="normal">672</span>
+<span class="normal">673</span>
+<span class="normal">674</span>
+<span class="normal">675</span>
+<span class="normal">676</span>
+<span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">QuantumState</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An extended class of Statevector from Qiskit.</span>
 
 <span class="sd">    This class extends the Statevector class from Qiskit to provide additional</span>
@@ -1818,7 +1826,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Simulate quantum measurement and return resulting states.</span>
 
@@ -1896,17 +1904,12 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">            target_basis (List[str] | str, optional): Measurement basis for each measured qubit.</span>
 <span class="sd">                Supported bases are &quot;x&quot;, &quot;y&quot;, &quot;z&quot;. If not specified, Z-basis is used by default.</span>
 <span class="sd">                Can be a list of strings or a string (e.g., [&quot;x&quot;, &quot;z&quot;] or &quot;xz&quot;).</span>
-<span class="sd">            shot (int, optional): Number of measurement simulations to perform. Higher values give</span>
-<span class="sd">                more accurate probability distributions.</span>
-<span class="sd">                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            List[QuantumState]: A list of possible post-measurement quantum states. Each state</span>
 <span class="sd">            represents a possible outcome of the measurement process.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">_</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
-            <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">shot</span><span class="o">=</span><span class="n">shot</span>
-        <span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">z_basis_system_state_list</span>
 
     <span class="k">def</span> <span class="nf">_basis_convert</span><span class="p">(</span>
@@ -2049,7 +2052,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
         <span class="k">return</span> <span class="n">min_basis</span>
 
     <span class="k">def</span> <span class="nf">_measurement</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a measurement on the quantum state.</span>
 
@@ -2061,8 +2064,6 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">                of indices or a string specifying the bits.</span>
 <span class="sd">            target_basis (List[str] | str, optional): The basis in which to perform the</span>
 <span class="sd">                measurement. Defaults to basis with minimum entropy.</span>
-<span class="sd">            shot (int, optional): The number of measurement shots to perform.</span>
-<span class="sd">                Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            (tuple[list[QuantumState], list[QuantumState], list[QuantumState], list[QuantumState], list[str], list[str]]):</span>
@@ -2073,15 +2074,13 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">                - measure_basis: The basis used for the measurement.</span>
 <span class="sd">                - system_basis: The system basis after conversion.</span>
 <span class="sd">        &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
-        <span class="k">if</span> <span class="n">shot</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="n">shot</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
-
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">measure_bit</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">]</span>
 
         <span class="n">converted_state</span><span class="p">,</span> <span class="n">system_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span>
             <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span>
         <span class="p">)</span>
+        <span class="n">measure_basis</span> <span class="o">=</span> <span class="p">[</span><span class="n">system_basis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">]</span>
 
         <span class="c1"># crate empty list for output</span>
         <span class="n">z_basis_measure_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
@@ -2089,34 +2088,26 @@ functionalities specific to quantum state manipulations and measurements.</p>
         <span class="n">measure_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
         <span class="n">system_state_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span>
 
-        <span class="c1"># TODO: Use mathematical method to get all the measurement results instead of using Qiskit&#39;s measure method.</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">shot</span><span class="p">):</span>
-            <span class="n">measure_ket</span><span class="p">,</span> <span class="n">system_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_perform_single_shot_measurement</span><span class="p">(</span><span class="n">converted_state</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">measure_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">measure_basis</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">:</span>
-                    <span class="n">measure_basis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">system_basis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)):</span>
+            <span class="c1"># Convert i to binary string with leading zeros</span>
+            <span class="n">project_label</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;0</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">)</span><span class="si">}</span><span class="s2">b&quot;</span><span class="p">)</span>
 
-                <span class="n">basis_convert_measure_ket</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-                <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">measure_basis</span><span class="p">,</span> <span class="n">measure_ket</span><span class="p">):</span>
-                    <span class="k">match</span> <span class="n">b</span><span class="p">:</span>
-                        <span class="k">case</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span>
-                            <span class="n">basis_convert_measure_ket</span> <span class="o">+=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">z1</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">else</span> <span class="n">Ket</span><span class="o">.</span><span class="n">z0</span>
-                        <span class="k">case</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
-                            <span class="n">basis_convert_measure_ket</span> <span class="o">+=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">x1</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">else</span> <span class="n">Ket</span><span class="o">.</span><span class="n">x0</span>
-                        <span class="k">case</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
-                            <span class="n">basis_convert_measure_ket</span> <span class="o">+=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">y1</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">else</span> <span class="n">Ket</span><span class="o">.</span><span class="n">y0</span>
+            <span class="c1"># Perform projection measurement</span>
+            <span class="n">system_state</span> <span class="o">=</span> <span class="n">converted_state</span><span class="o">.</span><span class="n">_perform_projection_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">project_label</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">system_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
 
-                <span class="n">measure_state_z_basis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="n">basis_convert_measure_ket</span><span class="p">)</span>
+            <span class="n">measure_state_label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="n">Ket</span><span class="o">.</span><span class="n">from_basis_and_label</span><span class="p">(</span><span class="n">basis</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">basis</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">measure_basis</span><span class="p">,</span> <span class="n">project_label</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">z_basis_measure_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="n">measure_state_label</span><span class="p">)</span>
 
-                <span class="n">z_basis_measure_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">measure_state_z_basis</span>
-                <span class="n">z_basis_system_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">system_state</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span>
-                    <span class="n">target_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">system_basis</span>
-                <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">measure_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">measure_state_z_basis</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span>
-                    <span class="n">target_basis</span><span class="o">=</span><span class="n">measure_basis</span>
-                <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">system_state_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">measure_ket</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">system_state</span>
+            <span class="n">z_basis_measure_state_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">z_basis_measure_state</span>
+            <span class="n">z_basis_system_state_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">system_state</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span>
+                <span class="n">target_basis</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span><span class="p">,</span> <span class="n">current_basis</span><span class="o">=</span><span class="n">system_basis</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">measure_state_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">z_basis_measure_state</span><span class="o">.</span><span class="n">_basis_convert</span><span class="p">(</span><span class="n">target_basis</span><span class="o">=</span><span class="n">measure_basis</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">system_state_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">system_state</span>
 
         <span class="k">return</span> <span class="p">(</span>
             <span class="n">z_basis_measure_state_list</span><span class="p">,</span>
@@ -2127,16 +2118,41 @@ functionalities specific to quantum state manipulations and measurements.</p>
             <span class="n">system_basis</span><span class="p">,</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_perform_single_shot_measurement</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">converted_state</span><span class="p">:</span> <span class="n">QuantumState</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QuantumState</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">_perform_projection_measurement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">project_label</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuantumState</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a projection measurement on the given quantum state.</span>
+
+<span class="sd">        This method performs a projection measurement on the specified qubits in the given projection</span>
+<span class="sd">        state and returns the post-measurement system state.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            measure_bit (List[int]): The indices of qubits to measure.</span>
+<span class="sd">            project_label (str): The label of the projection state.</span>
+<span class="sd">                For example, &quot;0&quot; for |0&gt;&lt;0|, &quot;1&quot; for |1&gt;&lt;1|, &quot;0+&quot; for |0+&gt;&lt;0+|, etc.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            QuantumState | None: The post-measurement system state, or None if the state is zero.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">project_label</span> <span class="o">=</span> <span class="n">Ket</span><span class="o">.</span><span class="n">to_qiskit_notation</span><span class="p">(</span><span class="n">project_label</span><span class="p">)</span>
+        <span class="n">extend_project_label</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span>
+        <span class="k">for</span> <span class="n">bit</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">project_label</span><span class="p">):</span>
+            <span class="n">extend_project_label</span><span class="p">[</span><span class="n">bit</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+        <span class="n">project_operator</span> <span class="o">=</span> <span class="n">Operator</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extend_project_label</span><span class="p">))</span>
+
+        <span class="n">result_state_vector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_vector</span><span class="o">.</span><span class="n">evolve</span><span class="p">(</span><span class="n">project_operator</span><span class="p">)</span>
+
+        <span class="n">normalize_factor</span> <span class="o">=</span> <span class="n">result_state_vector</span><span class="o">.</span><span class="n">trace</span><span class="p">()</span> <span class="o">**</span> <span class="mf">0.5</span>
+        <span class="k">if</span> <span class="n">normalize_factor</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">result_state_vector</span> <span class="o">/=</span> <span class="n">normalize_factor</span>
+        <span class="k">return</span> <span class="n">QuantumState</span><span class="p">(</span><span class="n">result_state_vector</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_perform_single_shot_measurement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QuantumState</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a single shot measurement on the given quantum state.</span>
 
 <span class="sd">        This method measures the specified qubits in the given state and returns</span>
 <span class="sd">        the measurement result along with the post-measurement system state.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            converted_state (QuantumState): The quantum state to measure.</span>
 <span class="sd">            measure_bit (List[int]): The indices of qubits to measure.</span>
 
 <span class="sd">        Returns:</span>
@@ -2148,7 +2164,7 @@ functionalities specific to quantum state manipulations and measurements.</p>
 <span class="sd">            This method reverses qubit ordering to match Qiskit&#39;s notation for measurement,</span>
 <span class="sd">            and then reverses the result to match standard textbook notation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">measure_result</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Statevector</span><span class="p">]</span> <span class="o">=</span> <span class="n">Statevector</span><span class="p">(</span><span class="n">converted_state</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span>
+        <span class="n">measure_result</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Statevector</span><span class="p">]</span> <span class="o">=</span> <span class="n">Statevector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span>
             <span class="n">qargs</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">num_of_qubit</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">measure_bit</span><span class="p">]</span>  <span class="c1"># REVERSE the order of qubits to fit qiskit notation</span>
         <span class="p">)</span>
         <span class="n">measure_ket</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">measure_result</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># REVERSE the order of qubits to fit textbook notation</span>
@@ -3369,7 +3385,7 @@ either as an image or a string representing the source code.</p>
 
 
 <h2 id="QIRT.QuantumState.state_after_measurement" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">state_after_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="p">[])</span></code>
 
 </h2>
 
@@ -3508,24 +3524,6 @@ Can be a list of strings or a string (e.g., ["x", "z"] or "xz").</p>
                   <code>[]</code>
             </td>
           </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>shot</code>
-            </td>
-            <td>
-                  <code>int</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Number of measurement simulations to perform. Higher values give
-more accurate probability distributions.
-Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</p>
-              </div>
-            </td>
-            <td>
-                  <code>-1</code>
-            </td>
-          </tr>
       </tbody>
     </table>
 
@@ -3649,13 +3647,8 @@ Defaults to depend on the number of qubits you want to measure. (2^(len(measure_
 <span class="normal">417</span>
 <span class="normal">418</span>
 <span class="normal">419</span>
-<span class="normal">420</span>
-<span class="normal">421</span>
-<span class="normal">422</span>
-<span class="normal">423</span>
-<span class="normal">424</span>
-<span class="normal">425</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
-    <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">shot</span><span class="o">=-</span><span class="mi">1</span>
+<span class="normal">420</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">state_after_measurement</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">measure_bit</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_basis</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">QuantumState</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Simulate quantum measurement and return resulting states.</span>
 
@@ -3733,17 +3726,12 @@ Defaults to depend on the number of qubits you want to measure. (2^(len(measure_
 <span class="sd">        target_basis (List[str] | str, optional): Measurement basis for each measured qubit.</span>
 <span class="sd">            Supported bases are &quot;x&quot;, &quot;y&quot;, &quot;z&quot;. If not specified, Z-basis is used by default.</span>
 <span class="sd">            Can be a list of strings or a string (e.g., [&quot;x&quot;, &quot;z&quot;] or &quot;xz&quot;).</span>
-<span class="sd">        shot (int, optional): Number of measurement simulations to perform. Higher values give</span>
-<span class="sd">            more accurate probability distributions.</span>
-<span class="sd">            Defaults to depend on the number of qubits you want to measure. (2^(len(measure_bit) + 4))</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        List[QuantumState]: A list of possible post-measurement quantum states. Each state</span>
 <span class="sd">        represents a possible outcome of the measurement process.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span>
-        <span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">,</span> <span class="n">shot</span><span class="o">=</span><span class="n">shot</span>
-    <span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">z_basis_system_state_list</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="n">measure_bit</span><span class="p">,</span> <span class="n">target_basis</span><span class="o">=</span><span class="n">target_basis</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">z_basis_system_state_list</span>
 </code></pre></div></td></tr></table></div>
             </details>
