@@ -132,3 +132,23 @@ class Ket(metaclass=_ConfigMeta):
         label = label.replace(Ket.y0, "r")
         label = label.replace(Ket.y1, "l")
         return label
+
+    @classmethod
+    def from_basis_and_label(cls, basis: str, label: str) -> str:
+        """Convert the basis and label to the custom ket notation.
+
+        Args:
+            basis (str): Ket basis to use for conversion.
+            label (str): Ket label to convert.
+
+        Returns:
+            str: The converted ket notation.
+        """
+        if basis == "z":
+            return Ket.z1 if int(label) else Ket.z0
+        elif basis == "x":
+            return Ket.x1 if int(label) else Ket.x0
+        elif basis == "y":
+            return Ket.y1 if int(label) else Ket.y0
+        else:
+            raise ValueError(f"Invalid basis [{basis}]. Basis should be z, x, or y.")
