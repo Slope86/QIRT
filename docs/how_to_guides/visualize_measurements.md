@@ -43,7 +43,7 @@ state.draw_measurement(measure_bit=[0, 2], target_basis="xzzy")
 
 \>> Output:
 
-$|\texttt{+0}\rangle_{02} : \frac{\sqrt{2}}{2}|\texttt{0i}\rangle_{13} +\frac{\sqrt{2}}{2}|\texttt{0j}\rangle_{13} \\|\texttt{-0}\rangle_{02} : \frac{\sqrt{2}}{2}|\texttt{0i}\rangle_{13} +\frac{\sqrt{2}}{2}|\texttt{0j}\rangle_{13} \\$
+$|\texttt{+0}\rangle_{0,2} : \frac{1}{2}|\texttt{0i}\rangle_{1,3} +\frac{1}{2}|\texttt{0j}\rangle_{1,3} - \frac{1}{2}|\texttt{1i}\rangle_{1,3} - \frac{1}{2}|\texttt{1j}\rangle_{1,3} \\|\texttt{+1}\rangle_{0,2} : \frac{1}{2}|\texttt{0i}\rangle_{1,3} +\frac{1}{2}|\texttt{0j}\rangle_{1,3} - \frac{1}{2}|\texttt{1i}\rangle_{1,3} - \frac{1}{2}|\texttt{1j}\rangle_{1,3} \\$
 
 Here:
 
