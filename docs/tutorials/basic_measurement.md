@@ -13,18 +13,18 @@ QIRT provides a `draw_measurement` method to visualize measurement results. Let'
 ```python
 from QIRT import QuantumState
 
-# Create a quantum state
-state = QuantumState.from_label("01","10")  # Creates the state (|01> + |10>) / sqrt(2)
+# Create a quantum state (|+++> + |--->) / sqrt(2)
+state = QuantumState.from_label("+++", "---")
 
-# Measure the state and show the results
-state.draw_measurement(measure_bit=[0])
+# Measure the first qubit in the Z basis and show the result
+state.draw_measurement(measure_bit=[0], target_basis="z")
 ```
 
 \>> Output:
 
-$|\texttt{0}\rangle_{0} : |\texttt{1}\rangle_{1} \\|\texttt{1}\rangle_{0} : |\texttt{0}\rangle_{1} \\$
+$|\texttt{0}\rangle_{0} : \frac{\sqrt{2}}{2}|\texttt{00}\rangle_{1,2} +\frac{\sqrt{2}}{2}|\texttt{11}\rangle_{1,2} \\|\texttt{1}\rangle_{0} : \frac{\sqrt{2}}{2}|\texttt{01}\rangle_{1,2} +\frac{\sqrt{2}}{2}|\texttt{10}\rangle_{1,2} \\$
 
-This code creates a two-qubit state and measures the first qubit.
+This creates a three-qubit state and measures the first qubit.
 
 ## Interpreting the Results
 
