@@ -783,15 +783,15 @@
 <p>QIRT provides a <code>draw_measurement</code> method to visualize measurement results. Let's see a simple example:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">QIRT</span> <span class="kn">import</span> <span class="n">QuantumState</span>
 
-<span class="c1"># Create a quantum state</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;01&quot;</span><span class="p">,</span><span class="s2">&quot;10&quot;</span><span class="p">)</span>  <span class="c1"># Creates the state (|01&gt; + |10&gt;) / sqrt(2)</span>
+<span class="c1"># Create a quantum state (|+++&gt; + |---&gt;) / sqrt(2)</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">QuantumState</span><span class="o">.</span><span class="n">from_label</span><span class="p">(</span><span class="s2">&quot;+++&quot;</span><span class="p">,</span> <span class="s2">&quot;---&quot;</span><span class="p">)</span>
 
-<span class="c1"># Measure the state and show the results</span>
-<span class="n">state</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># Measure the first qubit in the Z basis and show the result</span>
+<span class="n">state</span><span class="o">.</span><span class="n">draw_measurement</span><span class="p">(</span><span class="n">measure_bit</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target_basis</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>&gt;&gt; Output:</p>
-<p><span class="arithmatex">\(|\texttt{0}\rangle_{0} : |\texttt{1}\rangle_{1} \\|\texttt{1}\rangle_{0} : |\texttt{0}\rangle_{1} \\\)</span></p>
-<p>This code creates a two-qubit state and measures the first qubit.</p>
+<p><span class="arithmatex">\(|\texttt{0}\rangle_{0} : \frac{\sqrt{2}}{2}|\texttt{00}\rangle_{1,2} +\frac{\sqrt{2}}{2}|\texttt{11}\rangle_{1,2} \\|\texttt{1}\rangle_{0} : \frac{\sqrt{2}}{2}|\texttt{01}\rangle_{1,2} +\frac{\sqrt{2}}{2}|\texttt{10}\rangle_{1,2} \\\)</span></p>
+<p>This creates a three-qubit state and measures the first qubit.</p>
 <h2 id="interpreting-the-results">Interpreting the Results</h2>
 <p>The output shows:</p>
 <ul>
